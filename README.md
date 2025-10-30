@@ -1,4 +1,4 @@
-# team02-f25-17
+# team02-f25-07
 
 Instructions: <https://ucsb-cs156.github.io/f25/lab/team02.html>
 
