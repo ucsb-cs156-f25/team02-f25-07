@@ -31,14 +31,14 @@ describe("RecommendationRequestForm tests", () => {
       </Router>
     );
 
-    // 按钮文本与主要标签
+   
     expect(await screen.findByText(/Create/)).toBeInTheDocument();
 
     expectedHeaders.forEach((h) => {
       expect(screen.getByText(h)).toBeInTheDocument();
     });
 
-    // 关键控件
+
     expect(screen.getByTestId(`${testId}-submit`)).toBeInTheDocument();
     expect(screen.getByTestId(`${testId}-requesterEmail`)).toBeInTheDocument();
     expect(screen.getByTestId(`${testId}-professorEmail`)).toBeInTheDocument();
@@ -194,7 +194,7 @@ test("rejects invalid date format in dateRequested", async () => {
     </Router>
   );
 
-  // 填写其他必填字段
+
   fireEvent.change(screen.getByTestId(`${testId}-requesterEmail`), {
     target: { value: "student@ucsb.edu" },
   });
@@ -208,7 +208,7 @@ test("rejects invalid date format in dateRequested", async () => {
     target: { value: "2024-06-01T12:00" },
   });
 
-  // 输入无效的日期格式
+
   const dateRequestedInput = screen.getByTestId(`${testId}-dateRequested`);
   fireEvent.change(dateRequestedInput, {
     target: { value: "2024/05/27 13:45" },
@@ -245,7 +245,7 @@ test("rejects invalid date format in dateNeeded", async () => {
     target: { value: "2024-05-27T13:45" },
   });
 
-  // 无效格式
+
   const dateNeededInput = screen.getByTestId(`${testId}-dateNeeded`);
   fireEvent.change(dateNeededInput, {
     target: { value: "invalid-date-format" },
@@ -285,7 +285,7 @@ test("rejects date with only year and month", async () => {
     target: { value: "2024-06-01T12:00" },
   });
 
-  // 只有年月，缺少日期和时间
+
   fireEvent.change(screen.getByTestId(`${testId}-dateRequested`), {
     target: { value: "2024-05" },
   });
@@ -323,7 +323,7 @@ test("rejects time without date", async () => {
     target: { value: "2024-06-01T12:00" },
   });
 
-  // 只有时间，没有日期
+
   fireEvent.change(screen.getByTestId(`${testId}-dateRequested`), {
     target: { value: "13:45" },
   });
@@ -356,7 +356,7 @@ test("accepts valid date at edge of valid range", async () => {
     target: { value: "Valid explanation" },
   });
   
-  // 边界值测试
+
   fireEvent.change(screen.getByTestId(`${testId}-dateRequested`), {
     target: { value: "2024-01-01T00:00" },
   });
