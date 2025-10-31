@@ -2,7 +2,7 @@
   "databaseChangeLog": [
     {
       "changeSet": {
-        "id": "menuitemreview-create",
+        "id": "20251030-menuitemreview-create",
         "author": "jakindazhang",
         "changes": [
           {
@@ -14,54 +14,14 @@
                     "name": "id",
                     "type": "bigint",
                     "autoIncrement": true,
-                    "constraints": {
-                      "primaryKey": true,
-                      "nullable": false
-                    }
+                    "constraints": { "primaryKey": true, "nullable": false }
                   }
                 },
-                {
-                  "column": {
-                    "name": "item_id",
-                    "type": "bigint",
-                    "constraints": {
-                      "nullable": false
-                    }
-                  }
-                },
-                {
-                  "column": {
-                    "name": "reviewer_email",
-                    "type": "varchar(255)",
-                    "constraints": {
-                      "nullable": false
-                    }
-                  }
-                },
-                {
-                  "column": {
-                    "name": "stars",
-                    "type": "integer",
-                    "constraints": {
-                      "nullable": false
-                    }
-                  }
-                },
-                {
-                  "column": {
-                    "name": "date_reviewed",
-                    "type": "timestamp",
-                    "constraints": {
-                      "nullable": false
-                    }
-                  }
-                },
-                {
-                  "column": {
-                    "name": "comments",
-                    "type": "varchar(255)"
-                  }
-                }
+                { "column": { "name": "item_id",        "type": "bigint" } },
+                { "column": { "name": "reviewer_email", "type": "varchar(255)" } },
+                { "column": { "name": "stars",          "type": "integer" } },
+                { "column": { "name": "date_reviewed",  "type": "timestamp" } },
+                { "column": { "name": "comments",       "type": "varchar(255)" } }
               ]
             }
           }
