@@ -1,7 +1,7 @@
 const UCSBOrganizationFixtures = {
     oneUCSBOrganization: {
       id: 1,
-      orgCode: "UCSB",
+      orgCode: "ZPR",
       orgTranslationShort: "UCSBBAD",
       orgTranslation: "aaa",
       inactive: false,
@@ -9,7 +9,7 @@ const UCSBOrganizationFixtures = {
     threeUCSBOrganizations: [
       {
         id: 1,
-        orgCode: "UCSB",
+        orgCode: "ZPR",
         orgTranslationShort: "UCSBBAD",
         orgTranslation: "aaa",
         inactive: false,
