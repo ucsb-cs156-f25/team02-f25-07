@@ -8,19 +8,19 @@ function RecommendationRequestForm({
   submitAction,
   buttonLabel = "Create",
 }) {
-  
+
   const {
     register,
     formState: { errors },
     handleSubmit,
   } = useForm({ defaultValues: initialContents || {} });
-  
+
 
   const navigate = useNavigate();
 
-  
-  const isodate_regex =
-    /(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d)/i;
+
+// 在你的 RecommendationRequestForm.js 文件中
+const isodate_regex = /^\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d(?::00)?$/;
 
 
   return (
@@ -151,7 +151,7 @@ function RecommendationRequestForm({
               id="done"
               type="checkbox"
               label="Done"
-              
+
               {...register("done")}
             />
           </Form.Group>

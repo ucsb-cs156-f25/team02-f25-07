@@ -1,6 +1,6 @@
 import React from "react";
 import RecommendationRequestForm from "main/components/RecommendationRequest/RecommendationRequestForm";
-import { recommendationRequestFixtures } from "fixtures/recommendationRequestFixtures"; 
+//import { recommendationRequestFixtures } from "fixtures/recommendationRequestFixtures"; 
 
 export default {
   title: "components/RecommendationRequest/RecommendationRequestForm",
