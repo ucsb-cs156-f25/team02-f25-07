@@ -2,37 +2,66 @@
   "databaseChangeLog": [
     {
       "changeSet": {
-        "id": "MenuItemReview-1",
+        "id": "menuitemreview-create",
         "author": "jakindazhang",
-        "preConditions": [
-          { "onFail": "MARK_RAN" },
-          {
-            "not": {
-              "tableExists": { "tableName": "MENUITEMREVIEWS" }
-            }
-          }
-        ],
         "changes": [
           {
             "createTable": {
-              "tableName": "MENUITEMREVIEWS",
+              "tableName": "menu_item_review",
               "columns": [
                 {
                   "column": {
-                    "name": "ID",
-                    "type": "BIGINT",
+                    "name": "id",
+                    "type": "bigint",
                     "autoIncrement": true,
                     "constraints": {
                       "primaryKey": true,
-                      "primaryKeyName": "MENUITEMREVIEWS_PK"
+                      "nullable": false
                     }
                   }
                 },
-                { "column": { "name": "ITEM_ID", "type": "BIGINT" } },
-                { "column": { "name": "REVIEWER_EMAIL", "type": "VARCHAR(255)" } },
-                { "column": { "name": "STARS", "type": "INT" } },
-                { "column": { "name": "DATE_REVIEWED", "type": "TIMESTAMP" } },
-                { "column": { "name": "COMMENTS", "type": "TEXT" } }
+                {
+                  "column": {
+                    "name": "item_id",
+                    "type": "bigint",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "reviewer_email",
+                    "type": "varchar(255)",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "stars",
+                    "type": "integer",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "date_reviewed",
+                    "type": "timestamp",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "comments",
+                    "type": "varchar(255)"
+                  }
+                }
               ]
             }
           }
