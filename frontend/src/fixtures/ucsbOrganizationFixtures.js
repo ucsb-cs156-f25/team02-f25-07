@@ -9,21 +9,21 @@ const UCSBOrganizationFixtures = {
     threeUCSBOrganizations: [
       {
         id: 1,
-        orgCode: "UC",
+        orgCode: "UCSB",
         orgTranslationShort: "UCSBBAD",
         orgTranslation: "aaa",
         inactive: false,
       },
       {
         id: 2,
-        orgCode: "UCS",
+        orgCode: "UC",
         orgTranslationShort: "badminton",
         orgTranslation: "UCSBbadminton",
         inactive: false,
       },
       {
         id: 3,
-        orgCode: "UCSB",
+        orgCode: "UCS",
         orgTranslationShort: "tennis",
         orgTranslation: "UCSBtennis",
         inactive: false,
