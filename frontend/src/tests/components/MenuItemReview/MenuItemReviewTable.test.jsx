@@ -11,6 +11,7 @@ vi.mock("main/utils/axios", () => {
   return { axios };
 });
 
+// mock toast
 vi.mock("react-toastify", () => {
   return {
     toast: {
@@ -22,11 +23,12 @@ vi.mock("react-toastify", () => {
   };
 });
 
+// mock navigate
 const mockedNavigate = vi.fn();
 vi.mock("react-router", async () => {
-  const originalModule = await vi.importActual("react-router");
+  const original = await vi.importActual("react-router");
   return {
-    ...originalModule,
+    ...original,
     useNavigate: () => mockedNavigate,
   };
 });
@@ -164,9 +166,7 @@ describe("MenuItemReviewTable tests", () => {
     const currentUser = currentUserFixtures.adminUser;
 
     const axiosMock = new AxiosMockAdapter(axios);
-    axiosMock.onDelete(/\/api\/menuitemreview.*/).reply(200, {
-      message: "MenuItemReview deleted",
-    });
+    axiosMock.onDelete(/\/api\/menuitemreview.*/).reply(200, { message: "MenuItemReview deleted" });
 
     render(
       <QueryClientProvider client={queryClient}>
@@ -213,40 +213,34 @@ describe("MenuItemReviewTable helpers", () => {
     });
   });
 
-  test("buildDeleteParams tolerates undefined cell", () => {
+  test("buildDeleteParams tolerates undefined/empty", () => {
     expect(() => buildDeleteParams(undefined)).not.toThrow();
-    const params = buildDeleteParams(undefined);
-    expect(params).toEqual({
+    expect(buildDeleteParams(undefined)).toEqual({
       url: "/api/menuitemreview",
       method: "DELETE",
       params: { id: undefined },
     });
-  });
 
-  test("buildDeleteParams tolerates row exists but original missing", () => {
     expect(() => buildDeleteParams({ row: {} })).not.toThrow();
-    const params = buildDeleteParams({ row: {} });
-    expect(params).toEqual({
+    expect(buildDeleteParams({ row: {} })).toEqual({
       url: "/api/menuitemreview",
       method: "DELETE",
       params: { id: undefined },
     });
-  });
 
-  test("buildDeleteParams tolerates missing props (no throw, id undefined)", () => {
     expect(() => buildDeleteParams({})).not.toThrow();
-    const params = buildDeleteParams({});
-    expect(params).toEqual({
+    expect(buildDeleteParams({})).toEqual({
       url: "/api/menuitemreview",
       method: "DELETE",
       params: { id: undefined },
     });
   });
 
-  test("onDeleteSuccess shows success toast with fixed message", () => {
+  test("onDeleteSuccess shows success toast", () => {
     onDeleteSuccess({ message: "ok" });
     expect(toast.success).toHaveBeenCalledWith(
       "MenuItemReview deleted successfully",
     );
   });
 });
+

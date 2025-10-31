@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import React from "react";
 import OurTable, { ButtonColumn } from "main/components/OurTable";
 import { useBackendMutation } from "main/utils/useBackend";
@@ -5,9 +6,7 @@ import { useNavigate } from "react-router";
 import { hasRole } from "main/utils/useCurrentUser";
 import { toast } from "react-toastify";
 
-/**
- * 导出命名函数，便于测试中直接调用，制造缺字段的 cell，杀掉 OptionalChaining 变异体
- */
+
 export const buildDeleteParams = (cell) => {
   const id = cell?.row?.values?.id ?? cell?.row?.original?.id;
   return {
@@ -17,12 +16,8 @@ export const buildDeleteParams = (cell) => {
   };
 };
 
-/**
- * 导出命名函数，测试断言 toast.success 的参数，杀掉 BlockStatement/StringLiteral 变异体
- */
-export const onDeleteSuccess = (message) => {
-  // 后端 message 可选
-  console.log(message);
+export const onDeleteSuccess = (_message) => {
+  void _message;
   toast.success("MenuItemReview deleted successfully");
 };
 
@@ -45,8 +40,6 @@ export default function MenuItemReviewTable({
   );
   // Stryker restore all
 
-  // 使用 mutateAsync 并 await，避免测试中请求未触发的问题
-  // Stryker disable next-line all : TODO try to make a good test for this
   const deleteCallback = async (cell) => {
     await deleteMutation.mutateAsync(cell);
   };
