@@ -35,4 +35,3 @@ public class MenuItemReview {
   @Column(name = "COMMENTS", columnDefinition = "TEXT")
   private String comments;
 }
-
