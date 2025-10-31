@@ -100,14 +100,14 @@ describe("UCSBOrganizationTable tests", () => {
     );
     expect(
       screen.getByTestId(`${testId}-cell-row-0-col-orgCode`),
-    ).toHaveTextContent("ZPR");
+    ).toHaveTextContent("UCSB");
 
     expect(screen.getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent(
       "2",
     );
     expect(
       screen.getByTestId(`${testId}-cell-row-1-col-orgTranslationShort`),
-    ).toHaveTextContent("SKYDIVING CLUB");
+    ).toHaveTextContent("badminton");
 
     const editButton = screen.getByTestId(
       `${testId}-cell-row-0-col-Edit-button`,
@@ -154,14 +154,14 @@ describe("UCSBOrganizationTable tests", () => {
     );
     expect(
       screen.getByTestId(`${testId}-cell-row-0-col-orgCode`),
-    ).toHaveTextContent("ZPR");
+    ).toHaveTextContent("UCSB");
 
     expect(screen.getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent(
       "2",
     );
     expect(
       screen.getByTestId(`${testId}-cell-row-1-col-orgTranslationShort`),
-    ).toHaveTextContent("SKYDIVING CLUB");
+    ).toHaveTextContent("badminton");
 
     expect(screen.queryByText("Delete")).not.toBeInTheDocument();
     expect(screen.queryByText("Edit")).not.toBeInTheDocument();
