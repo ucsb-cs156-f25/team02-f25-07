@@ -27,12 +27,14 @@ describe("MenuItemReviewForm tests", () => {
   test("renders correctly with no initialContents", async () => {
     renderForm();
 
-    expect(await screen.findByText(/Create/i)).toBeInTheDocument();
+    const submitBtnByText = await screen.findByText(/Create/i);
+    expect(submitBtnByText).toBeInTheDocument();
+    expect(screen.getByTestId(`${testId}-submit`)).toBeInTheDocument();
 
     const labelMatchers = [
       /itemId/i,
       /reviewerEmail/i,
-      /stars/i,         
+      /stars/i,
       /dateReviewed/i,
       /comments/i,
     ];
@@ -78,9 +80,9 @@ describe("MenuItemReviewForm tests", () => {
   });
 
   test("performs required validations and range/pattern checks", async () => {
-    renderForm();
+    renderForm({ submitAction: vi.fn() });
 
-    const submitBtn = await screen.findByText(/Create/i);
+    const submitBtn = await screen.findByTestId(`${testId}-submit`);
     fireEvent.click(submitBtn);
 
     await screen.findByText(/itemId is required/i);
@@ -111,5 +113,178 @@ describe("MenuItemReviewForm tests", () => {
         screen.getByText(/stars must be between 1 and 5/i)
       ).toBeInTheDocument();
     });
+  });
+
+  test("submits numbers as numbers (itemId, stars)", async () => {
+    const onSubmit = vi.fn();
+    renderForm({ submitAction: onSubmit });
+
+    const itemIdInput = await screen.findByTestId(`${testId}-itemId`);
+    const emailInput = screen.getByTestId(`${testId}-reviewerEmail`);
+    const starsInput = screen.getByTestId(`${testId}-stars`);
+    const dateInput = screen.getByTestId(`${testId}-dateReviewed`);
+    const commentsInput = screen.getByTestId(`${testId}-comments`);
+    const submitBtn = screen.getByTestId(`${testId}-submit`);
+
+    fireEvent.change(itemIdInput, { target: { value: "10" } });
+    fireEvent.change(emailInput, { target: { value: "joe@ucsb.edu" } });
+    fireEvent.change(starsInput, { target: { value: "3" } });
+    fireEvent.change(dateInput, { target: { value: "2025-10-01T12:34" } });
+    fireEvent.change(commentsInput, { target: { value: "nice" } });
+
+    fireEvent.click(submitBtn);
+
+    await waitFor(() => expect(onSubmit).toHaveBeenCalled());
+
+    const payload = onSubmit.mock.calls[0][0];
+    expect(typeof payload.itemId).toBe("number");
+    expect(typeof payload.stars).toBe("number");
+    expect(payload.itemId).toBe(10);
+    expect(payload.stars).toBe(3);
+  });
+
+  test("shows correct min error message for itemId < 1", async () => {
+    renderForm({ submitAction: vi.fn() });
+
+    const itemIdInput = await screen.findByTestId(`${testId}-itemId`);
+    const submitBtn = screen.getByTestId(`${testId}-submit`);
+
+    fireEvent.change(itemIdInput, { target: { value: "0" } });
+    fireEvent.click(submitBtn);
+
+    expect(
+      await screen.findByText("itemId must be ≥ 1.")
+    ).toBeInTheDocument();
+  });
+
+  test("shows min error for stars below 1", async () => {
+    renderForm({ submitAction: vi.fn() });
+
+    const itemIdInput = await screen.findByTestId(`${testId}-itemId`);
+    const emailInput = screen.getByTestId(`${testId}-reviewerEmail`);
+    const starsInput = screen.getByTestId(`${testId}-stars`);
+    const dateInput = screen.getByTestId(`${testId}-dateReviewed`);
+    const commentsInput = screen.getByTestId(`${testId}-comments`);
+    const submitBtn = screen.getByTestId(`${testId}-submit`);
+
+    fireEvent.change(itemIdInput, { target: { value: "1" } });
+    fireEvent.change(emailInput, { target: { value: "u@ucsb.edu" } });
+    fireEvent.change(starsInput, { target: { value: "0" } }); // below min
+    fireEvent.change(dateInput, { target: { value: "2025-10-01T12:00" } });
+    fireEvent.change(commentsInput, { target: { value: "ok" } });
+
+    fireEvent.click(submitBtn);
+
+    expect(
+      await screen.findByText(/stars must be between 1 and 5/i)
+    ).toBeInTheDocument();
+  });
+
+  test("shows max length message for comments > 500", async () => {
+    renderForm({ submitAction: vi.fn() });
+
+    const itemIdInput = await screen.findByTestId(`${testId}-itemId`);
+    const emailInput = screen.getByTestId(`${testId}-reviewerEmail`);
+    const starsInput = screen.getByTestId(`${testId}-stars`);
+    const dateInput = screen.getByTestId(`${testId}-dateReviewed`);
+    const commentsInput = screen.getByTestId(`${testId}-comments`);
+    const submitBtn = screen.getByTestId(`${testId}-submit`);
+
+    fireEvent.change(itemIdInput, { target: { value: "1" } });
+    fireEvent.change(emailInput, { target: { value: "u@ucsb.edu" } });
+    fireEvent.change(starsInput, { target: { value: "5" } });
+    fireEvent.change(dateInput, { target: { value: "2025-10-01T12:00" } });
+    fireEvent.change(commentsInput, {
+      target: { value: "x".repeat(501) },
+    });
+
+    fireEvent.click(submitBtn);
+
+    expect(await screen.findByText(/max 500 characters\./i)).toBeInTheDocument();
+  });
+
+  test("accepts a valid email and does not show email error", async () => {
+    const onSubmit = vi.fn();
+    renderForm({ submitAction: onSubmit });
+
+    const itemIdInput = await screen.findByTestId(`${testId}-itemId`);
+    const emailInput = screen.getByTestId(`${testId}-reviewerEmail`);
+    const starsInput = screen.getByTestId(`${testId}-stars`);
+    const dateInput = screen.getByTestId(`${testId}-dateReviewed`);
+    const commentsInput = screen.getByTestId(`${testId}-comments`);
+    const submitBtn = screen.getByTestId(`${testId}-submit`);
+
+    fireEvent.change(itemIdInput, { target: { value: "2" } });
+    fireEvent.change(emailInput, { target: { value: "valid.user@ucsb.edu" } });
+    fireEvent.change(starsInput, { target: { value: "4" } });
+    fireEvent.change(dateInput, { target: { value: "2025-10-02T08:15" } });
+    fireEvent.change(commentsInput, { target: { value: "looks good" } });
+
+    fireEvent.click(submitBtn);
+
+    await waitFor(() => expect(onSubmit).toHaveBeenCalled());
+    expect(screen.queryByText(/invalid email address/i)).toBeNull();
+  });
+
+  test("rejects invalid emails that a weaker regex might accept", async () => {
+    renderForm({ submitAction: vi.fn() });
+
+    const emailInput = await screen.findByTestId(`${testId}-reviewerEmail`);
+    const submitBtn = screen.getByTestId(`${testId}-submit`);
+
+    fireEvent.change(emailInput, { target: { value: "a@b" } }); // missing dot & TLD
+    fireEvent.click(submitBtn);
+
+    expect(
+      await screen.findByText(/invalid email address/i)
+    ).toBeInTheDocument();
+  });
+
+  // 关键：若去掉 ^，下面前缀垃圾会被错误接受，从而本断言失败（击杀变异）
+  test("rejects email with leading junk even if it contains a valid email substring", async () => {
+    renderForm({ submitAction: vi.fn() });
+
+    const itemIdInput = await screen.findByTestId(`${testId}-itemId`);
+    const emailInput = screen.getByTestId(`${testId}-reviewerEmail`);
+    const starsInput = screen.getByTestId(`${testId}-stars`);
+    const dateInput = screen.getByTestId(`${testId}-dateReviewed`);
+    const commentsInput = screen.getByTestId(`${testId}-comments`);
+    const submitBtn = screen.getByTestId(`${testId}-submit`);
+
+    fireEvent.change(itemIdInput, { target: { value: "1" } });
+    fireEvent.change(emailInput, { target: { value: "xxx valid.user@ucsb.edu" } }); // 前缀空格垃圾
+    fireEvent.change(starsInput, { target: { value: "3" } });
+    fireEvent.change(dateInput, { target: { value: "2025-10-02T08:15" } });
+    fireEvent.change(commentsInput, { target: { value: "x" } });
+
+    fireEvent.click(submitBtn);
+
+    expect(
+      await screen.findByText(/invalid email address/i)
+    ).toBeInTheDocument();
+  });
+
+  // 关键：若去掉 $，下面后缀垃圾会被错误接受，从而本断言失败（击杀变异）
+  test("rejects email with trailing junk even if it contains a valid email substring", async () => {
+    renderForm({ submitAction: vi.fn() });
+
+    const itemIdInput = await screen.findByTestId(`${testId}-itemId`);
+    const emailInput = screen.getByTestId(`${testId}-reviewerEmail`);
+    const starsInput = screen.getByTestId(`${testId}-stars`);
+    const dateInput = screen.getByTestId(`${testId}-dateReviewed`);
+    const commentsInput = screen.getByTestId(`${testId}-comments`);
+    const submitBtn = screen.getByTestId(`${testId}-submit`);
+
+    fireEvent.change(itemIdInput, { target: { value: "1" } });
+    fireEvent.change(emailInput, { target: { value: "valid.user@ucsb.edu xxx" } }); // 后缀空格垃圾
+    fireEvent.change(starsInput, { target: { value: "3" } });
+    fireEvent.change(dateInput, { target: { value: "2025-10-02T08:15" } });
+    fireEvent.change(commentsInput, { target: { value: "x" } });
+
+    fireEvent.click(submitBtn);
+
+    expect(
+      await screen.findByText(/invalid email address/i)
+    ).toBeInTheDocument();
   });
 });
