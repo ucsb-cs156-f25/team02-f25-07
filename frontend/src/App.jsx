@@ -12,9 +12,9 @@ import PlaceholderIndexPage from "main/pages/Placeholder/PlaceholderIndexPage";
 import PlaceholderCreatePage from "main/pages/Placeholder/PlaceholderCreatePage";
 import PlaceholderEditPage from "main/pages/Placeholder/PlaceholderEditPage";
 
-import UCSBOrganizationIndexPage from "main/pages/UCSBOrganizations/UCSBOrganizationIndexPage";
-import UCSBOrganizationCreatePage from "main/pages/UCSBOrganizations/UCSBOrganizationCreatePage";
-import UCSBOrganizationEditPage from "main/pages/UCSBOrganizations/UCSBOrganizationEditPage";
+import UCSBOrganizationIndexPage from "main/pages/UCSBOrganization/UCSBOrganizationIndexPage";
+import UCSBOrganizationCreatePage from "main/pages/UCSBOrganization/UCSBOrganizationCreatePage";
+import UCSBOrganizationEditPage from "main/pages/UCSBOrganization/UCSBOrganizationEditPage";
 
 import { hasRole, useCurrentUser } from "main/utils/useCurrentUser";
 
@@ -90,7 +90,7 @@ function App() {
         <>
           <Route
             exact
-            path="/ucsborganizations"
+            path="/ucsborganization"
             element={<UCSBOrganizationIndexPage />}
           />
         </>
@@ -99,12 +99,12 @@ function App() {
         <>
           <Route
             exact
-            path="/ucsborganizations/edit/:id"
+            path="/ucsborganization/edit/:id"
             element={<UCSBOrganizationEditPage />}
           />
           <Route
             exact
-            path="/ucsborganizations/create"
+            path="/ucsborganization/create"
             element={<UCSBOrganizationCreatePage />}
           />
         </>
