@@ -13,7 +13,6 @@ export const Create = Template.bind({});
 Create.args = {
   buttonLabel: "Create",
   submitAction: (data) => {
-    // eslint-disable-next-line no-console
     console.log("Submit clicked with data:", data);
     window.alert("Submit clicked with data: " + JSON.stringify(data));
   },
@@ -24,7 +23,6 @@ Update.args = {
   initialContents: menuItemReviewFixtures.threeReviews[0],
   buttonLabel: "Update",
   submitAction: (data) => {
-    // eslint-disable-next-line no-console
     console.log("Submit clicked with data:", data);
     window.alert("Submit clicked with data: " + JSON.stringify(data));
   },
