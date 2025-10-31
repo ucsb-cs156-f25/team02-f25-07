@@ -7,14 +7,17 @@
         "changes": [
           {
             "createTable": {
-              "tableName": "menu_item_review",
+              "tableName": "menuitemreviews",
               "columns": [
                 {
                   "column": {
                     "name": "id",
                     "type": "bigint",
                     "autoIncrement": true,
-                    "constraints": { "primaryKey": true, "nullable": false }
+                    "constraints": {
+                      "primaryKey": true,
+                      "nullable": false
+                    }
                   }
                 },
                 { "column": { "name": "item_id",        "type": "bigint" } },
