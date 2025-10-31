@@ -232,7 +232,7 @@ describe("MenuItemReviewForm tests", () => {
     const emailInput = await screen.findByTestId(`${testId}-reviewerEmail`);
     const submitBtn = screen.getByTestId(`${testId}-submit`);
 
-    fireEvent.change(emailInput, { target: { value: "a@b" } }); // missing dot & TLD
+    fireEvent.change(emailInput, { target: { value: "a@b" } }); 
     fireEvent.click(submitBtn);
 
     expect(
@@ -240,7 +240,6 @@ describe("MenuItemReviewForm tests", () => {
     ).toBeInTheDocument();
   });
 
-  // 关键：若去掉 ^，下面前缀垃圾会被错误接受，从而本断言失败（击杀变异）
   test("rejects email with leading junk even if it contains a valid email substring", async () => {
     renderForm({ submitAction: vi.fn() });
 
@@ -252,7 +251,7 @@ describe("MenuItemReviewForm tests", () => {
     const submitBtn = screen.getByTestId(`${testId}-submit`);
 
     fireEvent.change(itemIdInput, { target: { value: "1" } });
-    fireEvent.change(emailInput, { target: { value: "xxx valid.user@ucsb.edu" } }); // 前缀空格垃圾
+    fireEvent.change(emailInput, { target: { value: "xxx valid.user@ucsb.edu" } });
     fireEvent.change(starsInput, { target: { value: "3" } });
     fireEvent.change(dateInput, { target: { value: "2025-10-02T08:15" } });
     fireEvent.change(commentsInput, { target: { value: "x" } });
@@ -264,7 +263,6 @@ describe("MenuItemReviewForm tests", () => {
     ).toBeInTheDocument();
   });
 
-  // 关键：若去掉 $，下面后缀垃圾会被错误接受，从而本断言失败（击杀变异）
   test("rejects email with trailing junk even if it contains a valid email substring", async () => {
     renderForm({ submitAction: vi.fn() });
 
@@ -276,7 +274,7 @@ describe("MenuItemReviewForm tests", () => {
     const submitBtn = screen.getByTestId(`${testId}-submit`);
 
     fireEvent.change(itemIdInput, { target: { value: "1" } });
-    fireEvent.change(emailInput, { target: { value: "valid.user@ucsb.edu xxx" } }); // 后缀空格垃圾
+    fireEvent.change(emailInput, { target: { value: "valid.user@ucsb.edu xxx" } });
     fireEvent.change(starsInput, { target: { value: "3" } });
     fireEvent.change(dateInput, { target: { value: "2025-10-02T08:15" } });
     fireEvent.change(commentsInput, { target: { value: "x" } });

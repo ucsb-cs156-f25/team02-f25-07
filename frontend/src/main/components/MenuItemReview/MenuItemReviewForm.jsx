@@ -71,7 +71,6 @@ function MenuItemReviewForm({
             <Form.Control
               data-testid={`${testIdPrefix}-reviewerEmail`}
               id="reviewerEmail"
-              // 关键最小更改：用 text，让正则成为唯一来源
               type="text"
               placeholder="user@ucsb.edu"
               isInvalid={Boolean(errors.reviewerEmail)}
