@@ -71,7 +71,6 @@ ThreeItemsAdminUser.parameters = {
         status: 200,
       });
     }),
-    // 与表格中的删除实现对齐：DELETE /api/menuitemreview，params: { id }
     http.delete("/api/menuitemreview", () => {
       return HttpResponse.json({ message: "ok" }, { status: 200 });
     }),

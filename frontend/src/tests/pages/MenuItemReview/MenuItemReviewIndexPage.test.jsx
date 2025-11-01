@@ -10,7 +10,6 @@ import { systemInfoFixtures } from "fixtures/systemInfoFixtures";
 import { menuItemReviewFixtures } from "fixtures/menuItemReviewFixtures";
 import mockConsole from "tests/testutils/mockConsole";
 
-// ✅ Mock OurTable + ButtonColumn，避免真实 OurTable/SortCaret 差异导致渲染 undefined
 import React from "react";
 vi.mock("main/components/OurTable", () => {
   function OurTable({ data, columns, testid = "testid" }) {
@@ -24,7 +23,6 @@ vi.mock("main/components/OurTable", () => {
                 const value = col.accessorKey ? row[col.accessorKey] : null;
                 const cellTestId = `${testid}-cell-row-${ri}-col-${colId}`;
                 if (col.cell) {
-                  // 伪造 react-table 的最小 context
                   const ctx = {
                     row: { index: ri, original: row, getValue: () => value },
                     column: { id: colId },
@@ -65,7 +63,6 @@ vi.mock("main/components/OurTable", () => {
   return { default: OurTable, ButtonColumn };
 });
 
-// ✅ Mock toast.success（与 MenuItemReviewTable 的 onDeleteSuccess 一致）
 const mockToast = vi.fn();
 vi.mock("react-toastify", async (importOriginal) => {
   const original = await importOriginal();
@@ -150,7 +147,6 @@ describe("MenuItemReviewIndexPage tests", () => {
       "3",
     );
 
-    // 非管理员没有创建按钮、也没有删除按钮
     expect(
       screen.queryByText("Create Menu Item Review"),
     ).not.toBeInTheDocument();
@@ -171,7 +167,6 @@ describe("MenuItemReviewIndexPage tests", () => {
       expect(axiosMock.history.get.length).toBeGreaterThanOrEqual(1);
     });
 
-    // 容错读取日志；有就断言、无就跳过
     const errorMessage = console.error?.mock?.calls?.[0]?.[0];
     if (errorMessage) {
       expect(errorMessage).toMatch(
@@ -225,11 +220,9 @@ describe("MenuItemReviewIndexPage tests", () => {
     expect(axiosMock.history.delete[0].params).toEqual({ id: firstId });
   });
 
-  // ✅ 杀掉“method: 'GET' 被改成空字符串仍能通过”的幸存变异
   test("uses GET method to fetch reviews (kills method mutation)", async () => {
     setupUserOnly();
 
-    // 兜底：只有 GET 才 200，否则 405
     axiosMock.onAny("/api/menuitemreview/all").reply((config) => {
       if ((config.method ?? "").toUpperCase() !== "GET") {
         return [405, { error: "Method Not Allowed" }];
@@ -245,7 +238,6 @@ describe("MenuItemReviewIndexPage tests", () => {
       ).toBeInTheDocument();
     });
 
-    // 再断言只发生了 GET
     expect(axiosMock.history.get.length).toBeGreaterThanOrEqual(1);
     expect(axiosMock.history.post.length).toBe(0);
     expect(axiosMock.history.put.length).toBe(0);
