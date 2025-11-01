@@ -197,7 +197,7 @@ test("wires delete mutation with correct transform, options and deps", () => {
   expect(deps).toEqual(["/api/recommendationrequests/all"]);
 
 
-  const axiosParams = transform({ row: { values: { id: 1 } } });
+    const axiosParams = transform({ row: { original: { id: 1 } } });
   expect(axiosParams).toEqual({
     url: "/api/recommendationrequests",
     method: "DELETE",

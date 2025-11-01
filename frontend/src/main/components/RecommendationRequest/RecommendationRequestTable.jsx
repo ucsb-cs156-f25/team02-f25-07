@@ -4,7 +4,6 @@ import OurTable, { ButtonColumn } from "main/components/OurTable";
 import { useBackendMutation } from "main/utils/useBackend";
 import { onDeleteSuccess } from "main/utils/UCSBDateUtils";
 
-
 import { useNavigate } from "react-router";
 import { hasRole } from "main/utils/useCurrentUser";
 
@@ -16,14 +15,15 @@ export default function RecommendationRequestTable({ requests, currentUser }) {
   };
 
  
-  
+ 
   const deleteMutation = useBackendMutation(
   (cell) => ({
     url: "/api/recommendationrequests",
     method: "DELETE",
-    params: { id: cell.row.values.id },
+    params: { id: cell.row.original.id },
   }),
   { onSuccess: onDeleteSuccess },
+  // Stryker disable next-line all : don't test internal caching of React Query
   ["/api/recommendationrequests/all"]
 );
 
@@ -60,7 +60,7 @@ export default function RecommendationRequestTable({ requests, currentUser }) {
     {
       header: "Done",
       accessorKey: "done",
-      cell: (cell) => String(cell.getValue()), // true/false 显示
+      cell: (cell) => String(cell.getValue()), 
     },
   ];
 
