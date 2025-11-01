@@ -2,33 +2,21 @@ import { Button, Form, Row, Col } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
 
-
 function RecommendationRequestForm({
   initialContents,
   submitAction,
   buttonLabel = "Create",
 }) {
-
   const {
     register,
     formState: { errors },
     handleSubmit,
   } = useForm({ defaultValues: initialContents || {} });
 
-
   const navigate = useNavigate();
 
-
-
-//const isodate_regex = /\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d/;
-const isodate_regex = /\d-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d/;
-
-
-
-
-
-
-
+  //const isodate_regex = /\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d/;
+  const isodate_regex = /\d-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d/;
 
   return (
     <Form onSubmit={handleSubmit(submitAction)}>
@@ -113,7 +101,9 @@ const isodate_regex = /\d-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d/;
       <Row>
         <Col md={6}>
           <Form.Group className="mb-3">
-            <Form.Label htmlFor="dateRequested">Date Requested (ISO)</Form.Label>
+            <Form.Label htmlFor="dateRequested">
+              Date Requested (ISO)
+            </Form.Label>
             <Form.Control
               data-testid="RecommendationRequestForm-dateRequested"
               id="dateRequested"
@@ -158,7 +148,6 @@ const isodate_regex = /\d-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d/;
               id="done"
               type="checkbox"
               label="Done"
-
               {...register("done")}
             />
           </Form.Group>
