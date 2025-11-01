@@ -12,11 +12,9 @@ export default function UCSBOrganizationCreatePage({ storybook = false }) {
       orgCode: ucsborganization.orgCode,
       orgTranslationShort: ucsborganization.orgTranslationShort,
       orgTranslation: ucsborganization.orgTranslation,
-      inactive: JSON.parse(ucsborganization.inactive.toLowerCase())
+      inactive: JSON.parse(ucsborganization.inactive.toLowerCase()),
     },
-  }
-
-  );
+  });
 
   const onSuccess = (ucsborganization) => {
     toast(
@@ -38,7 +36,7 @@ export default function UCSBOrganizationCreatePage({ storybook = false }) {
   };
 
   if (isSuccess && !storybook) {
-    return <Navigate to="/ucsborganizations" />;
+    return <Navigate to="/ucsborganization" />;
   }
 
   return (
@@ -50,4 +48,3 @@ export default function UCSBOrganizationCreatePage({ storybook = false }) {
     </BasicLayout>
   );
 }
-
