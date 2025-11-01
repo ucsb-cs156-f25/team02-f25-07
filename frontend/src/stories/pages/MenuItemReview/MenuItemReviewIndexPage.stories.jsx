@@ -1,0 +1,79 @@
+import React from "react";
+import { apiCurrentUserFixtures } from "fixtures/currentUserFixtures";
+import { systemInfoFixtures } from "fixtures/systemInfoFixtures";
+import { menuItemReviewFixtures } from "fixtures/menuItemReviewFixtures";
+import { http, HttpResponse } from "msw";
+
+import MenuItemReviewIndexPage from "main/pages/MenuItemReview/MenuItemReviewIndexPage";
+
+export default {
+  title: "pages/MenuItemReview/MenuItemReviewIndexPage",
+  component: MenuItemReviewIndexPage,
+};
+
+const Template = () => <MenuItemReviewIndexPage storybook={true} />;
+
+export const Empty = Template.bind({});
+Empty.parameters = {
+  msw: [
+    http.get("/api/currentUser", () => {
+      return HttpResponse.json(apiCurrentUserFixtures.userOnly, {
+        status: 200,
+      });
+    }),
+    http.get("/api/systemInfo", () => {
+      return HttpResponse.json(systemInfoFixtures.showingNeither, {
+        status: 200,
+      });
+    }),
+    http.get("/api/menuitemreview/all", () => {
+      return HttpResponse.json([], { status: 200 });
+    }),
+  ],
+};
+
+export const ThreeItemsOrdinaryUser = Template.bind({});
+ThreeItemsOrdinaryUser.parameters = {
+  msw: [
+    http.get("/api/currentUser", () => {
+      return HttpResponse.json(apiCurrentUserFixtures.userOnly, {
+        status: 200,
+      });
+    }),
+    http.get("/api/systemInfo", () => {
+      return HttpResponse.json(systemInfoFixtures.showingNeither, {
+        status: 200,
+      });
+    }),
+    http.get("/api/menuitemreview/all", () => {
+      return HttpResponse.json(menuItemReviewFixtures.threeReviews, {
+        status: 200,
+      });
+    }),
+  ],
+};
+
+export const ThreeItemsAdminUser = Template.bind({});
+ThreeItemsAdminUser.parameters = {
+  msw: [
+    http.get("/api/currentUser", () => {
+      return HttpResponse.json(apiCurrentUserFixtures.adminUser, {
+        status: 200,
+      });
+    }),
+    http.get("/api/systemInfo", () => {
+      return HttpResponse.json(systemInfoFixtures.showingNeither, {
+        status: 200,
+      });
+    }),
+    http.get("/api/menuitemreview/all", () => {
+      return HttpResponse.json(menuItemReviewFixtures.threeReviews, {
+        status: 200,
+      });
+    }),
+    // 与表格中的删除实现对齐：DELETE /api/menuitemreview，params: { id }
+    http.delete("/api/menuitemreview", () => {
+      return HttpResponse.json({ message: "ok" }, { status: 200 });
+    }),
+  ],
+};
