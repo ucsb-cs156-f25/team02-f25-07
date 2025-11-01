@@ -1,0 +1,35 @@
+{
+  "databaseChangeLog": [
+    {
+      "changeSet": {
+        "id": "20251030-menuitemreview-create",
+        "author": "jakindazhang",
+        "changes": [
+          {
+            "createTable": {
+              "tableName": "menuitemreviews",
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "type": "bigint",
+                    "autoIncrement": true,
+                    "constraints": {
+                      "primaryKey": true,
+                      "nullable": false
+                    }
+                  }
+                },
+                { "column": { "name": "item_id",        "type": "bigint" } },
+                { "column": { "name": "reviewer_email", "type": "varchar(255)" } },
+                { "column": { "name": "stars",          "type": "integer" } },
+                { "column": { "name": "date_reviewed",  "type": "timestamp" } },
+                { "column": { "name": "comments",       "type": "varchar(255)" } }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
