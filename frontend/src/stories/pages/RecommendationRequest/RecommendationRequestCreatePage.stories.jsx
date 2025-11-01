@@ -25,7 +25,7 @@ Default.parameters = {
         status: 200,
       });
     }),
-    // ✅ IMPORTANT: RecommendationRequest endpoint
+    
     http.post("/api/recommendationrequests/post", () => {
       return HttpResponse.json({}, { status: 200 });
     }),
