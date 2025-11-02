@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 
 export default function UCSBOrganizationCreatePage({ storybook = false }) {
   const objectToAxiosParams = (ucsborganization) => ({
-    url: "/api/ucsborganization/post",
+    url: "/api/UCSBOrganization/post",
     method: "POST",
     params: {
       orgCode: ucsborganization.orgCode,

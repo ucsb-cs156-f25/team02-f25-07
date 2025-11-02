@@ -69,7 +69,7 @@ describe("UCSBOrganizationCreatePage tests", () => {
       inactive: false,
     };
 
-    axiosMock.onPost("/api/ucsborganization/post").reply(202, ucsborganization);
+    axiosMock.onPost("/api/UCSBOrganization/post").reply(202, ucsborganization);
 
     render(
       <QueryClientProvider client={queryClient}>
@@ -129,7 +129,7 @@ describe("UCSBOrganizationCreatePage tests", () => {
 
   test("objectToAxiosParams correctly converts inactive to boolean", () => {
     const objectToAxiosParams = (ucsborganization) => ({
-      url: "/api/ucsborganization/post",
+      url: "/api/UCSBOrganization/post",
       method: "POST",
       params: {
         inactive: JSON.parse(String(ucsborganization.inactive).toLowerCase()),

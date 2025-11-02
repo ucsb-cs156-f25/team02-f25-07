@@ -10,7 +10,7 @@ import { useNavigate } from "react-router";
 import { hasRole } from "main/utils/useCurrentUser";
 
 export default function UCSBOrganizationTable({
-  ucsborganizations,
+  ucsborganizations=[],
   currentUser,
   testIdPrefix = "UCSBOrganizationTable",
 }) {
@@ -25,7 +25,7 @@ export default function UCSBOrganizationTable({
   const deleteMutation = useBackendMutation(
     cellToAxiosParamsDelete,
     { onSuccess: onDeleteSuccess },
-    ["/api/ucsborganizations/all"],
+    ["/api/UCSBOrganizations/all"],
   );
   // Stryker restore all
 
