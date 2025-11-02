@@ -10,14 +10,14 @@ import { useNavigate } from "react-router";
 import { hasRole } from "main/utils/useCurrentUser";
 
 export default function UCSBOrganizationTable({
-  ucsborganizations=[],
+  ucsborganizations = [],
   currentUser,
   testIdPrefix = "UCSBOrganizationTable",
 }) {
   const navigate = useNavigate();
 
   const editCallback = (cell) => {
-    navigate(`/ucsborganizations/edit/${cell.row.original.id}`);
+    navigate(`/ucsborganization/edit/${cell.row.original.id}`);
   };
 
   // Stryker disable all : hard to test for query caching
@@ -25,7 +25,7 @@ export default function UCSBOrganizationTable({
   const deleteMutation = useBackendMutation(
     cellToAxiosParamsDelete,
     { onSuccess: onDeleteSuccess },
-    ["/api/UCSBOrganizations/all"],
+    ["/api/UCSBOrganization/all"],
   );
   // Stryker restore all
 

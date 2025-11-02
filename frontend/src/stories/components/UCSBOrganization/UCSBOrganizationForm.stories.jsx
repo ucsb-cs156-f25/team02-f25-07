@@ -3,7 +3,7 @@ import UCSBOrganizationForm from "main/components/UCSBOrganization/UCSBOrganizat
 import { UCSBOrganizationFixtures } from "fixtures/ucsbOrganizationFixtures";
 
 export default {
-  title: "components/UCSBOrganizations/UCSBOrganizationForm",
+  title: "components/UCSBOrganization/UCSBOrganizationForm",
   component: UCSBOrganizationForm,
 };
 

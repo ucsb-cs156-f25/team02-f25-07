@@ -34,16 +34,16 @@ describe("UCSBOrganizationUtils", () => {
   describe("cellToAxiosParamsDelete", () => {
     test("It returns the correct params", () => {
       // arrange
-      const cell = { row: { original: { id: 17 } } };
+      const cell = { row: { original: { orgCode: undefined } } };
 
       // act
       const result = cellToAxiosParamsDelete(cell);
 
       // assert
       expect(result).toEqual({
-        url: "/api/ucsborganizations",
+        url: "/api/UCSBOrganization",
         method: "DELETE",
-        params: { id: 17 },
+        params: { orgCode: undefined },
       });
     });
   });

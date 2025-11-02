@@ -1,19 +1,20 @@
 import React from "react";
 import { apiCurrentUserFixtures } from "fixtures/currentUserFixtures";
 import { systemInfoFixtures } from "fixtures/systemInfoFixtures";
-import { http, HttpResponse } from "msw";
-import UCSBOrganizationCreatePage from "main/pages/UCSBOrganization/UCSBOrganizationCreatePage";
 import { UCSBOrganizationFixtures } from "fixtures/ucsbOrganizationFixtures";
+import { http, HttpResponse } from "msw";
+
+import UCSBOrganizationIndexPage from "main/pages/UCSBOrganization/UCSBOrganizationIndexPage";
 
 export default {
-  title: "pages/UCSBOrganization/UCSBOrganizationCreatePage",
-  component: UCSBOrganizationCreatePage,
+  title: "pages/UCSBOrganizations/UCSBOrganizationIndexPage",
+  component: UCSBOrganizationIndexPage,
 };
 
-const Template = () => <UCSBOrganizationCreatePage storybook={true} />;
+const Template = () => <UCSBOrganizationIndexPage storybook={true} />;
 
-export const Default = Template.bind({});
-Default.parameters = {
+export const Empty = Template.bind({});
+Empty.parameters = {
   msw: [
     http.get("/api/currentUser", () => {
       return HttpResponse.json(apiCurrentUserFixtures.userOnly, {
@@ -25,9 +26,44 @@ Default.parameters = {
         status: 200,
       });
     }),
-    http.post("/api/ucsborganization/post", () => {
+    http.get("/api/UCSBOrganization/all", () => {
+      return HttpResponse.json([], { status: 200 });
+    }),
+  ],
+};
+
+export const ThreeItemsOrdinaryUser = Template.bind({});
+
+ThreeItemsOrdinaryUser.parameters = {
+  msw: [
+    http.get("/api/currentUser", () => {
+      return HttpResponse.json(apiCurrentUserFixtures.userOnly);
+    }),
+    http.get("/api/systemInfo", () => {
+      return HttpResponse.json(systemInfoFixtures.showingNeither);
+    }),
+    http.get("/api/UCSBOrganization/all", () => {
+      return HttpResponse.json(UCSBOrganizationFixtures.threeUCSBOrganizations);
+    }),
+  ],
+};
+
+export const ThreeItemsAdminUser = Template.bind({});
+
+ThreeItemsAdminUser.parameters = {
+  msw: [
+    http.get("/api/currentUser", () => {
+      return HttpResponse.json(apiCurrentUserFixtures.adminUser);
+    }),
+    http.get("/api/systemInfo", () => {
+      return HttpResponse.json(systemInfoFixtures.showingNeither);
+    }),
+    http.get("/api/UCSBOrganization/all", () => {
+      return HttpResponse.json(UCSBOrganizationFixtures.threeUCSBOrganizations);
+    }),
+    http.delete("/api/UCSBOrganization", () => {
       return HttpResponse.json(
-        UCSBOrganizationFixtures.oneUCSBOrganization_allstring,
+        { message: "UCSBOrganization deleted successfully" },
         { status: 200 },
       );
     }),

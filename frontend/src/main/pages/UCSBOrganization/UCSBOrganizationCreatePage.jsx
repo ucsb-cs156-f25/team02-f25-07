@@ -1,3 +1,58 @@
+// import BasicLayout from "main/layouts/BasicLayout/BasicLayout";
+// import UCSBOrganizationForm from "main/components/UCSBOrganization/UCSBOrganizationForm";
+// import { Navigate } from "react-router";
+// import { useBackendMutation } from "main/utils/useBackend";
+// import { toast } from "react-toastify";
+
+// export default function UCSBOrganizationCreatePage({ storybook = false }) {
+//   const objectToAxiosParams = (ucsborganization) => ({
+//     url: "/api/UCSBOrganization/post",
+//     method: "POST",
+//     params: {
+//       orgCode: ucsborganization.orgCode,
+//       orgTranslationShort: ucsborganization.orgTranslationShort,
+//       orgTranslation: ucsborganization.orgTranslation,
+//       inactive: JSON.parse(ucsborganization.inactive.toLowerCase()),
+//     },
+//   });
+
+//   // const onSuccess = (ucsborganization) => {
+//   //   toast(
+//   //     `New UCSB Organization Created - id: ${ucsborganization.id} OrgCode: ${ucsborganization.orgCode}`,
+//   //   );
+//   // };
+//   const onSuccess = (ucsborganization) => {
+//     toast(
+//       `New UCSB Organization Created — OrgCode: ${ucsborganization.orgCode}`,
+//     );
+//   };
+
+//   const mutation = useBackendMutation(
+//     objectToAxiosParams,
+//     { onSuccess },
+//     // Stryker disable next-line all : hard to set up test for caching
+//     ["/api/UCSBOrganization/all"], // mutation makes this key stale so that pages relying on it reload
+//   );
+
+//   const { isSuccess } = mutation;
+
+//   const onSubmit = async (data) => {
+//     mutation.mutate(data);
+//   };
+
+//   if (isSuccess && !storybook) {
+//     return <Navigate to="/ucsborganization" />;
+//   }
+
+//   return (
+//     <BasicLayout>
+//       <div className="pt-2">
+//         <h1>Create New UCSBOrganization</h1>
+//         <UCSBOrganizationForm submitAction={onSubmit} />
+//       </div>
+//     </BasicLayout>
+//   );
+// }
 import BasicLayout from "main/layouts/BasicLayout/BasicLayout";
 import UCSBOrganizationForm from "main/components/UCSBOrganization/UCSBOrganizationForm";
 import { Navigate } from "react-router";
@@ -5,6 +60,7 @@ import { useBackendMutation } from "main/utils/useBackend";
 import { toast } from "react-toastify";
 
 export default function UCSBOrganizationCreatePage({ storybook = false }) {
+ 
   const objectToAxiosParams = (ucsborganization) => ({
     url: "/api/UCSBOrganization/post",
     method: "POST",
@@ -12,21 +68,18 @@ export default function UCSBOrganizationCreatePage({ storybook = false }) {
       orgCode: ucsborganization.orgCode,
       orgTranslationShort: ucsborganization.orgTranslationShort,
       orgTranslation: ucsborganization.orgTranslation,
-      inactive: JSON.parse(ucsborganization.inactive.toLowerCase()),
+      inactive: JSON.parse(String(ucsborganization.inactive).toLowerCase()),
     },
   });
 
   const onSuccess = (ucsborganization) => {
-    toast(
-      `New UCSB Organization Created - id: ${ucsborganization.id} OrgCode: ${ucsborganization.orgCode}`,
-    );
+    toast(`New UCSB Organization Created — OrgCode: ${ucsborganization.orgCode}`);
   };
 
   const mutation = useBackendMutation(
     objectToAxiosParams,
     { onSuccess },
-    // Stryker disable next-line all : hard to set up test for caching
-    ["/api/ucsborganization/all"], // mutation makes this key stale so that pages relying on it reload
+    ["/api/UCSBOrganization/all"] // marks cache as stale after create
   );
 
   const { isSuccess } = mutation;
