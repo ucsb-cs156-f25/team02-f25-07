@@ -12,12 +12,11 @@ import { hasRole } from "main/utils/useCurrentUser";
 export default function UCSBOrganizationTable({
   ucsborganizations,
   currentUser,
-  testIdPrefix = "UCSBOrganizationTable",
 }) {
   const navigate = useNavigate();
 
   const editCallback = (cell) => {
-    navigate(`/ucsborganizations/edit/${cell.row.original.id}`);
+    navigate(`/ucsborganization/edit/${cell.row.original.id}`);
   };
 
   // Stryker disable all : hard to test for query caching
@@ -59,9 +58,9 @@ export default function UCSBOrganizationTable({
   ];
 
   if (hasRole(currentUser, "ROLE_ADMIN")) {
-    columns.push(ButtonColumn("Edit", "primary", editCallback, testIdPrefix));
+    columns.push(ButtonColumn("Edit", "primary", editCallback, "UCSBOrganizationTable"));
     columns.push(
-      ButtonColumn("Delete", "danger", deleteCallback, testIdPrefix),
+      ButtonColumn("Delete", "danger", deleteCallback, "UCSBOrganizationTable"),
     );
   }
 
@@ -69,7 +68,7 @@ export default function UCSBOrganizationTable({
     <OurTable
       data={ucsborganizations}
       columns={columns}
-      testid={testIdPrefix}
+      testid={"UCSBOrganizationTable"}
     />
   );
 }
