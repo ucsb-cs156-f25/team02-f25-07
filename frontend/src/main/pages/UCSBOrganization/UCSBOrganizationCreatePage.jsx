@@ -60,7 +60,6 @@ import { useBackendMutation } from "main/utils/useBackend";
 import { toast } from "react-toastify";
 
 export default function UCSBOrganizationCreatePage({ storybook = false }) {
- 
   const objectToAxiosParams = (ucsborganization) => ({
     url: "/api/UCSBOrganization/post",
     method: "POST",
@@ -73,13 +72,15 @@ export default function UCSBOrganizationCreatePage({ storybook = false }) {
   });
 
   const onSuccess = (ucsborganization) => {
-    toast(`New UCSB Organization Created — OrgCode: ${ucsborganization.orgCode}`);
+    toast(
+      `New UCSB Organization Created — OrgCode: ${ucsborganization.orgCode}`,
+    );
   };
 
   const mutation = useBackendMutation(
     objectToAxiosParams,
     { onSuccess },
-    ["/api/UCSBOrganization/all"] // marks cache as stale after create
+    ["/api/UCSBOrganization/all"], // marks cache as stale after create
   );
 
   const { isSuccess } = mutation;

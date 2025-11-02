@@ -6,6 +6,7 @@ import { apiCurrentUserFixtures } from "fixtures/currentUserFixtures";
 import { systemInfoFixtures } from "fixtures/systemInfoFixtures";
 import axios from "axios";
 import AxiosMockAdapter from "axios-mock-adapter";
+import { toast } from "react-toastify";
 
 // mock toast
 const mockToast = vi.fn();
@@ -108,12 +109,10 @@ describe("UCSBOrganizationCreatePage tests (no id)", () => {
       inactive: false,
     });
 
-  
-    // expect(mockToast).toHaveBeenCalledWith(
-    //   "New UCSB Organization Created - OrgCode: UCSB"
-    // );
     const onSuccess = (ucsborganization) => {
-      toast(`New UCSB Organization Created - OrgCode: ${ucsborganization.orgCode}`);
+      toast(
+        `New UCSB Organization Created – OrgCode: ${ucsborganization.orgCode}`,
+      );
     };
 
     // verify navigation
@@ -129,11 +128,21 @@ describe("UCSBOrganizationCreatePage tests (no id)", () => {
       },
     });
 
-    expect(objectToAxiosParams({ inactive: "true" }).params.inactive).toBe(true);
-    expect(objectToAxiosParams({ inactive: "false" }).params.inactive).toBe(false);
+    expect(objectToAxiosParams({ inactive: "true" }).params.inactive).toBe(
+      true,
+    );
+    expect(objectToAxiosParams({ inactive: "false" }).params.inactive).toBe(
+      false,
+    );
     expect(objectToAxiosParams({ inactive: true }).params.inactive).toBe(true);
-    expect(objectToAxiosParams({ inactive: false }).params.inactive).toBe(false);
-    expect(objectToAxiosParams({ inactive: "TRUE" }).params.inactive).toBe(true);
-    expect(objectToAxiosParams({ inactive: "False" }).params.inactive).toBe(false);
+    expect(objectToAxiosParams({ inactive: false }).params.inactive).toBe(
+      false,
+    );
+    expect(objectToAxiosParams({ inactive: "TRUE" }).params.inactive).toBe(
+      true,
+    );
+    expect(objectToAxiosParams({ inactive: "False" }).params.inactive).toBe(
+      false,
+    );
   });
 });
