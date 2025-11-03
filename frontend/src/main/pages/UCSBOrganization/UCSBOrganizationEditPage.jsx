@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 
 export default function UCSBOrganizationEditPage({ storybook = false }) {
   // The key is orgCode, not id
-  const { orgCode } = useParams();
+  let { orgCode } = useParams();
 
   // GET the existing organization by orgCode
   const {
@@ -21,7 +21,8 @@ export default function UCSBOrganizationEditPage({ storybook = false }) {
     {
       method: "GET",
       url: "/api/UCSBOrganization",
-      params: { orgCode: orgCode }, // send as query parameter
+      //params: { orgCode: orgCode }, // send as query parameter
+      params: { orgCode,},
     },
   );
 

@@ -8,6 +8,7 @@ import { systemInfoFixtures } from "fixtures/systemInfoFixtures";
 import axios from "axios";
 import AxiosMockAdapter from "axios-mock-adapter";
 import mockConsole from "tests/testutils/mockConsole";
+import * as useBackendModule from "main/utils/useBackend";
 
 // --- Mock toast notifications ---
 const mockToast = vi.fn();
@@ -186,6 +187,108 @@ describe("UCSBOrganizationEditPage tests", () => {
         }),
       );
     });
+
+
+
+
+describe("internal API calls", () => {
+  test("calls useBackend and useBackendMutation with correct keys and methods", () => {
+    const spyUseBackend = vi.spyOn(useBackendModule, "useBackend");
+    const spyUseBackendMutation = vi.spyOn(useBackendModule, "useBackendMutation");
+
+    render(
+      <QueryClientProvider client={new QueryClient()}>
+        <MemoryRouter>
+          <UCSBOrganizationEditPage />
+        </MemoryRouter>
+      </QueryClientProvider>
+    );
+
+    expect(spyUseBackend).toHaveBeenCalledWith(
+      [`/api/UCSBOrganization?orgCode=UCSB`],
+      expect.objectContaining({
+        method: "GET",
+        url: "/api/UCSBOrganization",
+        params: { orgCode: "UCSB" },
+      })
+    );
+
+    expect(spyUseBackendMutation).toHaveBeenCalledWith(
+      expect.any(Function),
+      expect.any(Object),
+      [`/api/UCSBOrganization?orgCode=UCSB`]
+    );
+
+    spyUseBackend.mockRestore();
+    spyUseBackendMutation.mockRestore();
+  });
+});
+
+
+
+    test("After successful update, navigates to index page", async () => {
+      render(
+        <QueryClientProvider client={queryClient}>
+          <MemoryRouter>
+            <UCSBOrganizationEditPage />
+          </MemoryRouter>
+        </QueryClientProvider>,
+      );
+    
+      // Wait for form
+      await screen.findByTestId("UCSBOrganizationForm-orgCode");
+    
+      // Fill in updates
+      fireEvent.change(screen.getByTestId("UCSBOrganizationForm-orgTranslationShort"), {
+        target: { value: "UpdatedShort" },
+      });
+      fireEvent.change(screen.getByTestId("UCSBOrganizationForm-orgTranslation"), {
+        target: { value: "UpdatedLong" },
+      });
+      fireEvent.change(screen.getByTestId("UCSBOrganizationForm-inactive"), {
+        target: { value: "true" },
+      });
+    
+      fireEvent.click(screen.getByTestId("UCSBOrganizationForm-submit"));
+    
+      // Wait for toast + navigation
+      await waitFor(() => {
+        expect(mockToast).toBeCalledWith(
+          "UCSBOrganization Updated - orgCode: UCSBBB",
+        );
+        expect(mockNavigate).toHaveBeenCalledWith({ to: "/ucsborganization" });
+      });
+    });
+    
+
+    test("fetches organization data with correct orgCode query key", async () => {
+      const queryClient = new QueryClient();
+    
+      axiosMock.onGet("/api/currentUser").reply(200, apiCurrentUserFixtures.userOnly);
+      axiosMock.onGet("/api/systemInfo").reply(200, systemInfoFixtures.showingNeither);
+      axiosMock
+        .onGet("/api/UCSBOrganization", { params: { orgCode: "UCSB" } })
+        .reply(200, {
+          orgCode: "UCSB",
+          orgTranslationShort: "UCSBBAD",
+          orgTranslation: "aaa",
+          inactive: false,
+        });
+    
+      render(
+        <QueryClientProvider client={queryClient}>
+          <MemoryRouter>
+            <UCSBOrganizationEditPage />
+          </MemoryRouter>
+        </QueryClientProvider>
+      );
+    
+      await screen.findByTestId("UCSBOrganizationForm-orgCode");
+    
+      // Verify the GET request used the correct query parameter
+      expect(axiosMock.history.get[2].params).toEqual({ orgCode: "UCSB" });
+    });
+    
 
     test("Changes when you click Update", async () => {
       render(
