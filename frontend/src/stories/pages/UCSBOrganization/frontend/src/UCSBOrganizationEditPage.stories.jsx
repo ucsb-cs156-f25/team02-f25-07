@@ -4,7 +4,7 @@ import { systemInfoFixtures } from "fixtures/systemInfoFixtures";
 import { http, HttpResponse } from "msw";
 
 import UCSBOrganizationEditPage from "main/pages/UCSBOrganization/UCSBOrganizationEditPage";
-import { ucsbOrganizationFixtures } from "fixtures/ucsbOrganizationFixtures";
+import { UCSBOrganizationFixtures } from "fixtures/ucsbOrganizationFixtures";
 
 export default {
   title: "pages/UCSBOrganization/UCSBOrganizationEditPage",
@@ -32,7 +32,7 @@ Default.parameters = {
 
     // Mock GET request for the specific organization being edited
     http.get("/api/UCSBOrganization/all", () => {
-      return HttpResponse.json(ucsbOrganizationFixtures.threeUCSBOrganizations);
+      return HttpResponse.json(UCSBOrganizationFixtures.threeUCSBOrganizations);
     }),
 
     // Mock PUT request for saving the update
