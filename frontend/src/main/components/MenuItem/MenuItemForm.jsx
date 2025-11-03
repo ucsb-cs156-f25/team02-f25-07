@@ -36,14 +36,14 @@ function MenuItemForm({
       )}
 
       <Form.Group className="mb-3">
-        <Form.Label htmlFor="diningCommonsCode">Dining Commons Code</Form.Label>
+        <Form.Label htmlFor="diningCommonsCode">DiningCommonsCode</Form.Label>
         <Form.Control
           data-testid={testIdPrefix + "-diningCommonsCode"}
           id="diningCommonsCode"
           type="text"
-          isInvalid={Boolean(errors.dinningCommonsCode)}
+          isInvalid={Boolean(errors.diningCommonsCode)}
           {...register("diningCommonsCode", {
-            required: "Dining Commons Code is required.",
+            required: "DiningCommonsCode is required.",
             maxLength: {
               value: 30,
               message: "Max length 30 characters",
@@ -51,7 +51,7 @@ function MenuItemForm({
           })}
         />
         <Form.Control.Feedback type="invalid">
-          {errors.dinningCommonsCode?.message}
+          {errors.diningCommonsCode?.message}
         </Form.Control.Feedback>
       </Form.Group>
 
@@ -68,6 +68,22 @@ function MenuItemForm({
         />
         <Form.Control.Feedback type="invalid">
           {errors.name?.message}
+        </Form.Control.Feedback>
+      </Form.Group>
+
+      <Form.Group className="mb-3">
+        <Form.Label htmlFor="station">Station</Form.Label>
+        <Form.Control
+          data-testid={testIdPrefix + "-station"}
+          id="station"
+          type="text"
+          isInvalid={Boolean(errors.station)}
+          {...register("station", {
+            required: "Station is required.",
+          })}
+        />
+        <Form.Control.Feedback type="invalid">
+          {errors.station?.message}
         </Form.Control.Feedback>
       </Form.Group>
 
