@@ -13,8 +13,8 @@ export default {
 
 const Template = () => <UCSBOrganizationIndexPage storybook={true} />;
 
-export const Empty = Template.bind({});
-Empty.parameters = {
+export const Default = Template.bind({});
+Default.parameters = {
   msw: [
     http.get("/api/currentUser", () => {
       return HttpResponse.json(apiCurrentUserFixtures.userOnly, {
@@ -26,46 +26,16 @@ Empty.parameters = {
         status: 200,
       });
     }),
-    http.get("/api/UCSBOrganization/all", () => {
-      return HttpResponse.json([], { status: 200 });
+    http.get("/api/UCSBOrganization", () => {
+      return HttpResponse.json(UCSBOrganizationFixtures.threeRestaurants[0], {
+        status: 200,
+      });
     }),
-  ],
-};
-
-export const ThreeItemsOrdinaryUser = Template.bind({});
-
-ThreeItemsOrdinaryUser.parameters = {
-  msw: [
-    http.get("/api/currentUser", () => {
-      return HttpResponse.json(apiCurrentUserFixtures.userOnly);
+    http.put("/api/UCSBOrganization", () => {
+      return HttpResponse.json({}, { status: 200 });
     }),
-    http.get("/api/systemInfo", () => {
-      return HttpResponse.json(systemInfoFixtures.showingNeither);
+    http.put("/api/UCSBOrganization", (req) => {
+      window.alert("PUT: " + req.url + " and body: " + req.body);
+      return HttpResponse.json({}, { status: 200 });
     }),
-    http.get("/api/ucsborganization/all", () => {
-      return HttpResponse.json(UCSBOrganizationFixtures.threeUCSBOrganizations);
-    }),
-  ],
-};
-
-export const ThreeItemsAdminUser = Template.bind({});
-
-ThreeItemsAdminUser.parameters = {
-  msw: [
-    http.get("/api/currentUser", () => {
-      return HttpResponse.json(apiCurrentUserFixtures.adminUser);
-    }),
-    http.get("/api/systemInfo", () => {
-      return HttpResponse.json(systemInfoFixtures.showingNeither);
-    }),
-    http.get("/api/UCSBOrganization/all", () => {
-      return HttpResponse.json(UCSBOrganizationFixtures.threeUCSBOrganizations);
-    }),
-    http.delete("/api/UCSBOrganization", () => {
-      return HttpResponse.json(
-        { message: "UCSBOrganization deleted successfully" },
-        { status: 200 },
-      );
-    }),
-  ],
-};
+  ],};
