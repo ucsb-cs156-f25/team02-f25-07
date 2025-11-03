@@ -58,7 +58,9 @@ export default function UCSBOrganizationTable({
   ];
 
   if (hasRole(currentUser, "ROLE_ADMIN")) {
-    columns.push(ButtonColumn("Edit", "primary", editCallback, "UCSBOrganizationTable"));
+    columns.push(
+      ButtonColumn("Edit", "primary", editCallback, "UCSBOrganizationTable"),
+    );
     columns.push(
       ButtonColumn("Delete", "danger", deleteCallback, "UCSBOrganizationTable"),
     );

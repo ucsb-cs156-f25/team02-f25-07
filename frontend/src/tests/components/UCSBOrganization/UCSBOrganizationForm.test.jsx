@@ -2,7 +2,7 @@ import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { BrowserRouter as Router } from "react-router";
 
 import UCSBOrganizationForm from "main/components/UCSBOrganization/UCSBOrganizationForm";
-import {UCSBOrganizationFixtures} from "fixtures/ucsbOrganizationFixtures";
+import { UCSBOrganizationFixtures } from "fixtures/ucsbOrganizationFixtures";
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
@@ -153,6 +153,3 @@ describe("UCSBOrganizationForm tests", () => {
     });
   });
 });
-
-
-
