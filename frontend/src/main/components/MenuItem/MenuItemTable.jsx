@@ -61,7 +61,5 @@ export default function MenuItemTable({
     );
   }
 
-  return (
-    <OurTable data={menuItems} columns={columns} testid={testIdPrefix} />
-  );
+  return <OurTable data={menuItems} columns={columns} testid={testIdPrefix} />;
 }
