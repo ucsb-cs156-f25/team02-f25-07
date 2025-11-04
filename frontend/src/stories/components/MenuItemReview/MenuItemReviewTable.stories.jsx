@@ -1,43 +1,39 @@
 import React from "react";
-import UCSBOrganizationTable from "main/components/UCSBOrganization/UCSBOrganizationTable";
-import { UCSBOrganizationFixtures } from "fixtures/ucsbOrganizationFixtures";
+import MenuItemReviewTable from "main/components/MenuItemReview/MenuItemReviewTable";
+import { menuItemReviewFixtures } from "fixtures/menuItemReviewFixtures";
 import { currentUserFixtures } from "fixtures/currentUserFixtures";
 import { http, HttpResponse } from "msw";
 
 export default {
-  title: "components/UCSBOrganization/UCSBOrganizationTable",
-  component: UCSBOrganizationTable,
+  title: "components/MenuItemReview/MenuItemReviewTable",
+  component: MenuItemReviewTable,
 };
 
-const Template = (args) => {
-  return <UCSBOrganizationTable {...args} />;
-};
+const Template = (args) => <MenuItemReviewTable {...args} />;
 
 export const Empty = Template.bind({});
-
 Empty.args = {
-  ucsborganizations: [],
+  menuItemReviews: [],
   currentUser: currentUserFixtures.userOnly,
 };
 
 export const ThreeItemsOrdinaryUser = Template.bind({});
-
 ThreeItemsOrdinaryUser.args = {
-  ucsborganizations: UCSBOrganizationFixtures.threeUCSBOrganizations,
+  menuItemReviews: menuItemReviewFixtures.threeReviews,
   currentUser: currentUserFixtures.userOnly,
 };
 
 export const ThreeItemsAdminUser = Template.bind({});
 ThreeItemsAdminUser.args = {
-  ucsborganizations: UCSBOrganizationFixtures.threeUCSBOrganizations,
+  menuItemReviews: menuItemReviewFixtures.threeReviews,
   currentUser: currentUserFixtures.adminUser,
 };
 
 ThreeItemsAdminUser.parameters = {
   msw: [
-    http.delete("/api/UCSBOrganization", () => {
+    http.delete("/api/menuitemreview", () => {
       return HttpResponse.json(
-        { message: "UCSBOrganization deleted successfully" },
+        { message: "MenuItemReview deleted successfully" },
         { status: 200 },
       );
     }),
