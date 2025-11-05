@@ -19,7 +19,7 @@ describe("MenuItemReviewForm tests", () => {
         <Router>
           <MenuItemReviewForm {...props} />
         </Router>
-      </QueryClientProvider>,
+      </QueryClientProvider>
     );
 
   const testId = "MenuItemReviewForm";
@@ -45,7 +45,7 @@ describe("MenuItemReviewForm tests", () => {
     ["itemId", "reviewerEmail", "stars", "dateReviewed", "comments"].forEach(
       (k) => {
         expect(screen.getByTestId(`${testId}-${k}`)).toBeInTheDocument();
-      },
+      }
     );
   });
 
@@ -86,7 +86,9 @@ describe("MenuItemReviewForm tests", () => {
     fireEvent.click(submitBtn);
 
     await screen.findByText(/itemId is required/i);
-    expect(screen.getByText(/reviewerEmail is required/i)).toBeInTheDocument();
+    expect(
+      screen.getByText(/reviewerEmail is required/i)
+    ).toBeInTheDocument();
     expect(screen.getByText(/stars is required/i)).toBeInTheDocument();
     expect(screen.getByText(/dateReviewed is required/i)).toBeInTheDocument();
     expect(screen.getByText(/comments is required/i)).toBeInTheDocument();
@@ -108,7 +110,7 @@ describe("MenuItemReviewForm tests", () => {
     await waitFor(() => {
       expect(screen.getByText(/invalid email address/i)).toBeInTheDocument();
       expect(
-        screen.getByText(/stars must be between 1 and 5/i),
+        screen.getByText(/stars must be between 1 and 5/i)
       ).toBeInTheDocument();
     });
   });
@@ -150,7 +152,9 @@ describe("MenuItemReviewForm tests", () => {
     fireEvent.change(itemIdInput, { target: { value: "0" } });
     fireEvent.click(submitBtn);
 
-    expect(await screen.findByText("itemId must be ≥ 1.")).toBeInTheDocument();
+    expect(
+      await screen.findByText("itemId must be ≥ 1.")
+    ).toBeInTheDocument();
   });
 
   test("shows min error for stars below 1", async () => {
@@ -172,7 +176,7 @@ describe("MenuItemReviewForm tests", () => {
     fireEvent.click(submitBtn);
 
     expect(
-      await screen.findByText(/stars must be between 1 and 5/i),
+      await screen.findByText(/stars must be between 1 and 5/i)
     ).toBeInTheDocument();
   });
 
@@ -196,9 +200,7 @@ describe("MenuItemReviewForm tests", () => {
 
     fireEvent.click(submitBtn);
 
-    expect(
-      await screen.findByText(/max 500 characters\./i),
-    ).toBeInTheDocument();
+    expect(await screen.findByText(/max 500 characters\./i)).toBeInTheDocument();
   });
 
   test("accepts a valid email and does not show email error", async () => {
@@ -230,11 +232,11 @@ describe("MenuItemReviewForm tests", () => {
     const emailInput = await screen.findByTestId(`${testId}-reviewerEmail`);
     const submitBtn = screen.getByTestId(`${testId}-submit`);
 
-    fireEvent.change(emailInput, { target: { value: "a@b" } });
+    fireEvent.change(emailInput, { target: { value: "a@b" } }); 
     fireEvent.click(submitBtn);
 
     expect(
-      await screen.findByText(/invalid email address/i),
+      await screen.findByText(/invalid email address/i)
     ).toBeInTheDocument();
   });
 
@@ -249,9 +251,7 @@ describe("MenuItemReviewForm tests", () => {
     const submitBtn = screen.getByTestId(`${testId}-submit`);
 
     fireEvent.change(itemIdInput, { target: { value: "1" } });
-    fireEvent.change(emailInput, {
-      target: { value: "xxx valid.user@ucsb.edu" },
-    });
+    fireEvent.change(emailInput, { target: { value: "xxx valid.user@ucsb.edu" } });
     fireEvent.change(starsInput, { target: { value: "3" } });
     fireEvent.change(dateInput, { target: { value: "2025-10-02T08:15" } });
     fireEvent.change(commentsInput, { target: { value: "x" } });
@@ -259,7 +259,7 @@ describe("MenuItemReviewForm tests", () => {
     fireEvent.click(submitBtn);
 
     expect(
-      await screen.findByText(/invalid email address/i),
+      await screen.findByText(/invalid email address/i)
     ).toBeInTheDocument();
   });
 
@@ -274,9 +274,7 @@ describe("MenuItemReviewForm tests", () => {
     const submitBtn = screen.getByTestId(`${testId}-submit`);
 
     fireEvent.change(itemIdInput, { target: { value: "1" } });
-    fireEvent.change(emailInput, {
-      target: { value: "valid.user@ucsb.edu xxx" },
-    });
+    fireEvent.change(emailInput, { target: { value: "valid.user@ucsb.edu xxx" } });
     fireEvent.change(starsInput, { target: { value: "3" } });
     fireEvent.change(dateInput, { target: { value: "2025-10-02T08:15" } });
     fireEvent.change(commentsInput, { target: { value: "x" } });
@@ -284,7 +282,7 @@ describe("MenuItemReviewForm tests", () => {
     fireEvent.click(submitBtn);
 
     expect(
-      await screen.findByText(/invalid email address/i),
+      await screen.findByText(/invalid email address/i)
     ).toBeInTheDocument();
   });
 });

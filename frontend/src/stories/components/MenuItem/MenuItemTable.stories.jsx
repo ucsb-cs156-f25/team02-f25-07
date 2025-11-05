@@ -1,43 +1,43 @@
 import React from "react";
-import UCSBOrganizationTable from "main/components/UCSBOrganization/UCSBOrganizationTable";
-import { UCSBOrganizationFixtures } from "fixtures/ucsbOrganizationFixtures";
+import MenuItemTable from "main/components/MenuItem/MenuItemTable";
+import { MenuItemFixtures } from "fixtures/MenuItemFixtures";
 import { currentUserFixtures } from "fixtures/currentUserFixtures";
 import { http, HttpResponse } from "msw";
 
 export default {
-  title: "components/UCSBOrganization/UCSBOrganizationTable",
-  component: UCSBOrganizationTable,
+  title: "components/MenuItem/MenuItemTable",
+  component: MenuItemTable,
 };
 
 const Template = (args) => {
-  return <UCSBOrganizationTable {...args} />;
+  return <MenuItemTable {...args} />;
 };
 
 export const Empty = Template.bind({});
 
 Empty.args = {
-  ucsborganizations: [],
+  menuItems: [],
   currentUser: currentUserFixtures.userOnly,
 };
 
 export const ThreeItemsOrdinaryUser = Template.bind({});
 
 ThreeItemsOrdinaryUser.args = {
-  ucsborganizations: UCSBOrganizationFixtures.threeUCSBOrganizations,
+  menuItems: MenuItemFixtures.threeMenuItems,
   currentUser: currentUserFixtures.userOnly,
 };
 
 export const ThreeItemsAdminUser = Template.bind({});
 ThreeItemsAdminUser.args = {
-  ucsborganizations: UCSBOrganizationFixtures.threeUCSBOrganizations,
+  menuItems: MenuItemFixtures.threeMenuItems,
   currentUser: currentUserFixtures.adminUser,
 };
 
 ThreeItemsAdminUser.parameters = {
   msw: [
-    http.delete("/api/UCSBOrganization", () => {
+    http.delete("/api/ucsbdiningcommonsmenuitem", () => {
       return HttpResponse.json(
-        { message: "UCSBOrganization deleted successfully" },
+        { message: "Menu item deleted successfully" },
         { status: 200 },
       );
     }),

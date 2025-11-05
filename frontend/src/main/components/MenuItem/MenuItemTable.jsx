@@ -5,19 +5,19 @@ import { useBackendMutation } from "main/utils/useBackend";
 import {
   cellToAxiosParamsDelete,
   onDeleteSuccess,
-} from "main/utils/UCSBOrganizationUtils";
+} from "main/utils/MenuItemUtil";
 import { useNavigate } from "react-router";
 import { hasRole } from "main/utils/useCurrentUser";
 
-export default function UCSBOrganizationTable({
-  ucsborganizations,
+export default function MenuItemTable({
+  menuItems,
   currentUser,
-  testIdPrefix = "UCSBOrganizationTable",
+  testIdPrefix = "MenuItemTable",
 }) {
   const navigate = useNavigate();
 
   const editCallback = (cell) => {
-    navigate(`/ucsborganizations/edit/${cell.row.original.id}`);
+    navigate(`/ucsbdiningcommonsmenuitem/edit/${cell.row.original.id}`);
   };
 
   // Stryker disable all : hard to test for query caching
@@ -25,7 +25,7 @@ export default function UCSBOrganizationTable({
   const deleteMutation = useBackendMutation(
     cellToAxiosParamsDelete,
     { onSuccess: onDeleteSuccess },
-    ["/api/UCSBOrganization/all"],
+    ["/api/ucsbdiningcommonsmenuitem/all"],
   );
   // Stryker restore all
 
@@ -41,20 +41,16 @@ export default function UCSBOrganizationTable({
     },
 
     {
-      header: "OrgCode",
-      accessorKey: "orgCode",
+      header: "DiningCommonsCode",
+      accessorKey: "diningCommonsCode",
     },
     {
-      header: "OrgTranslationShort",
-      accessorKey: "orgTranslationShort",
+      header: "Name",
+      accessorKey: "name",
     },
     {
-      header: "OrgTranslation",
-      accessorKey: "orgTranslation",
-    },
-    {
-      header: "Inactive",
-      accessorKey: "inactive",
+      header: "Station ",
+      accessorKey: "station",
     },
   ];
 
@@ -65,11 +61,5 @@ export default function UCSBOrganizationTable({
     );
   }
 
-  return (
-    <OurTable
-      data={ucsborganizations}
-      columns={columns}
-      testid={testIdPrefix}
-    />
-  );
+  return <OurTable data={menuItems} columns={columns} testid={testIdPrefix} />;
 }
