@@ -1,4 +1,5 @@
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import MenuItemReviewCreatePage from "main/pages/MenuItemReview/MenuItemReviewCreatePage";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { MemoryRouter } from "react-router";
@@ -27,6 +28,9 @@ vi.mock("react-router", async (importOriginal) => {
     }),
   };
 });
+import axios from "axios";
+import AxiosMockAdapter from "axios-mock-adapter";
+import { expect } from "vitest";
 
 describe("MenuItemReviewCreatePage tests", () => {
   const axiosMock = new AxiosMockAdapter(axios);
@@ -112,6 +116,7 @@ describe("MenuItemReviewCreatePage stale key & navigation contract", () => {
 
   beforeEach(() => {
     vi.clearAllMocks();
+  const setupUserOnly = () => {
     axiosMock.reset();
     axiosMock.resetHistory();
     axiosMock.onGet("/api/currentUser").reply(200, apiCurrentUserFixtures.userOnly);
@@ -152,6 +157,18 @@ describe("MenuItemReviewCreatePage stale key & navigation contract", () => {
       <QueryClientProvider client={new QueryClient()}>
         <MemoryRouter>
           {}
+  };
+
+  const queryClient = new QueryClient();
+
+  test("Renders expected content", async () => {
+    // arrange
+    setupUserOnly();
+
+    // act
+    render(
+      <QueryClientProvider client={queryClient}>
+        <MemoryRouter>
           <MenuItemReviewCreatePage />
         </MemoryRouter>
       </QueryClientProvider>
@@ -183,5 +200,10 @@ describe("MenuItemReviewCreatePage stale key & navigation contract", () => {
     });
 
     spy.mockRestore();
+    // assert
+    await screen.findByText("MenuItemReview Create page not yet implemented");
+    expect(
+      screen.getByText("MenuItemReview Create page not yet implemented")
+    ).toBeInTheDocument();
   });
 });
