@@ -27,4 +27,3 @@ Update.args = {
     window.alert("Submit clicked with data: " + JSON.stringify(data));
   },
 };
-

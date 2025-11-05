@@ -4,7 +4,6 @@ import OurTable, { ButtonColumn } from "main/components/OurTable";
 import { useBackendMutation } from "main/utils/useBackend";
 import { onDeleteSuccess } from "main/utils/UCSBDateUtils";
 
-
 import { useNavigate } from "react-router";
 import { hasRole } from "main/utils/useCurrentUser";
 
@@ -15,18 +14,15 @@ export default function RecommendationRequestTable({ requests, currentUser }) {
     navigate(`/recommendationrequests/edit/${cell.row.original.id}`);
   };
 
- 
-  
   const deleteMutation = useBackendMutation(
-  (cell) => ({
-    url: "/api/recommendationrequests",
-    method: "DELETE",
-    params: { id: cell.row.values.id },
-  }),
-  { onSuccess: onDeleteSuccess },
-  ["/api/recommendationrequests/all"]
-);
-
+    (cell) => ({
+      url: "/api/recommendationrequests",
+      method: "DELETE",
+      params: { id: cell.row.values.id },
+    }),
+    { onSuccess: onDeleteSuccess },
+    ["/api/recommendationrequests/all"],
+  );
 
   const deleteCallback = async (cell) => {
     deleteMutation.mutate(cell);
@@ -66,10 +62,20 @@ export default function RecommendationRequestTable({ requests, currentUser }) {
 
   if (hasRole(currentUser, "ROLE_ADMIN")) {
     columns.push(
-      ButtonColumn("Edit", "primary", editCallback, "RecommendationRequestTable"),
+      ButtonColumn(
+        "Edit",
+        "primary",
+        editCallback,
+        "RecommendationRequestTable",
+      ),
     );
     columns.push(
-      ButtonColumn("Delete", "danger", deleteCallback, "RecommendationRequestTable"),
+      ButtonColumn(
+        "Delete",
+        "danger",
+        deleteCallback,
+        "RecommendationRequestTable",
+      ),
     );
   }
 
