@@ -5,7 +5,7 @@ const articlesFixtures = {
       title: "Lions release two players",
       url: "https://nfltraderumors.co/lions-release-two-players/",
       explanation: "Article on nfl team lions",
-      email: "tony.jamous@gmail.com"
+      email: "tony.jamous@example.com"
     },
   ],
   threeArticles: [
