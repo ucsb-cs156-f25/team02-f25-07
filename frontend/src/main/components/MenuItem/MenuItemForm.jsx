@@ -2,7 +2,7 @@ import { Button, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
 
-function UCSBOrganizationForm({
+function MenuItemForm({
   initialContents,
   submitAction,
   buttonLabel = "Create",
@@ -17,7 +17,7 @@ function UCSBOrganizationForm({
 
   const navigate = useNavigate();
 
-  const testIdPrefix = "UCSBOrganizationForm";
+  const testIdPrefix = "MenuItemForm";
 
   return (
     <Form onSubmit={handleSubmit(submitAction)}>
@@ -36,14 +36,14 @@ function UCSBOrganizationForm({
       )}
 
       <Form.Group className="mb-3">
-        <Form.Label htmlFor="orgCode">OrgCode</Form.Label>
+        <Form.Label htmlFor="diningCommonsCode">DiningCommonsCode</Form.Label>
         <Form.Control
-          data-testid={testIdPrefix + "-orgCode"}
-          id="orgCode"
+          data-testid={testIdPrefix + "-diningCommonsCode"}
+          id="diningCommonsCode"
           type="text"
-          isInvalid={Boolean(errors.orgCode)}
-          {...register("orgCode", {
-            required: "OrgCode is required.",
+          isInvalid={Boolean(errors.diningCommonsCode)}
+          {...register("diningCommonsCode", {
+            required: "DiningCommonsCode is required.",
             maxLength: {
               value: 30,
               message: "Max length 30 characters",
@@ -51,58 +51,39 @@ function UCSBOrganizationForm({
           })}
         />
         <Form.Control.Feedback type="invalid">
-          {errors.orgCode?.message}
+          {errors.diningCommonsCode?.message}
         </Form.Control.Feedback>
       </Form.Group>
 
       <Form.Group className="mb-3">
-        <Form.Label htmlFor="orgTranslationShort">
-          OrgTranslationShort
-        </Form.Label>
+        <Form.Label htmlFor="name">Name</Form.Label>
         <Form.Control
-          data-testid={testIdPrefix + "-orgTranslationShort"}
-          id="orgTranslationShort"
+          data-testid={testIdPrefix + "-name"}
+          id="name"
           type="text"
-          isInvalid={Boolean(errors.orgTranslationShort)}
-          {...register("orgTranslationShort", {
-            required: "OrgTranslationShort is required.",
+          isInvalid={Boolean(errors.name)}
+          {...register("name", {
+            required: "Name is required.",
           })}
         />
         <Form.Control.Feedback type="invalid">
-          {errors.orgTranslationShort?.message}
+          {errors.name?.message}
         </Form.Control.Feedback>
       </Form.Group>
 
       <Form.Group className="mb-3">
-        <Form.Label htmlFor="orgTranslation">OrgTranslation</Form.Label>
+        <Form.Label htmlFor="station">Station</Form.Label>
         <Form.Control
-          data-testid={testIdPrefix + "-orgTranslation"}
-          id="orgTranslation"
+          data-testid={testIdPrefix + "-station"}
+          id="station"
           type="text"
-          isInvalid={Boolean(errors.orgTranslation)}
-          {...register("orgTranslation", {
-            required: "OrgTranslation is required.",
+          isInvalid={Boolean(errors.station)}
+          {...register("station", {
+            required: "Station is required.",
           })}
         />
         <Form.Control.Feedback type="invalid">
-          {errors.orgTranslation?.message}
-        </Form.Control.Feedback>
-      </Form.Group>
-
-      <Form.Group className="mb-3" controlId="inactive">
-        <Form.Label>Inactive</Form.Label>
-        <Form.Select
-          aria-label="Inactive select"
-          data-testid={testIdPrefix + "-inactive"}
-          isInvalid={Boolean(errors.inactive)}
-          {...register("inactive", { required: "Inactive status is required" })}
-        >
-          <option value="">Select status...</option>
-          <option value="true">true</option>
-          <option value="false">false</option>
-        </Form.Select>
-        <Form.Control.Feedback type="invalid">
-          {errors.inactive?.message}
+          {errors.station?.message}
         </Form.Control.Feedback>
       </Form.Group>
 
@@ -120,4 +101,4 @@ function UCSBOrganizationForm({
   );
 }
 
-export default UCSBOrganizationForm;
+export default MenuItemForm;
