@@ -1,43 +1,43 @@
 import React from "react";
-import UCSBOrganizationTable from "main/components/UCSBOrganization/UCSBOrganizationTable";
-import { UCSBOrganizationFixtures } from "fixtures/ucsbOrganizationFixtures";
+import ArticlesTable from "main/components/Articles/ArticlesTable";
+import { articlesFixtures } from "fixtures/articlesFixtures";
 import { currentUserFixtures } from "fixtures/currentUserFixtures";
 import { http, HttpResponse } from "msw";
 
 export default {
-  title: "components/UCSBOrganization/UCSBOrganizationTable",
-  component: UCSBOrganizationTable,
+  title: "components/Articles/ArticlesTable",
+  component: ArticlesTable,
 };
 
 const Template = (args) => {
-  return <UCSBOrganizationTable {...args} />;
+  return <ArticlesTable {...args} />;
 };
 
 export const Empty = Template.bind({});
 
 Empty.args = {
-  ucsborganizations: [],
+  articles: [],
   currentUser: currentUserFixtures.userOnly,
 };
 
 export const ThreeItemsOrdinaryUser = Template.bind({});
 
 ThreeItemsOrdinaryUser.args = {
-  ucsborganizations: UCSBOrganizationFixtures.threeUCSBOrganizations,
+  articles: articlesFixtures.threeArticles,
   currentUser: currentUserFixtures.userOnly,
 };
 
 export const ThreeItemsAdminUser = Template.bind({});
 ThreeItemsAdminUser.args = {
-  ucsborganizations: UCSBOrganizationFixtures.threeUCSBOrganizations,
+  articles: articlesFixtures.threeArticles,
   currentUser: currentUserFixtures.adminUser,
 };
 
 ThreeItemsAdminUser.parameters = {
   msw: [
-    http.delete("/api/UCSBOrganization", () => {
+    http.delete("/api/articles", () => {
       return HttpResponse.json(
-        { message: "UCSBOrganization deleted successfully" },
+        { message: "Article deleted successfully" },
         { status: 200 },
       );
     }),
