@@ -45,8 +45,8 @@ function UCSBOrganizationForm({
           {...register("orgCode", {
             required: "OrgCode is required.",
             maxLength: {
-              value: 255,
-              message: "Max length 255 characters",
+              value: 30,
+              message: "Max length 30 characters",
             },
           })}
         />
@@ -120,3 +120,4 @@ function UCSBOrganizationForm({
   );
 }
 export default UCSBOrganizationForm;
+
