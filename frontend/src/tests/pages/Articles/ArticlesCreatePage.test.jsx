@@ -68,7 +68,7 @@ describe("ArticlesCreatePage tests", () => {
       url: "https://example.com",
       explanation: "This is a test article",
       email: "test@example.com",
-      dateAdded: "2022-01-03T00:00:00",
+      dateAdded: "2022-01-03T00:00",
     };
 
     axiosMock.onPost("/api/articles/post").reply(202, article);
@@ -88,7 +88,7 @@ describe("ArticlesCreatePage tests", () => {
     const titleInput = screen.getByLabelText("Title");
     expect(titleInput).toBeInTheDocument();
 
-    const urlInput = screen.getByLabelText("Url");
+    const urlInput = screen.getByLabelText("URL");
     expect(urlInput).toBeInTheDocument();
 
     const explanationInput = screen.getByLabelText("Explanation");
@@ -110,7 +110,7 @@ describe("ArticlesCreatePage tests", () => {
     });
     fireEvent.change(emailInput, { target: { value: "test@example.com" } });
     fireEvent.change(dateAddedInput, {
-      target: { value: "2022-01-03T00:00:00" },
+      target: { value: "2022-01-03T00:00" },
     });
     fireEvent.click(createButton);
 
@@ -121,7 +121,7 @@ describe("ArticlesCreatePage tests", () => {
       url: "https://example.com",
       explanation: "This is a test article",
       email: "test@example.com",
-      dateAdded: "2022-01-03T00:00:00",
+      dateAdded: "2022-01-03T00:00",
     });
 
     // assert - check that the toast was called with the expected message
