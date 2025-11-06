@@ -36,7 +36,9 @@ describe("RecommendationRequestCreatePage tests", () => {
       </QueryClientProvider>
     );
 
-    await screen.findByText("Create page not yet implemented");
-    expect(screen.getByText("Create page not yet implemented")).toBeInTheDocument();
+   await screen.findByText("Create page for Recommendation Request (placeholder)");
+ expect(
+   screen.getByText("Create page for Recommendation Request (placeholder)")
+ ).toBeInTheDocument();
   });
 });

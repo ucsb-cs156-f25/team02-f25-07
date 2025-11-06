@@ -34,10 +34,14 @@ describe("RecommendationRequestIndexPage tests", () => {
       </QueryClientProvider>
     );
 
-    await screen.findByText("Index page not yet implemented");
+   await screen.findByText("Index page for Recommendation Request (placeholder)");
 
-    expect(screen.getByText("Index page not yet implemented")).toBeInTheDocument();
-    expect(screen.getByText("Create")).toBeInTheDocument();
-    expect(screen.getByText("Edit")).toBeInTheDocument();
+expect(
+  screen.getByText("Index page for Recommendation Request (placeholder)")
+).toBeInTheDocument();
+
+expect(screen.getByText("Create")).toBeInTheDocument();
+expect(screen.getByText("Edit")).toBeInTheDocument();
+
   });
 });

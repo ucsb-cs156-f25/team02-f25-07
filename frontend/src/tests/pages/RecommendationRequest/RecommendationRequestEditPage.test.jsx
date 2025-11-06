@@ -35,7 +35,9 @@ describe("RecommendationRequestEditPage tests", () => {
       </QueryClientProvider>
     );
 
-    await screen.findByText("Edit page not yet implemented");
-    expect(screen.getByText("Edit page not yet implemented")).toBeInTheDocument();
+   await screen.findByText("Edit page for Recommendation Request (placeholder)");
+ expect(
+  screen.getByText("Edit page for Recommendation Request (placeholder)")
+ ).toBeInTheDocument();
   });
 });
