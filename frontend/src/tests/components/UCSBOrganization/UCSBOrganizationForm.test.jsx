@@ -2,7 +2,10 @@ import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { BrowserRouter as Router } from "react-router";
 
 import UCSBOrganizationForm from "main/components/UCSBOrganization/UCSBOrganizationForm";
-import {UCSBOrganizationFixtures} from "fixtures/ucsbOrganizationFixtures";
+import {
+  UCSBOrganizationFixtures,
+  _UCSBOrganizationFixtures,
+} from "fixtures/ucsbOrganizationFixtures";
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
@@ -145,14 +148,11 @@ describe("UCSBOrganizationForm tests", () => {
     expect(screen.getByText(/OrgTranslation is required/)).toBeInTheDocument();
 
     const OrgCodeInput = screen.getByTestId(`${testId}-orgCode`);
-    fireEvent.change(OrgCodeInput, { target: { value: "a".repeat(31) } });
+    fireEvent.change(OrgCodeInput, { target: { value: "a".repeat(256) } });
     fireEvent.click(submitButton);
 
     await waitFor(() => {
-      expect(screen.getByText(/Max length 30 characters/)).toBeInTheDocument();
+      expect(screen.getByText(/Max length 255 characters/)).toBeInTheDocument();
     });
   });
 });
-
-
-

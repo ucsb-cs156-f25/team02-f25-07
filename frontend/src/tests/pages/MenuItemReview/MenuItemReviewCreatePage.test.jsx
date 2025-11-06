@@ -36,24 +36,29 @@ describe("MenuItemReviewCreatePage tests", () => {
     axiosMock.reset();
     axiosMock.resetHistory();
 
-    axiosMock.onGet("/api/currentUser").reply(200, apiCurrentUserFixtures.userOnly);
-    axiosMock.onGet("/api/systemInfo").reply(200, systemInfoFixtures.showingNeither);
+    axiosMock
+      .onGet("/api/currentUser")
+      .reply(200, apiCurrentUserFixtures.userOnly);
+    axiosMock
+      .onGet("/api/systemInfo")
+      .reply(200, systemInfoFixtures.showingNeither);
   });
 
   const renderPage = (ui = <MenuItemReviewCreatePage />) =>
     render(
       <QueryClientProvider client={new QueryClient()}>
         <MemoryRouter>{ui}</MemoryRouter>
-      </QueryClientProvider>
+      </QueryClientProvider>,
     );
 
   test("MenuItemReviewCreatePage tests renders without crashing", async () => {
     renderPage();
     await waitFor(() => {
-      expect(screen.getByTestId("MenuItemReviewForm-itemId")).toBeInTheDocument();
+      expect(
+        screen.getByTestId("MenuItemReviewForm-itemId"),
+      ).toBeInTheDocument();
     });
   });
-
 
   test("MenuItemReviewCreatePage tests on submit, builds correct request and shows toast on success", async () => {
     const captured = { req: null, staleKeys: null };
@@ -65,24 +70,36 @@ describe("MenuItemReviewCreatePage tests", () => {
         captured.staleKeys = staleKeys;
         return {
           mutate: (data) => {
-            captured.req = fn(data);             
-            opts.onSuccess({ id: 42, ...data });     
+            captured.req = fn(data);
+            opts.onSuccess({ id: 42, ...data });
           },
-          isSuccess: false,                         
+          isSuccess: false,
         };
       });
 
     renderPage();
 
     await waitFor(() => {
-      expect(screen.getByTestId("MenuItemReviewForm-itemId")).toBeInTheDocument();
+      expect(
+        screen.getByTestId("MenuItemReviewForm-itemId"),
+      ).toBeInTheDocument();
     });
 
-    fireEvent.change(screen.getByTestId("MenuItemReviewForm-itemId"), { target: { value: "12" } });
-    fireEvent.change(screen.getByTestId("MenuItemReviewForm-reviewerEmail"), { target: { value: "user@ucsb.edu" } });
-    fireEvent.change(screen.getByTestId("MenuItemReviewForm-stars"), { target: { value: "5" } });
-    fireEvent.change(screen.getByTestId("MenuItemReviewForm-dateReviewed"), { target: { value: "2025-10-31T15:00" } });
-    fireEvent.change(screen.getByTestId("MenuItemReviewForm-comments"), { target: { value: "great!" } });
+    fireEvent.change(screen.getByTestId("MenuItemReviewForm-itemId"), {
+      target: { value: "12" },
+    });
+    fireEvent.change(screen.getByTestId("MenuItemReviewForm-reviewerEmail"), {
+      target: { value: "user@ucsb.edu" },
+    });
+    fireEvent.change(screen.getByTestId("MenuItemReviewForm-stars"), {
+      target: { value: "5" },
+    });
+    fireEvent.change(screen.getByTestId("MenuItemReviewForm-dateReviewed"), {
+      target: { value: "2025-10-31T15:00" },
+    });
+    fireEvent.change(screen.getByTestId("MenuItemReviewForm-comments"), {
+      target: { value: "great!" },
+    });
 
     fireEvent.click(screen.getByTestId("MenuItemReviewForm-submit"));
 
@@ -99,13 +116,11 @@ describe("MenuItemReviewCreatePage tests", () => {
       },
     });
 
-
     expect(mockToast).toBeCalledWith("New MenuItemReview Created - id: 42");
 
     spy.mockRestore();
   });
 });
-
 
 describe("MenuItemReviewCreatePage stale key & navigation contract", () => {
   const axiosMock = new AxiosMockAdapter(axios);
@@ -114,8 +129,12 @@ describe("MenuItemReviewCreatePage stale key & navigation contract", () => {
     vi.clearAllMocks();
     axiosMock.reset();
     axiosMock.resetHistory();
-    axiosMock.onGet("/api/currentUser").reply(200, apiCurrentUserFixtures.userOnly);
-    axiosMock.onGet("/api/systemInfo").reply(200, systemInfoFixtures.showingNeither);
+    axiosMock
+      .onGet("/api/currentUser")
+      .reply(200, apiCurrentUserFixtures.userOnly);
+    axiosMock
+      .onGet("/api/systemInfo")
+      .reply(200, systemInfoFixtures.showingNeither);
   });
 
   test("MenuItemReviewCreatePage stale key contract passes ['/api/menuitemreview/all'] to useBackendMutation", async () => {
@@ -125,7 +144,7 @@ describe("MenuItemReviewCreatePage stale key & navigation contract", () => {
       .spyOn(backend, "useBackendMutation")
       .mockImplementation((fn, opts, staleKeys) => {
         captured.staleKeys = staleKeys;
-        return { mutate: vi.fn(), isSuccess: false }; 
+        return { mutate: vi.fn(), isSuccess: false };
       });
 
     render(
@@ -133,7 +152,7 @@ describe("MenuItemReviewCreatePage stale key & navigation contract", () => {
         <MemoryRouter>
           <MenuItemReviewCreatePage />
         </MemoryRouter>
-      </QueryClientProvider>
+      </QueryClientProvider>,
     );
 
     await waitFor(() => expect(captured.staleKeys).not.toBeNull());
@@ -154,7 +173,7 @@ describe("MenuItemReviewCreatePage stale key & navigation contract", () => {
           {}
           <MenuItemReviewCreatePage />
         </MemoryRouter>
-      </QueryClientProvider>
+      </QueryClientProvider>,
     );
 
     await waitFor(() => {
@@ -175,7 +194,7 @@ describe("MenuItemReviewCreatePage stale key & navigation contract", () => {
         <MemoryRouter>
           <MenuItemReviewCreatePage storybook={true} />
         </MemoryRouter>
-      </QueryClientProvider>
+      </QueryClientProvider>,
     );
 
     await waitFor(() => {

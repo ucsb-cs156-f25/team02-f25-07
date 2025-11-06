@@ -67,17 +67,18 @@ describe("MenuItemReviewTable tests", () => {
     render(
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
-          <MenuItemReviewTable
-            menuItemReviews={[]}
-            currentUser={currentUser}
-          />
+          <MenuItemReviewTable menuItemReviews={[]} currentUser={currentUser} />
         </MemoryRouter>
       </QueryClientProvider>,
     );
 
-    expectedHeaders.forEach((h) => expect(screen.getByText(h)).toBeInTheDocument());
+    expectedHeaders.forEach((h) =>
+      expect(screen.getByText(h)).toBeInTheDocument(),
+    );
     expectedFields.forEach((f) =>
-      expect(screen.queryByTestId(`${testId}-cell-row-0-col-${f}`)).not.toBeInTheDocument(),
+      expect(
+        screen.queryByTestId(`${testId}-cell-row-0-col-${f}`),
+      ).not.toBeInTheDocument(),
     );
   });
 
@@ -95,13 +96,21 @@ describe("MenuItemReviewTable tests", () => {
       </QueryClientProvider>,
     );
 
-    expectedHeaders.forEach((h) => expect(screen.getByText(h)).toBeInTheDocument());
+    expectedHeaders.forEach((h) =>
+      expect(screen.getByText(h)).toBeInTheDocument(),
+    );
     expectedFields.forEach((f) =>
-      expect(screen.getByTestId(`${testId}-cell-row-0-col-${f}`)).toBeInTheDocument(),
+      expect(
+        screen.getByTestId(`${testId}-cell-row-0-col-${f}`),
+      ).toBeInTheDocument(),
     );
 
-    expect(screen.getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("1");
-    expect(screen.getByTestId(`${testId}-cell-row-0-col-itemId`)).toHaveTextContent("10");
+    expect(screen.getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent(
+      "1",
+    );
+    expect(
+      screen.getByTestId(`${testId}-cell-row-0-col-itemId`),
+    ).toHaveTextContent("10");
     expect(
       screen.getByTestId(`${testId}-cell-row-0-col-reviewerEmail`),
     ).toHaveTextContent("student@ucsb.edu");
@@ -129,13 +138,21 @@ describe("MenuItemReviewTable tests", () => {
       </QueryClientProvider>,
     );
 
-    expectedHeaders.forEach((h) => expect(screen.getByText(h)).toBeInTheDocument());
+    expectedHeaders.forEach((h) =>
+      expect(screen.getByText(h)).toBeInTheDocument(),
+    );
     expectedFields.forEach((f) =>
-      expect(screen.getByTestId(`${testId}-cell-row-0-col-${f}`)).toBeInTheDocument(),
+      expect(
+        screen.getByTestId(`${testId}-cell-row-0-col-${f}`),
+      ).toBeInTheDocument(),
     );
 
-    expect(screen.queryByTestId(`${testId}-cell-row-0-col-Edit-button`)).not.toBeInTheDocument();
-    expect(screen.queryByTestId(`${testId}-cell-row-0-col-Delete-button`)).not.toBeInTheDocument();
+    expect(
+      screen.queryByTestId(`${testId}-cell-row-0-col-Edit-button`),
+    ).not.toBeInTheDocument();
+    expect(
+      screen.queryByTestId(`${testId}-cell-row-0-col-Delete-button`),
+    ).not.toBeInTheDocument();
   });
 
   test("Edit button navigates to the edit page", async () => {
@@ -152,7 +169,9 @@ describe("MenuItemReviewTable tests", () => {
       </QueryClientProvider>,
     );
 
-    expect(await screen.findByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("1");
+    expect(
+      await screen.findByTestId(`${testId}-cell-row-0-col-id`),
+    ).toHaveTextContent("1");
 
     const editBtn = screen.getByTestId(`${testId}-cell-row-0-col-Edit-button`);
     fireEvent.click(editBtn);
@@ -166,7 +185,9 @@ describe("MenuItemReviewTable tests", () => {
     const currentUser = currentUserFixtures.adminUser;
 
     const axiosMock = new AxiosMockAdapter(axios);
-    axiosMock.onDelete(/\/api\/menuitemreview.*/).reply(200, { message: "MenuItemReview deleted" });
+    axiosMock
+      .onDelete(/\/api\/menuitemreview.*/)
+      .reply(200, { message: "MenuItemReview deleted" });
 
     render(
       <QueryClientProvider client={queryClient}>
@@ -180,7 +201,9 @@ describe("MenuItemReviewTable tests", () => {
     );
 
     await waitFor(() =>
-      expect(screen.getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("1"),
+      expect(
+        screen.getByTestId(`${testId}-cell-row-0-col-id`),
+      ).toHaveTextContent("1"),
     );
 
     const delBtn = screen.getByTestId(`${testId}-cell-row-0-col-Delete-button`);
