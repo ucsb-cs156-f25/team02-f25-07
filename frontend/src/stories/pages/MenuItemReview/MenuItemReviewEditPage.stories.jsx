@@ -1,43 +1,46 @@
 import React from "react";
 import { apiCurrentUserFixtures } from "fixtures/currentUserFixtures";
 import { systemInfoFixtures } from "fixtures/systemInfoFixtures";
-import { UCSBOrganizationFixtures } from "fixtures/ucsbOrganizationFixtures";
 import { http, HttpResponse } from "msw";
 
-import UCSBOrganizationIndexPage from "main/pages/UCSBOrganization/UCSBOrganizationIndexPage";
+import MenuItemReviewEditPage from "main/pages/MenuItemReview/MenuItemReviewEditPage";
+import { menuItemReviewFixtures } from "fixtures/menuItemReviewFixtures";
 
 export default {
-  title: "pages/UCSBOrganization/UCSBOrganizationIndexPage",
-  component: UCSBOrganizationIndexPage,
+  title: "pages/MenuItemReview/MenuItemReviewEditPage",
+  component: MenuItemReviewEditPage,
 };
 
-const Template = () => <UCSBOrganizationIndexPage storybook={true} />;
+const Template = () => <MenuItemReviewEditPage storybook={true} />;
 
 export const Default = Template.bind({});
 Default.parameters = {
   msw: [
+    // current user fixture
     http.get("/api/currentUser", () => {
       return HttpResponse.json(apiCurrentUserFixtures.userOnly, {
         status: 200,
       });
     }),
+
+    // system info fixture
     http.get("/api/systemInfo", () => {
       return HttpResponse.json(systemInfoFixtures.showingNeither, {
         status: 200,
       });
     }),
-    http.get("/api/UCSBOrganization", () => {
-      return HttpResponse.json(UCSBOrganizationFixtures.threeUCSBOrganizations[0], {
+
+    // GET a specific menu item review
+    http.get("/api/menuitemreview", () => {
+      return HttpResponse.json(menuItemReviewFixtures.oneReview, {
         status: 200,
       });
     }),
-    http.put("/api/UCSBOrganization", () => {
-      return HttpResponse.json({}, { status: 200 });
-    }),
-    http.put("/api/UCSBOrganization", (req) => {
+
+    // PUT update endpoint
+    http.put("/api/menuitemreview", (req) => {
       window.alert("PUT: " + req.url + " and body: " + req.body);
       return HttpResponse.json({}, { status: 200 });
     }),
   ],
 };
-

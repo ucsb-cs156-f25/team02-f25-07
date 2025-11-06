@@ -6,7 +6,6 @@ import { useNavigate } from "react-router";
 import { hasRole } from "main/utils/useCurrentUser";
 import { toast } from "react-toastify";
 
-
 export const buildDeleteParams = (cell) => {
   const id = cell?.row?.values?.id ?? cell?.row?.original?.id;
   return {
@@ -55,15 +54,12 @@ export default function MenuItemReviewTable({
 
   if (hasRole(currentUser, "ROLE_ADMIN")) {
     columns.push(ButtonColumn("Edit", "primary", editCallback, testIdPrefix));
-    columns.push(ButtonColumn("Delete", "danger", deleteCallback, testIdPrefix));
+    columns.push(
+      ButtonColumn("Delete", "danger", deleteCallback, testIdPrefix),
+    );
   }
 
   return (
-    <OurTable
-      data={menuItemReviews}
-      columns={columns}
-      testid={testIdPrefix}
-    />
+    <OurTable data={menuItemReviews} columns={columns} testid={testIdPrefix} />
   );
 }
-
