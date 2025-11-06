@@ -94,7 +94,6 @@ describe("UCSBOrganizationIndexPage tests", () => {
       "3",
     );
 
-
     const createButton = screen.queryByText("Create UCSBOrganization");
     expect(createButton).not.toBeInTheDocument();
 
@@ -113,18 +112,17 @@ describe("UCSBOrganizationIndexPage tests", () => {
     expect(
       screen.getByTestId(`${testId}-cell-row-0-col-inactive`),
     ).toHaveTextContent("false");
-   
 
     // for non-admin users, details button is visible, but the edit and delete buttons should not be visible
     expect(
-      screen.queryByTestId("UCSBOrganizationTable-cell-row-0-col-Delete-button"),
+      screen.queryByTestId(
+        "UCSBOrganizationTable-cell-row-0-col-Delete-button",
+      ),
     ).not.toBeInTheDocument();
     expect(
       screen.queryByTestId("UCSBOrganizationTable-cell-row-0-col-Edit-button"),
     ).not.toBeInTheDocument();
   });
-
-
 
   test("renders empty table when backend unavailable, user only", async () => {
     setupUserOnly();
@@ -188,7 +186,9 @@ describe("UCSBOrganizationIndexPage tests", () => {
     fireEvent.click(deleteButton);
 
     await waitFor(() => {
-      expect(mockToast).toBeCalledWith("UCSBOrganization with id 1 was deleted");
+      expect(mockToast).toBeCalledWith(
+        "UCSBOrganization with id 1 was deleted",
+      );
     });
 
     await waitFor(() => {

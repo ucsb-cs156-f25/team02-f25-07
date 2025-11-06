@@ -1,8 +1,5 @@
 import { fireEvent, render, waitFor, screen } from "@testing-library/react";
-import {
-  UCSBOrganizationFixtures,
-  _UCSBOrganizationFixtures,
-} from "fixtures/ucsbOrganizationFixtures";
+import {UCSBOrganizationFixtures} from "fixtures/ucsbOrganizationFixtures";
 import UCSBOrganizationTable from "main/components/UCSBOrganization/UCSBOrganizationTable";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { MemoryRouter } from "react-router";
@@ -120,7 +117,6 @@ describe("UCSBOrganizationTable tests", () => {
     );
     expect(deleteButton).toBeInTheDocument();
     expect(deleteButton).toHaveClass("btn-danger");
-
   });
 
   test("Has the expected column headers, content for ordinary user", () => {
@@ -199,7 +195,9 @@ describe("UCSBOrganizationTable tests", () => {
 
     // assert - check that the navigate function was called with the expected path
     await waitFor(() =>
-      expect(mockedNavigate).toHaveBeenCalledWith("/ucsborganization/edit/1"),
+      expect(mockedNavigate).toHaveBeenCalledWith(
+        "/ucsborganization/edit/UCSB",
+      ),
     );
   });
 
@@ -243,3 +241,4 @@ describe("UCSBOrganizationTable tests", () => {
     expect(axiosMock.history.delete[0].params).toEqual({ orgCode: "UCSB" });
   });
 });
+

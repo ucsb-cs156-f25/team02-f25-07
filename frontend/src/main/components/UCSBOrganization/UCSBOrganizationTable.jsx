@@ -16,7 +16,7 @@ export default function UCSBOrganizationTable({
   const navigate = useNavigate();
 
   const editCallback = (cell) => {
-    navigate(`/ucsborganization/edit/${cell.row.original.id}`);
+    navigate(`/ucsborganization/edit/${cell.row.original.orgCode}`);
   };
 
   // Stryker disable all : hard to test for query caching
@@ -58,7 +58,9 @@ export default function UCSBOrganizationTable({
   ];
 
   if (hasRole(currentUser, "ROLE_ADMIN")) {
-    columns.push(ButtonColumn("Edit", "primary", editCallback, "UCSBOrganizationTable"));
+    columns.push(
+      ButtonColumn("Edit", "primary", editCallback, "UCSBOrganizationTable"),
+    );
     columns.push(
       ButtonColumn("Delete", "danger", deleteCallback, "UCSBOrganizationTable"),
     );
