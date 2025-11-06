@@ -10,7 +10,6 @@ import { recommendationRequestFixtures } from "fixtures/recommendationRequestFix
 import * as useBackend from "main/utils/useBackend";
 import { onDeleteSuccess } from "main/utils/UCSBDateUtils";
 
-
 // mock useNavigate
 const mockedNavigate = vi.fn();
 vi.mock("react-router", async () => {
@@ -21,7 +20,7 @@ vi.mock("react-router", async () => {
 // Mock the useBackendMutation hook
 const mockMutate = vi.fn();
 vi.mock("main/utils/useBackend", () => ({
-  useBackendMutation: vi.fn(() => ({ mutate: mockMutate }))
+  useBackendMutation: vi.fn(() => ({ mutate: mockMutate })),
 }));
 
 describe("RecommendationRequestTable tests", () => {
@@ -41,7 +40,7 @@ describe("RecommendationRequestTable tests", () => {
             currentUser={currentUserFixtures.userOnly}
           />
         </MemoryRouter>
-      </QueryClientProvider>
+      </QueryClientProvider>,
     );
 
     const expectedHeaders = [
@@ -58,19 +57,23 @@ describe("RecommendationRequestTable tests", () => {
       expect(screen.getByText(h)).toBeInTheDocument();
     });
 
-    expect(screen.getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("1");
-    expect(screen.getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent("2");
-    expect(screen.getByTestId(`${testId}-cell-row-2-col-id`)).toHaveTextContent("3");
-
+    expect(screen.getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent(
+      "1",
+    );
+    expect(screen.getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent(
+      "2",
+    );
+    expect(screen.getByTestId(`${testId}-cell-row-2-col-id`)).toHaveTextContent(
+      "3",
+    );
 
     expect(
-      screen.queryByTestId(`${testId}-cell-row-0-col-Edit-button`)
+      screen.queryByTestId(`${testId}-cell-row-0-col-Edit-button`),
     ).not.toBeInTheDocument();
     expect(
-      screen.queryByTestId(`${testId}-cell-row-0-col-Delete-button`)
+      screen.queryByTestId(`${testId}-cell-row-0-col-Delete-button`),
     ).not.toBeInTheDocument();
   });
-
 
   test("displays actual data correctly in table cells", () => {
     render(
@@ -81,33 +84,44 @@ describe("RecommendationRequestTable tests", () => {
             currentUser={currentUserFixtures.userOnly}
           />
         </MemoryRouter>
-      </QueryClientProvider>
+      </QueryClientProvider>,
     );
 
-  
     expect(
-      screen.getByTestId(`${testId}-cell-row-0-col-requesterEmail`)
-    ).toHaveTextContent(recommendationRequestFixtures.threeRequests[0].requesterEmail);
-    
+      screen.getByTestId(`${testId}-cell-row-0-col-requesterEmail`),
+    ).toHaveTextContent(
+      recommendationRequestFixtures.threeRequests[0].requesterEmail,
+    );
+
     expect(
-      screen.getByTestId(`${testId}-cell-row-0-col-professorEmail`)
-    ).toHaveTextContent(recommendationRequestFixtures.threeRequests[0].professorEmail);
-    
+      screen.getByTestId(`${testId}-cell-row-0-col-professorEmail`),
+    ).toHaveTextContent(
+      recommendationRequestFixtures.threeRequests[0].professorEmail,
+    );
+
     expect(
-      screen.getByTestId(`${testId}-cell-row-0-col-explanation`)
-    ).toHaveTextContent(recommendationRequestFixtures.threeRequests[0].explanation);
-    
+      screen.getByTestId(`${testId}-cell-row-0-col-explanation`),
+    ).toHaveTextContent(
+      recommendationRequestFixtures.threeRequests[0].explanation,
+    );
+
     expect(
-      screen.getByTestId(`${testId}-cell-row-0-col-dateRequested`)
-    ).toHaveTextContent(recommendationRequestFixtures.threeRequests[0].dateRequested);
-    
+      screen.getByTestId(`${testId}-cell-row-0-col-dateRequested`),
+    ).toHaveTextContent(
+      recommendationRequestFixtures.threeRequests[0].dateRequested,
+    );
+
     expect(
-      screen.getByTestId(`${testId}-cell-row-0-col-dateNeeded`)
-    ).toHaveTextContent(recommendationRequestFixtures.threeRequests[0].dateNeeded);
-    
+      screen.getByTestId(`${testId}-cell-row-0-col-dateNeeded`),
+    ).toHaveTextContent(
+      recommendationRequestFixtures.threeRequests[0].dateNeeded,
+    );
+
     expect(
-      screen.getByTestId(`${testId}-cell-row-0-col-done`)
-    ).toHaveTextContent(String(recommendationRequestFixtures.threeRequests[0].done));
+      screen.getByTestId(`${testId}-cell-row-0-col-done`),
+    ).toHaveTextContent(
+      String(recommendationRequestFixtures.threeRequests[0].done),
+    );
   });
 
   test("admin sees Edit/Delete buttons", () => {
@@ -119,17 +133,16 @@ describe("RecommendationRequestTable tests", () => {
             currentUser={currentUserFixtures.adminUser}
           />
         </MemoryRouter>
-      </QueryClientProvider>
+      </QueryClientProvider>,
     );
 
     expect(
-      screen.getByTestId(`${testId}-cell-row-0-col-Edit-button`)
+      screen.getByTestId(`${testId}-cell-row-0-col-Edit-button`),
     ).toBeInTheDocument();
     expect(
-      screen.getByTestId(`${testId}-cell-row-0-col-Delete-button`)
+      screen.getByTestId(`${testId}-cell-row-0-col-Delete-button`),
     ).toBeInTheDocument();
   });
-
 
   test("Edit and Delete buttons have correct styles", () => {
     render(
@@ -140,12 +153,15 @@ describe("RecommendationRequestTable tests", () => {
             currentUser={currentUserFixtures.adminUser}
           />
         </MemoryRouter>
-      </QueryClientProvider>
+      </QueryClientProvider>,
     );
 
-    const editButton = screen.getByTestId(`${testId}-cell-row-0-col-Edit-button`);
-    const deleteButton = screen.getByTestId(`${testId}-cell-row-0-col-Delete-button`);
-    
+    const editButton = screen.getByTestId(
+      `${testId}-cell-row-0-col-Edit-button`,
+    );
+    const deleteButton = screen.getByTestId(
+      `${testId}-cell-row-0-col-Delete-button`,
+    );
 
     expect(editButton).toHaveClass("btn-primary");
     expect(deleteButton).toHaveClass("btn-danger");
@@ -160,42 +176,37 @@ describe("RecommendationRequestTable tests", () => {
             currentUser={currentUserFixtures.adminUser}
           />
         </MemoryRouter>
-      </QueryClientProvider>
+      </QueryClientProvider>,
     );
 
-    fireEvent.click(
-      screen.getByTestId(`${testId}-cell-row-0-col-Edit-button`)
-    );
+    fireEvent.click(screen.getByTestId(`${testId}-cell-row-0-col-Edit-button`));
 
     await waitFor(() =>
-      expect(mockedNavigate).toHaveBeenCalledWith("/recommendationrequests/edit/1")
+      expect(mockedNavigate).toHaveBeenCalledWith(
+        "/recommendationrequests/edit/1",
+      ),
     );
   });
 
+  test("wires delete mutation with correct transform, options and deps", () => {
+    render(
+      <QueryClientProvider client={queryClient}>
+        <MemoryRouter>
+          <RecommendationRequestTable
+            requests={recommendationRequestFixtures.threeRequests}
+            currentUser={currentUserFixtures.adminUser}
+          />
+        </MemoryRouter>
+      </QueryClientProvider>,
+    );
 
+    expect(useBackend.useBackendMutation).toHaveBeenCalled();
+    const [transform, options, deps] =
+      useBackend.useBackendMutation.mock.calls[0];
 
-test("wires delete mutation with correct transform, options and deps", () => {
-  render(
-    <QueryClientProvider client={queryClient}>
-      <MemoryRouter>
-        <RecommendationRequestTable
-          requests={recommendationRequestFixtures.threeRequests}
-          currentUser={currentUserFixtures.adminUser}
-        />
-      </MemoryRouter>
-    </QueryClientProvider>
-  );
+    expect(options).toEqual({ onSuccess: onDeleteSuccess });
 
-  
-  expect(useBackend.useBackendMutation).toHaveBeenCalled();
-  const [transform, options, deps] = useBackend.useBackendMutation.mock.calls[0];
-
- 
-  expect(options).toEqual({ onSuccess: onDeleteSuccess });
-
-  
-  expect(deps).toEqual(["/api/recommendationrequests/all"]);
-
+    expect(deps).toEqual(["/api/recommendationrequests/all"]);
 
     const axiosParams = transform({ row: { original: { id: 1 } } });
   expect(axiosParams).toEqual({
@@ -203,9 +214,6 @@ test("wires delete mutation with correct transform, options and deps", () => {
     method: "DELETE",
     params: { id: 1 },
   });
-});
-
-
 
   test("Delete button calls mutate function", async () => {
     render(
@@ -216,24 +224,24 @@ test("wires delete mutation with correct transform, options and deps", () => {
             currentUser={currentUserFixtures.adminUser}
           />
         </MemoryRouter>
-      </QueryClientProvider>
+      </QueryClientProvider>,
     );
 
-    const deleteButton = screen.getByTestId(`${testId}-cell-row-0-col-Delete-button`);
+    const deleteButton = screen.getByTestId(
+      `${testId}-cell-row-0-col-Delete-button`,
+    );
     fireEvent.click(deleteButton);
 
-   
     await waitFor(() => expect(mockMutate).toHaveBeenCalledTimes(1));
-    
-   
+
     expect(mockMutate).toHaveBeenCalledWith(
       expect.objectContaining({
         row: expect.objectContaining({
           original: expect.objectContaining({
-            id: 1
-          })
-        })
-      })
+            id: 1,
+          }),
+        }),
+      }),
     );
   });
 });
