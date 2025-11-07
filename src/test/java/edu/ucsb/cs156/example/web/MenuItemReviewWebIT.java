@@ -21,6 +21,7 @@ public class MenuItemReviewWebIT extends WebTestCase {
   public void admin_user_can_create_edit_delete_menu_item_review() throws Exception {
     setupUser(true);
     page.setDefaultTimeout(30000);
+
     
     page.getByText("MenuItemReview").first().click();
 
