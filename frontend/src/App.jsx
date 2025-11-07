@@ -31,6 +31,11 @@ import ArticlesIndexPage from "main/pages/Articles/ArticlesIndexPage";
 import ArticlesEditPage from "main/pages/Articles/ArticlesEditPage";
 import ArticlesCreatePage from "main/pages/Articles/ArticlesCreatePage";
 
+import RecommendationRequestIndexPage from "main/pages/RecommendationRequest/RecommendationRequestIndexPage";
+import RecommendationRequestCreatePage from "main/pages/RecommendationRequest/RecommendationRequestCreatePage";
+import RecommendationRequestEditPage from "main/pages/RecommendationRequest/RecommendationRequestEditPage";
+
+
 function App() {
   const currentUser = useCurrentUser();
   return (
@@ -101,24 +106,45 @@ function App() {
           />
         </>
       )}
+
+
+      {hasRole(currentUser, "ROLE_USER") && (
+  <>
+    <Route
+      exact
+      path="/recommendationrequests"
+      element={<RecommendationRequestIndexPage />}
+    />
+  </>
+)}
+
+{hasRole(currentUser, "ROLE_ADMIN") && (
+  <>
+    <Route
+      exact
+      path="/recommendationrequests/edit/:id"
+      element={<RecommendationRequestEditPage />}
+    />
+    <Route
+      exact
+      path="/recommendationrequests/create"
+      element={<RecommendationRequestCreatePage />}
+    />
+  </>
+)}
+
+
       {hasRole(currentUser, "ROLE_USER") && (
         <>
-          <Route exact path="/articles" element={<ArticlesIndexPage />} />
-          <Route exact path="/menuitemreview" element={<MenuItemReviewIndexPage />} />
+          <Route
+            exact
+            path="/menuitemreview"
+            element={<MenuItemReviewIndexPage />}
+          />
         </>
       )}
       {hasRole(currentUser, "ROLE_ADMIN") && (
         <>
-          <Route
-            exact
-            path="/articles/edit/:id"
-            element={<ArticlesEditPage />}
-          />
-          <Route
-            exact
-            path="/articles/create"
-            element={<ArticlesCreatePage />}
-          />
           <Route
             exact
             path="/menuitemreview/edit/:id"
@@ -163,7 +189,7 @@ function App() {
         <>
           <Route
             exact
-            path="/ucsborganization/edit/:id"
+            path="/ucsborganization/edit/:orgCode"
             element={<UCSBOrganizationEditPage />}
           />
           <Route
