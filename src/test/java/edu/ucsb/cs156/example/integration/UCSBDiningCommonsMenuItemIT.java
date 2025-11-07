@@ -6,7 +6,6 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import edu.ucsb.cs156.example.repositories.UCSBDiningCommonsMenuItemRepository;
 import edu.ucsb.cs156.example.repositories.UserRepository;
 import edu.ucsb.cs156.example.services.CurrentUserService;
 import edu.ucsb.cs156.example.services.GrantedAuthoritiesService;
@@ -37,7 +36,7 @@ public class UCSBDiningCommonsMenuItemIT {
 
   @Autowired public GrantedAuthoritiesService grantedAuthoritiesService;
 
-  @Autowired UCSBDiningCommonsMenuItemRepository menuItemRepository;
+  @Autowired MenuItemRepository menuItemRepository;
 
   @Autowired public MockMvc mockMvc;
 
