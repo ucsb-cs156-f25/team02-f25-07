@@ -6,7 +6,7 @@ const articlesFixtures = {
       url: "https://nfltraderumors.co/lions-release-two-players/",
       explanation: "Article on nfl team lions",
       email: "tony.jamous@gmail.com",
-      dateAdded: "2024-03-15T10:30:00"
+      dateAdded: "2024-03-15T10:30:00",
     },
   ],
   threeArticles: [
@@ -16,7 +16,7 @@ const articlesFixtures = {
       url: "https://technews.com/ai-breakthrough-2024/",
       explanation: "Article about recent advances in artificial intelligence",
       email: "sarah.chen@example.com",
-      dateAdded: "2024-03-20T14:15:00"
+      dateAdded: "2024-03-20T14:15:00",
     },
     {
       id: 3,
@@ -24,7 +24,7 @@ const articlesFixtures = {
       url: "https://localnews.com/community-festival-recap/",
       explanation: "Coverage of the town's largest annual event",
       email: "mike.rodriguez@example.com",
-      dateAdded: "2024-03-18T09:45:00"
+      dateAdded: "2024-03-18T09:45:00",
     },
     {
       id: 4,
@@ -32,7 +32,7 @@ const articlesFixtures = {
       url: "https://financedaily.com/market-update-april/",
       explanation: "Analysis of recent stock market performance",
       email: "jennifer.walsh@example.com",
-      dateAdded: "2024-03-22T16:20:00"
+      dateAdded: "2024-03-22T16:20:00",
     },
   ],
 };
