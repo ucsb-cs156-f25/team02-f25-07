@@ -2,21 +2,21 @@ import React from "react";
 import { useBackend } from "main/utils/useBackend";
 
 import BasicLayout from "main/layouts/BasicLayout/BasicLayout";
-import UCSBOrganizationTable from "main/components/UCSBOrganization/UCSBOrganizationTable";
+import ArticlesTable from "main/components/Articles/ArticlesTable";
 import { useCurrentUser, hasRole } from "main/utils/useCurrentUser";
 import { Button } from "react-bootstrap";
 
-export default function UCSBOrganizationIndexPage() {
+export default function ArticlesIndexPage() {
   const currentUser = useCurrentUser();
 
   const {
-    data: ucsborganizations,
+    data: articles,
     error: _error,
     status: _status,
   } = useBackend(
     // Stryker disable next-line all : don't test internal caching of React Query
-    ["/api/UCSBOrganization/all"],
-    { method: "GET", url: "/api/UCSBOrganization/all" },
+    ["/api/articles/all"],
+    { method: "GET", url: "/api/articles/all" },
     // Stryker disable next-line all : don't test default value of empty list
     [],
   );
@@ -26,10 +26,10 @@ export default function UCSBOrganizationIndexPage() {
       return (
         <Button
           variant="primary"
-          href="/ucsborganization/create"
+          href="/articles/create"
           style={{ float: "right" }}
         >
-          Create UCSBOrganization
+          Create Article
         </Button>
       );
     }
@@ -39,11 +39,8 @@ export default function UCSBOrganizationIndexPage() {
     <BasicLayout>
       <div className="pt-2">
         {createButton()}
-        <h1>UCSBOrganizations</h1>
-        <UCSBOrganizationTable
-          ucsborganizations={ucsborganizations}
-          currentUser={currentUser}
-        />
+        <h1>Articles</h1>
+        <ArticlesTable articles={articles} currentUser={currentUser} />
       </div>
     </BasicLayout>
   );

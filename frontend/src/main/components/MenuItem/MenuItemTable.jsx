@@ -5,18 +5,19 @@ import { useBackendMutation } from "main/utils/useBackend";
 import {
   cellToAxiosParamsDelete,
   onDeleteSuccess,
-} from "main/utils/UCSBOrganizationUtils";
+} from "main/utils/MenuItemUtil";
 import { useNavigate } from "react-router";
 import { hasRole } from "main/utils/useCurrentUser";
 
-export default function UCSBOrganizationTable({
-  ucsborganizations,
+export default function MenuItemTable({
+  menuItems,
   currentUser,
+  testIdPrefix = "MenuItemTable",
 }) {
   const navigate = useNavigate();
 
   const editCallback = (cell) => {
-    navigate(`/ucsborganization/edit/${cell.row.original.orgCode}`);
+    navigate(`/ucsbdiningcommonsmenuitem/edit/${cell.row.original.id}`);
   };
 
   // Stryker disable all : hard to test for query caching
@@ -24,7 +25,7 @@ export default function UCSBOrganizationTable({
   const deleteMutation = useBackendMutation(
     cellToAxiosParamsDelete,
     { onSuccess: onDeleteSuccess },
-    ["/api/UCSBOrganization/all"],
+    ["/api/ucsbdiningcommonsmenuitem/all"],
   );
   // Stryker restore all
 
@@ -40,37 +41,25 @@ export default function UCSBOrganizationTable({
     },
 
     {
-      header: "OrgCode",
-      accessorKey: "orgCode",
+      header: "DiningCommonsCode",
+      accessorKey: "diningCommonsCode",
     },
     {
-      header: "OrgTranslationShort",
-      accessorKey: "orgTranslationShort",
+      header: "Name",
+      accessorKey: "name",
     },
     {
-      header: "OrgTranslation",
-      accessorKey: "orgTranslation",
-    },
-    {
-      header: "Inactive",
-      accessorKey: "inactive",
+      header: "Station ",
+      accessorKey: "station",
     },
   ];
 
   if (hasRole(currentUser, "ROLE_ADMIN")) {
+    columns.push(ButtonColumn("Edit", "primary", editCallback, testIdPrefix));
     columns.push(
-      ButtonColumn("Edit", "primary", editCallback, "UCSBOrganizationTable"),
-    );
-    columns.push(
-      ButtonColumn("Delete", "danger", deleteCallback, "UCSBOrganizationTable"),
+      ButtonColumn("Delete", "danger", deleteCallback, testIdPrefix),
     );
   }
 
-  return (
-    <OurTable
-      data={ucsborganizations}
-      columns={columns}
-      testid={"UCSBOrganizationTable"}
-    />
-  );
+  return <OurTable data={menuItems} columns={columns} testid={testIdPrefix} />;
 }
