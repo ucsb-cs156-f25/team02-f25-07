@@ -68,7 +68,9 @@ describe("ArticlesEditPage tests", () => {
         </QueryClientProvider>,
       );
       await screen.findByText("Edit Article");
-      expect(screen.queryByTestId("ArticlesForm-title")).not.toBeInTheDocument();
+      expect(
+        screen.queryByTestId("ArticlesForm-title"),
+      ).not.toBeInTheDocument();
       restoreConsole();
     });
   });
@@ -133,11 +135,17 @@ describe("ArticlesEditPage tests", () => {
       expect(idField).toBeInTheDocument();
       expect(idField).toHaveValue("17");
       expect(titleField).toBeInTheDocument();
-      expect(titleField).toHaveValue("Using testing-playground with React Testing Library");
+      expect(titleField).toHaveValue(
+        "Using testing-playground with React Testing Library",
+      );
       expect(urlField).toBeInTheDocument();
-      expect(urlField).toHaveValue("https://dev.to/katieraby/using-testing-playground-with-react-testing-library-26j7");
+      expect(urlField).toHaveValue(
+        "https://dev.to/katieraby/using-testing-playground-with-react-testing-library-26j7",
+      );
       expect(explanationField).toBeInTheDocument();
-      expect(explanationField).toHaveValue("Helpful when we get stuck on writing tests");
+      expect(explanationField).toHaveValue(
+        "Helpful when we get stuck on writing tests",
+      );
       expect(emailField).toBeInTheDocument();
       expect(emailField).toHaveValue("phtcon@ucsb.edu");
       expect(dateAddedField).toBeInTheDocument();
@@ -202,9 +210,15 @@ describe("ArticlesEditPage tests", () => {
       const submitButton = screen.getByTestId("ArticlesForm-submit");
 
       expect(idField).toHaveValue("17");
-      expect(titleField).toHaveValue("Using testing-playground with React Testing Library");
-      expect(urlField).toHaveValue("https://dev.to/katieraby/using-testing-playground-with-react-testing-library-26j7");
-      expect(explanationField).toHaveValue("Helpful when we get stuck on writing tests");
+      expect(titleField).toHaveValue(
+        "Using testing-playground with React Testing Library",
+      );
+      expect(urlField).toHaveValue(
+        "https://dev.to/katieraby/using-testing-playground-with-react-testing-library-26j7",
+      );
+      expect(explanationField).toHaveValue(
+        "Helpful when we get stuck on writing tests",
+      );
       expect(emailField).toHaveValue("phtcon@ucsb.edu");
       expect(dateAddedField).toHaveValue("2022-01-03T00:00");
       expect(submitButton).toBeInTheDocument();
