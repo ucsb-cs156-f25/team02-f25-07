@@ -69,25 +69,35 @@ export default function AppNavbar({
                     Articles
                   </Nav.Link>
                   <Nav.Link as={Link} to="/menuitemreview">
-                  MenuItemReview
+                    MenuItemReview
                   </Nav.Link>
                   <Nav.Link as={Link} to="/ucsbdates">
                     UCSB Dates
                   </Nav.Link>
+                  <Nav.Link as={Link} to="/menuitemreview">
+                    MenuItemReview
+                  </Nav.Link>
                   <Nav.Link as={Link} to="/placeholder">
                     Placeholder
                   </Nav.Link>
+
                   <Nav.Link as={Link} to="/ucsbdiningcommonsmenuitem">
                     UCSB Dining Commons Menu Item
                   </Nav.Link>
                   <Nav.Link as={Link} to="/ucsborganization">
                     UCSBOrganization
+                    </Nav.Link>
+
+                  <Nav.Link as={Link} to="/recommendationrequests">
+                    Recommendation Requests
                   </Nav.Link>
-                </>
+              </>
               ) : (
                 <></>
               )}
             </Nav>
+
+
 
             <Nav className="ml-auto">
               {currentUser && currentUser.loggedIn ? (
