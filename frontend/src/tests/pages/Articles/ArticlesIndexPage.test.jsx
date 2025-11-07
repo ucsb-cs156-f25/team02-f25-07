@@ -183,4 +183,4 @@ describe("ArticlesIndexPage tests", () => {
     expect(axiosMock.history.delete[0].url).toBe("/api/articles");
     expect(axiosMock.history.delete[0].params).toEqual({ id: 2 });
   });
-});//t
+});
