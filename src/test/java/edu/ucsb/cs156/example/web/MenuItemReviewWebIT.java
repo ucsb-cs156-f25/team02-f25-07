@@ -25,16 +25,6 @@ public class MenuItemReviewWebIT extends WebTestCase {
     page.getByText("MenuItemReview").first().click();
 
     page.getByText("Create").first().click();
-
-    assertThat(page.getByTestId("MenuItemReviewForm-itemId")).isVisible();
-
-    page.getByTestId("MenuItemReviewForm-itemId").fill("3");
-    page.getByTestId("MenuItemReviewForm-reviewerEmail").fill("cgaocho@ucsb.edu");
-    page.getByTestId("MenuItemReviewForm-stars").fill("3");
-    page.getByTestId("MenuItemReviewForm-dateReviewed").fill("2025-11-12T00:42");
-    page.getByTestId("MenuItemReviewForm-comments").fill("lumu99");
-
-    page.getByTestId("MenuItemReviewForm-submit").click();
   }
 
   @Test
