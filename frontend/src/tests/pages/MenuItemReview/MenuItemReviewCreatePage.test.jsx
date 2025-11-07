@@ -15,8 +15,12 @@ describe("MenuItemReviewCreatePage tests", () => {
   const setupUserOnly = () => {
     axiosMock.reset();
     axiosMock.resetHistory();
-    axiosMock.onGet("/api/currentUser").reply(200, apiCurrentUserFixtures.userOnly);
-    axiosMock.onGet("/api/systemInfo").reply(200, systemInfoFixtures.showingNeither);
+    axiosMock
+      .onGet("/api/currentUser")
+      .reply(200, apiCurrentUserFixtures.userOnly);
+    axiosMock
+      .onGet("/api/systemInfo")
+      .reply(200, systemInfoFixtures.showingNeither);
   };
 
   const queryClient = new QueryClient();
@@ -31,13 +35,13 @@ describe("MenuItemReviewCreatePage tests", () => {
         <MemoryRouter>
           <MenuItemReviewCreatePage />
         </MemoryRouter>
-      </QueryClientProvider>
+      </QueryClientProvider>,
     );
 
     // assert
     await screen.findByText("MenuItemReview Create page not yet implemented");
     expect(
-      screen.getByText("MenuItemReview Create page not yet implemented")
+      screen.getByText("MenuItemReview Create page not yet implemented"),
     ).toBeInTheDocument();
   });
 });

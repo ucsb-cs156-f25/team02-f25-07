@@ -14,8 +14,12 @@ describe("MenuItemReviewIndexPage tests", () => {
   const setupUserOnly = () => {
     axiosMock.reset();
     axiosMock.resetHistory();
-    axiosMock.onGet("/api/currentUser").reply(200, apiCurrentUserFixtures.userOnly);
-    axiosMock.onGet("/api/systemInfo").reply(200, systemInfoFixtures.showingNeither);
+    axiosMock
+      .onGet("/api/currentUser")
+      .reply(200, apiCurrentUserFixtures.userOnly);
+    axiosMock
+      .onGet("/api/systemInfo")
+      .reply(200, systemInfoFixtures.showingNeither);
   };
 
   const queryClient = new QueryClient();
@@ -30,13 +34,13 @@ describe("MenuItemReviewIndexPage tests", () => {
         <MemoryRouter>
           <MenuItemReviewIndexPage />
         </MemoryRouter>
-      </QueryClientProvider>
+      </QueryClientProvider>,
     );
 
     // assert
     await screen.findByText("MenuItemReview Index page not yet implemented");
     expect(
-      screen.getByText("MenuItemReview Index page not yet implemented")
+      screen.getByText("MenuItemReview Index page not yet implemented"),
     ).toBeInTheDocument();
     expect(screen.getByText("Create")).toBeInTheDocument();
     expect(screen.getByText("Edit")).toBeInTheDocument();
