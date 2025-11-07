@@ -6,8 +6,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import edu.ucsb.cs156.example.entities.MenuItem;
-import edu.ucsb.cs156.example.repositories.MenuItemRepository;
+import edu.ucsb.cs156.example.repositories.UCSBDiningCommonsMenuItemRepository;
 import edu.ucsb.cs156.example.repositories.UserRepository;
 import edu.ucsb.cs156.example.services.CurrentUserService;
 import edu.ucsb.cs156.example.services.GrantedAuthoritiesService;
@@ -33,12 +32,12 @@ import org.springframework.test.web.servlet.MvcResult;
 @ActiveProfiles("integration")
 @Import(TestConfig.class)
 @DirtiesContext(classMode = ClassMode.BEFORE_EACH_TEST_METHOD)
-public class MenuItemIT {
+public class UCSBDiningCommonsMenuItemIT {
   @Autowired public CurrentUserService currentUserService;
 
   @Autowired public GrantedAuthoritiesService grantedAuthoritiesService;
 
-  @Autowired MenuItemRepository menuItemRepository;
+  @Autowired UCSBDiningCommonsMenuItemRepository menuItemRepository;
 
   @Autowired public MockMvc mockMvc;
 
