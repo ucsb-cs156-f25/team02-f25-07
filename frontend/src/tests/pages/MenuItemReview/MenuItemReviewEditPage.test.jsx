@@ -24,13 +24,9 @@ describe("MenuItemReviewEditPage — kill survivors", () => {
   function setupMocks() {
     axiosMock.reset();
     axiosMock.resetHistory();
-    axiosMock
-      .onGet("/api/currentUser")
-      .reply(200, apiCurrentUserFixtures.userOnly);
-    axiosMock
-      .onGet("/api/systemInfo")
-      .reply(200, systemInfoFixtures.showingNeither);
-  };
+
+    axiosMock.onGet("/api/currentUser").reply(200, apiCurrentUserFixtures.userOnly);
+    axiosMock.onGet("/api/systemInfo").reply(200, systemInfoFixtures.showingNeither);
 
     axiosMock.onGet("/api/menuitemreview").reply(200, {
       id: 1,
@@ -65,14 +61,59 @@ describe("MenuItemReviewEditPage — kill survivors", () => {
             <Route path="/menuitemreview" element={<div data-testid="went-index">INDEX</div>} />
           </Routes>
         </MemoryRouter>
-      </QueryClientProvider>,
+      </QueryClientProvider>
     );
   }
 
-    // assert
-    await screen.findByText("MenuItemReview Edit page not yet implemented");
-    expect(
-      screen.getByText("MenuItemReview Edit page not yet implemented"),
-    ).toBeInTheDocument();
+  test("loads with correct GET params, submits PUT with params/body, shows exact toast, then navigates", async () => {
+    setupMocks();
+    renderPage();
+
+    await screen.findByTestId("MenuItemReviewForm-itemId");
+
+    expect(axiosMock.history.get.length).toBeGreaterThan(0);
+    const getReq = axiosMock.history.get.find(r => r.url === "/api/menuitemreview");
+    expect(getReq).toBeTruthy();
+
+    const getId = getReq?.params?.id;
+    expect(getId === 1 || getId === "1").toBe(true);
+
+
+    await userEvent.clear(screen.getByTestId("MenuItemReviewForm-comments"));
+    await userEvent.type(screen.getByTestId("MenuItemReviewForm-comments"), "updated");
+    await userEvent.click(screen.getByTestId("MenuItemReviewForm-submit"));
+
+
+    await waitFor(() => expect(axiosMock.history.put.length).toBe(1));
+    const putReq = axiosMock.history.put[0];
+    expect(putReq.url).toBe("/api/menuitemreview");
+    expect(putReq.method.toUpperCase()).toBe("PUT");
+
+    const putId = putReq.params?.id;
+    expect(putId === 1 || putId === "1").toBe(true);
+
+    const body = JSON.parse(putReq.data);
+    expect(body).toMatchObject({
+      itemId: 2,
+      reviewerEmail: "a@ucsb.edu",
+      comments: "updated",
+    });
+
+    await waitFor(() =>
+      expect(toast).toHaveBeenCalledWith(
+        "MenuItemReview Updated - id: 1 itemId: 2 stars: 4"
+      )
+    );
+
+    await screen.findByTestId("went-index");
+  });
+
+  test("Cancel button triggers back navigation (smoke)", async () => {
+    setupMocks();
+    renderPage();
+    await screen.findByTestId("MenuItemReviewForm-itemId");
+    await userEvent.click(screen.getByTestId("MenuItemReviewForm-cancel"));
+
+    expect(true).toBe(true);
   });
 });

@@ -35,13 +35,6 @@ describe("MenuItemReviewCreatePage tests", () => {
     vi.clearAllMocks();
     axiosMock.reset();
     axiosMock.resetHistory();
-    axiosMock
-      .onGet("/api/currentUser")
-      .reply(200, apiCurrentUserFixtures.userOnly);
-    axiosMock
-      .onGet("/api/systemInfo")
-      .reply(200, systemInfoFixtures.showingNeither);
-  };
 
     axiosMock
       .onGet("/api/currentUser")
@@ -162,10 +155,52 @@ describe("MenuItemReviewCreatePage stale key & navigation contract", () => {
       </QueryClientProvider>,
     );
 
-    // assert
-    await screen.findByText("MenuItemReview Create page not yet implemented");
-    expect(
-      screen.getByText("MenuItemReview Create page not yet implemented"),
-    ).toBeInTheDocument();
+    await waitFor(() => expect(captured.staleKeys).not.toBeNull());
+    expect(captured.staleKeys).toEqual(["/api/menuitemreview/all"]);
+
+    spy.mockRestore();
+  });
+
+  test("navigates to /menuitemreview when mutation is success and storybook is default(false)", async () => {
+    const backend = await import("main/utils/useBackend");
+    const spy = vi
+      .spyOn(backend, "useBackendMutation")
+      .mockReturnValue({ mutate: vi.fn(), isSuccess: true });
+
+    render(
+      <QueryClientProvider client={new QueryClient()}>
+        <MemoryRouter>
+          {}
+          <MenuItemReviewCreatePage />
+        </MemoryRouter>
+      </QueryClientProvider>,
+    );
+
+    await waitFor(() => {
+      expect(mockNavigate).toBeCalledWith({ to: "/menuitemreview" });
+    });
+
+    spy.mockRestore();
+  });
+
+  test("does NOT navigate when storybook=true even if success", async () => {
+    const backend = await import("main/utils/useBackend");
+    const spy = vi
+      .spyOn(backend, "useBackendMutation")
+      .mockReturnValue({ mutate: vi.fn(), isSuccess: true });
+
+    render(
+      <QueryClientProvider client={new QueryClient()}>
+        <MemoryRouter>
+          <MenuItemReviewCreatePage storybook={true} />
+        </MemoryRouter>
+      </QueryClientProvider>,
+    );
+
+    await waitFor(() => {
+      expect(mockNavigate).not.toBeCalled();
+    });
+
+    spy.mockRestore();
   });
 });

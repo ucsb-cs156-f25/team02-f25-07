@@ -107,11 +107,140 @@ describe("MenuItemReviewIndexPage tests", () => {
         </MemoryRouter>
       </QueryClientProvider>,
     );
+  };
+
+  test("Renders with Create Button for admin user", async () => {
+    setupAdminUser();
+    axiosMock.onGet("/api/menuitemreview/all").reply(200, []);
+
+    renderPage();
+
+    await waitFor(() => {
+      expect(screen.getByText(/Create Menu Item Review/)).toBeInTheDocument();
+    });
+    const button = screen.getByText(/Create Menu Item Review/);
+    expect(button).toHaveAttribute("href", "/menuitemreview/create");
+    expect(button).toHaveAttribute("style", "float: right;");
+  });
+
+  test("renders three reviews correctly for regular user", async () => {
+    setupUserOnly();
+    axiosMock
+      .onGet("/api/menuitemreview/all")
+      .reply(200, menuItemReviewFixtures.threeReviews);
+
+    renderPage();
+
+    await waitFor(() => {
+      expect(
+        screen.getByTestId(`${testId}-cell-row-0-col-id`),
+      ).toBeInTheDocument();
+    });
+
+    expect(screen.getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent(
+      "1",
+    );
+    expect(screen.getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent(
+      "2",
+    );
+    expect(screen.getByTestId(`${testId}-cell-row-2-col-id`)).toHaveTextContent(
+      "3",
+    );
 
     expect(
-      screen.getByText("MenuItemReview Index page not yet implemented"),
-    ).toBeInTheDocument();
-    expect(screen.getByText("Create")).toBeInTheDocument();
-    expect(screen.getByText("Edit")).toBeInTheDocument();
+      screen.queryByText("Create Menu Item Review"),
+    ).not.toBeInTheDocument();
+    expect(
+      screen.queryByTestId(`${testId}-cell-row-0-col-Delete-button`),
+    ).not.toBeInTheDocument();
+  });
+
+  test("renders empty table when backend unavailable, user only", async () => {
+    setupUserOnly();
+    axiosMock.onGet("/api/menuitemreview/all").timeout();
+
+    const restoreConsole = mockConsole();
+
+    renderPage();
+
+    await waitFor(() => {
+      expect(axiosMock.history.get.length).toBeGreaterThanOrEqual(1);
+    });
+
+    const errorMessage = console.error?.mock?.calls?.[0]?.[0];
+    if (errorMessage) {
+      expect(errorMessage).toMatch(
+        "Error communicating with backend via GET on /api/menuitemreview/all",
+      );
+    }
+
+    restoreConsole();
+
+    expect(
+      screen.queryByTestId(`${testId}-cell-row-0-col-id`),
+    ).not.toBeInTheDocument();
+  });
+
+  test("what happens when you click delete, admin", async () => {
+    setupAdminUser();
+    axiosMock
+      .onGet("/api/menuitemreview/all")
+      .reply(200, menuItemReviewFixtures.threeReviews);
+    axiosMock.onDelete("/api/menuitemreview").reply(200, { message: "ok" });
+
+    renderPage();
+
+    await waitFor(() => {
+      expect(
+        screen.getByTestId(`${testId}-cell-row-0-col-id`),
+      ).toBeInTheDocument();
+    });
+
+    const firstId = Number(
+      screen.getByTestId(`${testId}-cell-row-0-col-id`).textContent,
+    );
+
+    const deleteButton = await screen.findByTestId(
+      `${testId}-cell-row-0-col-Delete-button`,
+    );
+    expect(deleteButton).toBeInTheDocument();
+
+    fireEvent.click(deleteButton);
+
+    await waitFor(() => {
+      expect(mockToast).toHaveBeenCalledWith(
+        "MenuItemReview deleted successfully",
+      );
+    });
+
+    await waitFor(() => {
+      expect(axiosMock.history.delete.length).toBe(1);
+    });
+    expect(axiosMock.history.delete[0].url).toBe("/api/menuitemreview");
+    expect(axiosMock.history.delete[0].params).toEqual({ id: firstId });
+  });
+
+  test("uses GET method to fetch reviews (kills method mutation)", async () => {
+    setupUserOnly();
+
+    axiosMock.onAny("/api/menuitemreview/all").reply((config) => {
+      if ((config.method ?? "").toUpperCase() !== "GET") {
+        return [405, { error: "Method Not Allowed" }];
+      }
+      return [200, menuItemReviewFixtures.threeReviews];
+    });
+
+    renderPage();
+
+    await waitFor(() => {
+      expect(
+        screen.getByTestId(`${testId}-cell-row-0-col-id`),
+      ).toBeInTheDocument();
+    });
+
+    expect(axiosMock.history.get.length).toBeGreaterThanOrEqual(1);
+    expect(axiosMock.history.post.length).toBe(0);
+    expect(axiosMock.history.put.length).toBe(0);
+    expect(axiosMock.history.delete.length).toBe(0);
   });
 });
