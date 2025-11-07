@@ -32,11 +32,15 @@ Default.parameters = {
       });
     }),
     http.put("/api/ucsbdiningcommonsmenuitem", () => {
-      return HttpResponse.json({}, { status: 200 });
-    }),
-    http.put("/api/ucsbdiningcommonsmenuitem", (req) => {
-      window.alert("PUT: " + req.url + " and body: " + req.body);
-      return HttpResponse.json({}, { status: 200 });
+      return HttpResponse.json(
+        {
+          id: 17,
+          diningCommonsCode: "carillo",
+          name: "keer",
+          station: "madaret",
+        },
+        { status: 200 },
+      );
     }),
   ],
 };

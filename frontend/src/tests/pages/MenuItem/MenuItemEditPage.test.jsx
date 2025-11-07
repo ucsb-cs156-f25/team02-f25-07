@@ -46,7 +46,9 @@ describe("MenuItemEditPage tests", () => {
       axiosMock
         .onGet("/api/systemInfo")
         .reply(200, systemInfoFixtures.showingNeither);
-      axiosMock.onGet("/api/ucsbdiningcommonsmenuitem", { params: { id: 17 } }).timeout();
+      axiosMock
+        .onGet("/api/ucsbdiningcommonsmenuitem", { params: { id: 17 } })
+        .timeout();
     });
 
     afterEach(() => {
@@ -57,7 +59,7 @@ describe("MenuItemEditPage tests", () => {
     });
 
     const queryClient = new QueryClient();
-    test("renders header but table is not present", async () => {
+    test("renders header but form is not present", async () => {
       const restoreConsole = mockConsole();
 
       render(
@@ -84,17 +86,19 @@ describe("MenuItemEditPage tests", () => {
       axiosMock
         .onGet("/api/systemInfo")
         .reply(200, systemInfoFixtures.showingNeither);
-      axiosMock.onGet("/api/ucsbdiningcommonsmenuitem", { params: { id: 17 } }).reply(200, {
-        id: 17,
-        diningCommonsCode: "ortega",
-        name: "kos",
-        station: "pedaret",
-      });
+      axiosMock
+        .onGet("/api/ucsbdiningcommonsmenuitem", { params: { id: 17 } })
+        .reply(200, {
+          id: 17,
+          diningCommonsCode: "ortega",
+          name: "kos",
+          station: "pedaret",
+        });
       axiosMock.onPut("/api/ucsbdiningcommonsmenuitem").reply(200, {
         id: "17",
-        diningCommonsCode: "ortega",
-        name: "kos",
-        station: "pedaret",
+        diningCommonsCode: "carillo",
+        name: "keer",
+        station: "madaret",
       });
     });
 
@@ -119,7 +123,9 @@ describe("MenuItemEditPage tests", () => {
       await screen.findByTestId("MenuItemForm-id");
 
       const idField = screen.getByTestId("MenuItemForm-id");
-      const diningCommonsCodeField = screen.getByTestId("MenuItemForm-diningCommonsCode");
+      const diningCommonsCodeField = screen.getByTestId(
+        "MenuItemForm-diningCommonsCode",
+      );
       const nameField = screen.getByTestId("MenuItemForm-name");
       const stationField = screen.getByTestId("MenuItemForm-station");
       const submitButton = screen.getByTestId("MenuItemForm-submit");
@@ -132,7 +138,7 @@ describe("MenuItemEditPage tests", () => {
       expect(nameField).toHaveValue("kos");
       expect(stationField).toBeInTheDocument();
       expect(stationField).toHaveValue("pedaret");
-      
+
       expect(submitButton).toHaveTextContent("Update");
 
       fireEvent.change(diningCommonsCodeField, {
@@ -146,17 +152,19 @@ describe("MenuItemEditPage tests", () => {
       });
       fireEvent.click(submitButton);
 
-      await waitFor(() => expect(mockToast).toBeCalled());
-      expect(mockToast).toBeCalledWith(
+      await waitFor(() => expect(mockToast).toHaveBeenCalled());
+      expect(mockToast).toHaveBeenCalledWith(
         "Menu Item Updated - id: 17 name: keer",
       );
 
-      expect(mockNavigate).toBeCalledWith({ to: "/ucsbdiningcommonsmenuitem" });
+      expect(mockNavigate).toHaveBeenCalledWith({
+        to: "/ucsbdiningcommonsmenuitem",
+      });
       expect(axiosMock.history.put.length).toBe(1); // times called
       expect(axiosMock.history.put[0].params).toEqual({ id: 17 });
       expect(axiosMock.history.put[0].data).toBe(
         JSON.stringify({
-          diningCommonsCode: "ortega",
+          diningCommonsCode: "carillo",
           name: "keer",
           station: "madaret",
         }),
@@ -175,29 +183,34 @@ describe("MenuItemEditPage tests", () => {
       await screen.findByTestId("MenuItemForm-id");
 
       const idField = screen.getByTestId("MenuItemForm-id");
-      const diningCommonsCodeField = screen.getByTestId("MenuItemForm-diningCommonsCode");
+      const diningCommonsCodeField = screen.getByTestId(
+        "MenuItemForm-diningCommonsCode",
+      );
       const nameField = screen.getByTestId("MenuItemForm-name");
       const stationField = screen.getByTestId("MenuItemForm-station");
       const submitButton = screen.getByTestId("MenuItemForm-submit");
 
       expect(idField).toHaveValue("17");
       expect(diningCommonsCodeField).toHaveValue("ortega");
-      expect(nameField).toHaveValue("keer");
-      expect(stationField).toHaveValue("madaret");
+      expect(nameField).toHaveValue("kos");
+      expect(stationField).toHaveValue("pedaret");
       expect(submitButton).toBeInTheDocument();
 
-      fireEvent.change(nameField, {
-        target: { value: "keer" },
+      fireEvent.change(diningCommonsCodeField, {
+        target: { value: "carillo" },
       });
+      fireEvent.change(nameField, { target: { value: "keer" } });
       fireEvent.change(stationField, { target: { value: "madaret" } });
 
       fireEvent.click(submitButton);
 
-      await waitFor(() => expect(mockToast).toBeCalled());
-      expect(mockToast).toBeCalledWith(
+      await waitFor(() => expect(mockToast).toHaveBeenCalled());
+      expect(mockToast).toHaveBeenCalledWith(
         "Menu Item Updated - id: 17 name: keer",
       );
-      expect(mockNavigate).toBeCalledWith({ to: "/ucsbdiningcommonsmenuitem" });
+      expect(mockNavigate).toHaveBeenCalledWith({
+        to: "/ucsbdiningcommonsmenuitem",
+      });
     });
   });
 });
