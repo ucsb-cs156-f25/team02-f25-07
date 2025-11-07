@@ -36,7 +36,7 @@ public class UCSBDiningCommonsMenuItemIT {
 
   @Autowired public GrantedAuthoritiesService grantedAuthoritiesService;
 
-  @Autowired MenuItemRepository menuItemRepository;
+  @Autowired UCSBDiningCommonsMenuItemRepository ucsbDiningCommonsMenuItemRepository;
 
   @Autowired public MockMvc mockMvc;
 
@@ -52,7 +52,7 @@ public class UCSBDiningCommonsMenuItemIT {
     MenuItem menuItem =
         MenuItem.builder().diningCommonsCode("carillo").name("kos").station("pedaret").build();
 
-    menuItemRepository.save(menuItem);
+    ucsbDiningCommonsMenuItemRepository.save(menuItem);
 
     // act
     MvcResult response =
