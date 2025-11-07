@@ -72,7 +72,7 @@ export default function AppNavbar({
                     HelpRequest
                   </Nav.Link>
                   <Nav.Link as={Link} to="/menuitemreview">
-                  MenuItemReview
+                    MenuItemReview
                   </Nav.Link>
                   <Nav.Link as={Link} to="/ucsbdates">
                     UCSB Dates
@@ -89,18 +89,16 @@ export default function AppNavbar({
                   </Nav.Link>
                   <Nav.Link as={Link} to="/ucsborganization">
                     UCSBOrganization
-                    </Nav.Link>
+                  </Nav.Link>
 
                   <Nav.Link as={Link} to="/recommendationrequests">
                     Recommendation Requests
                   </Nav.Link>
-              </>
+                </>
               ) : (
                 <></>
               )}
             </Nav>
-
-
 
             <Nav className="ml-auto">
               {currentUser && currentUser.loggedIn ? (

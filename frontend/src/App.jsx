@@ -39,7 +39,6 @@ import RecommendationRequestIndexPage from "main/pages/RecommendationRequest/Rec
 import RecommendationRequestCreatePage from "main/pages/RecommendationRequest/RecommendationRequestCreatePage";
 import RecommendationRequestEditPage from "main/pages/RecommendationRequest/RecommendationRequestEditPage";
 
-
 function App() {
   const currentUser = useCurrentUser();
   return (
@@ -91,13 +90,9 @@ function App() {
           />
         </>
       )}
-            {hasRole(currentUser, "ROLE_USER") && (
+      {hasRole(currentUser, "ROLE_USER") && (
         <>
-          <Route
-            exact
-            path="/articles"
-            element={<ArticlesIndexPage />}
-          />
+          <Route exact path="/articles" element={<ArticlesIndexPage />} />
         </>
       )}
       {hasRole(currentUser, "ROLE_ADMIN") && (
@@ -155,30 +150,29 @@ function App() {
       )}
 
       {hasRole(currentUser, "ROLE_USER") && (
-  <>
-    <Route
-      exact
-      path="/recommendationrequests"
-      element={<RecommendationRequestIndexPage />}
-    />
-  </>
-)}
+        <>
+          <Route
+            exact
+            path="/recommendationrequests"
+            element={<RecommendationRequestIndexPage />}
+          />
+        </>
+      )}
 
-{hasRole(currentUser, "ROLE_ADMIN") && (
-  <>
-    <Route
-      exact
-      path="/recommendationrequests/edit/:id"
-      element={<RecommendationRequestEditPage />}
-    />
-    <Route
-      exact
-      path="/recommendationrequests/create"
-      element={<RecommendationRequestCreatePage />}
-    />
-  </>
-)}
-
+      {hasRole(currentUser, "ROLE_ADMIN") && (
+        <>
+          <Route
+            exact
+            path="/recommendationrequests/edit/:id"
+            element={<RecommendationRequestEditPage />}
+          />
+          <Route
+            exact
+            path="/recommendationrequests/create"
+            element={<RecommendationRequestCreatePage />}
+          />
+        </>
+      )}
 
       {hasRole(currentUser, "ROLE_USER") && (
         <>

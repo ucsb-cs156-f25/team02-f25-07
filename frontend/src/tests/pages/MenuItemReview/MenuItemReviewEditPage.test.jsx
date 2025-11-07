@@ -2,7 +2,10 @@
 import { vi } from "vitest";
 
 vi.mock("react-toastify", async () => {
-  const actual = await vi.importActual<typeof import("react-toastify")>("react-toastify");
+  const actual =
+    (await vi.importActual) <
+    typeof import("react-toastify") >
+    "react-toastify";
   return { ...actual, toast: vi.fn() };
 });
 
@@ -25,8 +28,12 @@ describe("MenuItemReviewEditPage — kill survivors", () => {
     axiosMock.reset();
     axiosMock.resetHistory();
 
-    axiosMock.onGet("/api/currentUser").reply(200, apiCurrentUserFixtures.userOnly);
-    axiosMock.onGet("/api/systemInfo").reply(200, systemInfoFixtures.showingNeither);
+    axiosMock
+      .onGet("/api/currentUser")
+      .reply(200, apiCurrentUserFixtures.userOnly);
+    axiosMock
+      .onGet("/api/systemInfo")
+      .reply(200, systemInfoFixtures.showingNeither);
 
     axiosMock.onGet("/api/menuitemreview").reply(200, {
       id: 1,
@@ -58,10 +65,13 @@ describe("MenuItemReviewEditPage — kill survivors", () => {
               element={<MenuItemReviewEditPage />}
             />
             {/* ✅ 导航目标：用于断言 <Navigate to="/menuitemreview" /> 确实发生 */}
-            <Route path="/menuitemreview" element={<div data-testid="went-index">INDEX</div>} />
+            <Route
+              path="/menuitemreview"
+              element={<div data-testid="went-index">INDEX</div>}
+            />
           </Routes>
         </MemoryRouter>
-      </QueryClientProvider>
+      </QueryClientProvider>,
     );
   }
 
@@ -72,17 +82,20 @@ describe("MenuItemReviewEditPage — kill survivors", () => {
     await screen.findByTestId("MenuItemReviewForm-itemId");
 
     expect(axiosMock.history.get.length).toBeGreaterThan(0);
-    const getReq = axiosMock.history.get.find(r => r.url === "/api/menuitemreview");
+    const getReq = axiosMock.history.get.find(
+      (r) => r.url === "/api/menuitemreview",
+    );
     expect(getReq).toBeTruthy();
 
     const getId = getReq?.params?.id;
     expect(getId === 1 || getId === "1").toBe(true);
 
-
     await userEvent.clear(screen.getByTestId("MenuItemReviewForm-comments"));
-    await userEvent.type(screen.getByTestId("MenuItemReviewForm-comments"), "updated");
+    await userEvent.type(
+      screen.getByTestId("MenuItemReviewForm-comments"),
+      "updated",
+    );
     await userEvent.click(screen.getByTestId("MenuItemReviewForm-submit"));
-
 
     await waitFor(() => expect(axiosMock.history.put.length).toBe(1));
     const putReq = axiosMock.history.put[0];
@@ -101,8 +114,8 @@ describe("MenuItemReviewEditPage — kill survivors", () => {
 
     await waitFor(() =>
       expect(toast).toHaveBeenCalledWith(
-        "MenuItemReview Updated - id: 1 itemId: 2 stars: 4"
-      )
+        "MenuItemReview Updated - id: 1 itemId: 2 stars: 4",
+      ),
     );
 
     await screen.findByTestId("went-index");

@@ -31,17 +31,18 @@ describe("RecommendationRequestIndexPage tests", () => {
         <MemoryRouter>
           <RecommendationRequestIndexPage />
         </MemoryRouter>
-      </QueryClientProvider>
+      </QueryClientProvider>,
     );
 
-   await screen.findByText("Index page for Recommendation Request (placeholder)");
+    await screen.findByText(
+      "Index page for Recommendation Request (placeholder)",
+    );
 
-expect(
-  screen.getByText("Index page for Recommendation Request (placeholder)")
-).toBeInTheDocument();
+    expect(
+      screen.getByText("Index page for Recommendation Request (placeholder)"),
+    ).toBeInTheDocument();
 
-expect(screen.getByText("Create")).toBeInTheDocument();
-expect(screen.getByText("Edit")).toBeInTheDocument();
-
+    expect(screen.getByText("Create")).toBeInTheDocument();
+    expect(screen.getByText("Edit")).toBeInTheDocument();
   });
 });

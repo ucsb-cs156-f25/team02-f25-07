@@ -1,5 +1,5 @@
 import { fireEvent, render, waitFor, screen } from "@testing-library/react";
-import {UCSBOrganizationFixtures} from "fixtures/ucsbOrganizationFixtures";
+import { UCSBOrganizationFixtures } from "fixtures/ucsbOrganizationFixtures";
 import UCSBOrganizationTable from "main/components/UCSBOrganization/UCSBOrganizationTable";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { MemoryRouter } from "react-router";
@@ -241,4 +241,3 @@ describe("UCSBOrganizationTable tests", () => {
     expect(axiosMock.history.delete[0].params).toEqual({ orgCode: "UCSB" });
   });
 });
-

@@ -202,7 +202,7 @@ describe("HelpRequestTable tests", () => {
   });
 
   test("Solved column displays true/false correctly", () => {
-    // arrange  
+    // arrange
     const currentUser = currentUserFixtures.userOnly;
 
     // act
@@ -218,11 +218,13 @@ describe("HelpRequestTable tests", () => {
     );
 
     // assert - verify the Cell renderer converts boolean to "true"/"false" string
-    const cells = screen.getAllByTestId(/HelpRequestTable-cell-row-\d+-col-solved/);
+    const cells = screen.getAllByTestId(
+      /HelpRequestTable-cell-row-\d+-col-solved/,
+    );
     expect(cells.length).toBeGreaterThan(0);
-    
+
     // Check that at least one cell has the text "true" or "false"
-    cells.forEach(cell => {
+    cells.forEach((cell) => {
       const text = cell.textContent;
       expect(text === "true" || text === "false").toBe(true);
     });
@@ -263,7 +265,7 @@ describe("HelpRequestTable tests", () => {
 
     // assert - verify console.log was called (delete functionality will be implemented later)
     await waitFor(() => expect(consoleLogSpy).toHaveBeenCalled());
-    
+
     consoleLogSpy.mockRestore();
   });
 });
