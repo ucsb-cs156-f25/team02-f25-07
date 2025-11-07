@@ -6,6 +6,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import edu.ucsb.cs156.example.entities.UCSBDiningCommonsMenuItem;
 import edu.ucsb.cs156.example.repositories.UCSBDiningCommonsMenuItemRepository;
 import edu.ucsb.cs156.example.repositories.UserRepository;
 import edu.ucsb.cs156.example.services.CurrentUserService;
@@ -33,25 +34,24 @@ import org.springframework.test.web.servlet.MvcResult;
 @Import(TestConfig.class)
 @DirtiesContext(classMode = ClassMode.BEFORE_EACH_TEST_METHOD)
 public class UCSBDiningCommonsMenuItemIT {
+
   @Autowired public CurrentUserService currentUserService;
-
   @Autowired public GrantedAuthoritiesService grantedAuthoritiesService;
-
   @Autowired UCSBDiningCommonsMenuItemRepository ucsbDiningCommonsMenuItemRepository;
-
   @Autowired public MockMvc mockMvc;
-
   @Autowired public ObjectMapper mapper;
-
   @MockitoBean UserRepository userRepository;
 
   @WithMockUser(roles = {"USER"})
   @Test
   public void test_that_logged_in_user_can_get_by_id_when_the_id_exists() throws Exception {
     // arrange
-
-    MenuItem menuItem =
-        MenuItem.builder().diningCommonsCode("carillo").name("kos").station("pedaret").build();
+    UCSBDiningCommonsMenuItem menuItem =
+        UCSBDiningCommonsMenuItem.builder()
+            .diningCommonsCode("carillo")
+            .name("kos")
+            .station("pedaret")
+            .build();
 
     ucsbDiningCommonsMenuItemRepository.save(menuItem);
 
@@ -72,9 +72,8 @@ public class UCSBDiningCommonsMenuItemIT {
   @Test
   public void an_admin_user_can_post_a_new_menu_item() throws Exception {
     // arrange
-
-    MenuItem menuItem1 =
-        MenuItem.builder()
+    UCSBDiningCommonsMenuItem menuItem1 =
+        UCSBDiningCommonsMenuItem.builder()
             .id(1L)
             .diningCommonsCode("ortega")
             .name("keer")
