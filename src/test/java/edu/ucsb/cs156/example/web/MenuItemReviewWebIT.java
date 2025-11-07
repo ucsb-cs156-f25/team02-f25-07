@@ -22,7 +22,6 @@ public class MenuItemReviewWebIT extends WebTestCase {
     setupUser(true);
     page.setDefaultTimeout(30000);
 
-    
     page.getByText("MenuItemReview").first().click();
 
     page.getByText("Create").first().click();
