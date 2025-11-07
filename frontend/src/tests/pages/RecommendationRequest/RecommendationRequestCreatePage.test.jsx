@@ -25,7 +25,6 @@ describe("RecommendationRequestCreatePage tests", () => {
 
   const queryClient = new QueryClient();
   test("Renders expected content", async () => {
-
     setupUserOnly();
 
     render(
@@ -33,12 +32,14 @@ describe("RecommendationRequestCreatePage tests", () => {
         <MemoryRouter>
           <RecommendationRequestCreatePage />
         </MemoryRouter>
-      </QueryClientProvider>
+      </QueryClientProvider>,
     );
 
-   await screen.findByText("Create page for Recommendation Request (placeholder)");
- expect(
-   screen.getByText("Create page for Recommendation Request (placeholder)")
- ).toBeInTheDocument();
+    await screen.findByText(
+      "Create page for Recommendation Request (placeholder)",
+    );
+    expect(
+      screen.getByText("Create page for Recommendation Request (placeholder)"),
+    ).toBeInTheDocument();
   });
 });

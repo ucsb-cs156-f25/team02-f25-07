@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import RecommendationRequestIndexPage from "main/pages/RecommendationRequest/RecommendationRequestIndexPage";
+import HelpRequestIndexPage from "main/pages/HelpRequest/HelpRequestIndexPage";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { MemoryRouter } from "react-router";
 
@@ -8,7 +8,7 @@ import { systemInfoFixtures } from "fixtures/systemInfoFixtures";
 import axios from "axios";
 import AxiosMockAdapter from "axios-mock-adapter";
 
-describe("RecommendationRequestIndexPage tests", () => {
+describe("HelpRequestIndexPage tests", () => {
   const axiosMock = new AxiosMockAdapter(axios);
 
   const setupUserOnly = () => {
@@ -24,24 +24,26 @@ describe("RecommendationRequestIndexPage tests", () => {
 
   const queryClient = new QueryClient();
   test("Renders expected content", async () => {
+    // arrange
+
     setupUserOnly();
+
+    // act
 
     render(
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
-          <RecommendationRequestIndexPage />
+          <HelpRequestIndexPage />
         </MemoryRouter>
       </QueryClientProvider>,
     );
 
-    await screen.findByText(
-      "Index page for Recommendation Request (placeholder)",
-    );
+    await screen.findByText("Index page not yet implemented");
 
+    // assert
     expect(
-      screen.getByText("Index page for Recommendation Request (placeholder)"),
+      screen.getByText("Index page not yet implemented"),
     ).toBeInTheDocument();
-
     expect(screen.getByText("Create")).toBeInTheDocument();
     expect(screen.getByText("Edit")).toBeInTheDocument();
   });
