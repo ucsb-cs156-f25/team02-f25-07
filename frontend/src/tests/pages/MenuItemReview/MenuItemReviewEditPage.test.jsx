@@ -1,18 +1,27 @@
-import { render, screen } from "@testing-library/react";
-import MenuItemReviewEditPage from "main/pages/MenuItemReview/MenuItemReviewEditPage";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { MemoryRouter } from "react-router";
+// src/tests/pages/MenuItemReview/MenuItemReviewEditPage.test.jsx
+import { vi } from "vitest";
 
-import { apiCurrentUserFixtures } from "fixtures/currentUserFixtures";
-import { systemInfoFixtures } from "fixtures/systemInfoFixtures";
+vi.mock("react-toastify", async () => {
+  const actual = await vi.importActual<typeof import("react-toastify")>("react-toastify");
+  return { ...actual, toast: vi.fn() };
+});
+
+import { toast } from "react-toastify";
+import { render, screen, waitFor } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+import { MemoryRouter, Routes, Route } from "react-router";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import axios from "axios";
 import AxiosMockAdapter from "axios-mock-adapter";
-import { expect } from "vitest";
 
-describe("MenuItemReviewEditPage tests", () => {
+import MenuItemReviewEditPage from "main/pages/MenuItemReview/MenuItemReviewEditPage";
+import { apiCurrentUserFixtures } from "fixtures/currentUserFixtures";
+import { systemInfoFixtures } from "fixtures/systemInfoFixtures";
+
+describe("MenuItemReviewEditPage — kill survivors", () => {
   const axiosMock = new AxiosMockAdapter(axios);
 
-  const setupUserOnly = () => {
+  function setupMocks() {
     axiosMock.reset();
     axiosMock.resetHistory();
     axiosMock
@@ -23,20 +32,42 @@ describe("MenuItemReviewEditPage tests", () => {
       .reply(200, systemInfoFixtures.showingNeither);
   };
 
-  const queryClient = new QueryClient();
+    axiosMock.onGet("/api/menuitemreview").reply(200, {
+      id: 1,
+      itemId: 2,
+      reviewerEmail: "a@ucsb.edu",
+      stars: 3,
+      dateReviewed: "2024-01-01T10:00",
+      comments: "old",
+    });
 
-  test("Renders expected content", async () => {
-    // arrange
-    setupUserOnly();
+    axiosMock.onPut("/api/menuitemreview").reply(200, {
+      id: 1,
+      itemId: 2,
+      stars: 4,
+      reviewerEmail: "a@ucsb.edu",
+      dateReviewed: "2024-01-01T10:00",
+      comments: "updated",
+    });
+  }
 
-    // act
-    render(
+  function renderPage() {
+    const queryClient = new QueryClient();
+    return render(
       <QueryClientProvider client={queryClient}>
-        <MemoryRouter>
-          <MenuItemReviewEditPage />
+        <MemoryRouter initialEntries={["/menuitemreview/edit/1"]}>
+          <Routes>
+            <Route
+              path="/menuitemreview/edit/:id"
+              element={<MenuItemReviewEditPage />}
+            />
+            {/* ✅ 导航目标：用于断言 <Navigate to="/menuitemreview" /> 确实发生 */}
+            <Route path="/menuitemreview" element={<div data-testid="went-index">INDEX</div>} />
+          </Routes>
         </MemoryRouter>
       </QueryClientProvider>,
     );
+  }
 
     // assert
     await screen.findByText("MenuItemReview Edit page not yet implemented");
