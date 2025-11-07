@@ -22,16 +22,10 @@ public class MenuItemReviewWebIT extends WebTestCase {
     setupUser(true);
     page.setDefaultTimeout(30000);
 
-    // 进入列表页（用导航文字和你们其它 WebIT 对齐）
-    page.getByText("MenuItemReview").first().click();
-
-    // 进入创建页（如你的按钮文案只有 "Create"，把这行改成 "Create"）
     page.getByText("Create").first().click();
 
-    // 等表单加载：用表单的 testid 更稳
     assertThat(page.getByTestId("MenuItemReviewForm-itemId")).isVisible();
 
-    // 填表
     page.getByTestId("MenuItemReviewForm-itemId").fill("3");
     page.getByTestId("MenuItemReviewForm-reviewerEmail").fill("cgaocho@ucsb.edu");
     page.getByTestId("MenuItemReviewForm-stars").fill("3");
