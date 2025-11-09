@@ -32,12 +32,14 @@ describe("RecommendationRequestEditPage tests", () => {
         <MemoryRouter>
           <RecommendationRequestEditPage />
         </MemoryRouter>
-      </QueryClientProvider>
+      </QueryClientProvider>,
     );
 
-   await screen.findByText("Edit page for Recommendation Request (placeholder)");
- expect(
-  screen.getByText("Edit page for Recommendation Request (placeholder)")
- ).toBeInTheDocument();
+    await screen.findByText(
+      "Edit page for Recommendation Request (placeholder)",
+    );
+    expect(
+      screen.getByText("Edit page for Recommendation Request (placeholder)"),
+    ).toBeInTheDocument();
   });
 });
