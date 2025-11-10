@@ -45,7 +45,7 @@ describe("RecommendationRequestForm tests", () => {
     expect(screen.getByTestId(`${testId}-dateNeeded`)).toBeInTheDocument();
     expect(screen.getByTestId(`${testId}-done`)).toBeInTheDocument();
 
-    // 不应显示 Id
+  
     expect(screen.queryByTestId(`${testId}-id`)).not.toBeInTheDocument();
     expect(screen.queryByText("Id")).not.toBeInTheDocument();
   });
