@@ -1,0 +1,61 @@
+
+> frontend@1.0.0 build-storybook
+> storybook build --output-dir=/var/folders/0s/w8pn8xwd43b7sx297pkgrr280000gn/T/chromatic--14483-Mxrr7c14T1Q4
+
+[1mstorybook v9.1.1
+[22m
+info => Cleaning outputDir: [36m../../../../../var/folders/0s/w8pn8xwd43b7sx297pkgrr280000gn/T/chromatic--14483-Mxrr7c14T1Q4[39m
+info => Loading presets
+info => Building manager..
+[34mAttention:[39m Storybook now collects completely anonymous telemetry regarding usage. This information is used to shape Storybook's roadmap and prioritize features.
+You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+[36mhttps://storybook.js.org/telemetry[39m
+
+info => Building preview..
+info Using tsconfig paths for react-docgen
+[36mvite v6.3.5 [32mbuilding for production...[36m[39m
+transforming...
+info => Copying static files: [36mpublic[39m at [36m../../../../../var/folders/0s/w8pn8xwd43b7sx297pkgrr280000gn/T/chromatic--14483-Mxrr7c14T1Q4[39m
+[32m✓[39m 772 modules transformed.
+rendering chunks...
+computing gzip size...
+[2m../../../../../var/folders/0s/w8pn8xwd43b7sx297pkgrr280000gn/T/chromatic--14483-Mxrr7c14T1Q4/[22m[32miframe.html                                      [39m[1m[2m   18.30 kB[22m[1m[22m[2m │ gzip:   5.13 kB[22m
+[2m../../../../../var/folders/0s/w8pn8xwd43b7sx297pkgrr280000gn/T/chromatic--14483-Mxrr7c14T1Q4/[22m[2massets/[22m[35miframe-C-FIuk8d.css                       [39m[1m[2m  247.08 kB[22m[1m[22m[2m │ gzip:  33.73 kB[22m
+[2m../../../../../var/folders/0s/w8pn8xwd43b7sx297pkgrr280000gn/T/chromatic--14483-Mxrr7c14T1Q4/[22m[2massets/[22m[36mucsbDatesFixtures-DbKrV68Y.js             [39m[1m[2m    0.41 kB[22m[1m[22m[2m │ gzip:   0.19 kB[22m
+[2m../../../../../var/folders/0s/w8pn8xwd43b7sx297pkgrr280000gn/T/chromatic--14483-Mxrr7c14T1Q4/[22m[2massets/[22m[36mRow-40Tm2vcG.js                           [39m[1m[2m    0.46 kB[22m[1m[22m[2m │ gzip:   0.34 kB[22m
+[2m../../../../../var/folders/0s/w8pn8xwd43b7sx297pkgrr280000gn/T/chromatic--14483-Mxrr7c14T1Q4/[22m[2massets/[22m[36mrestaurantFixtures-KZAPEqYO.js            [39m[1m[2m    0.49 kB[22m[1m[22m[2m │ gzip:   0.31 kB[22m
+[2m../../../../../var/folders/0s/w8pn8xwd43b7sx297pkgrr280000gn/T/chromatic--14483-Mxrr7c14T1Q4/[22m[2massets/[22m[36museBackend-ClHs48xB.js                    [39m[1m[2m    0.60 kB[22m[1m[22m[2m │ gzip:   0.40 kB[22m
+[2m../../../../../var/folders/0s/w8pn8xwd43b7sx297pkgrr280000gn/T/chromatic--14483-Mxrr7c14T1Q4/[22m[2massets/[22m[36mCol-DZKHr5Al.js                           [39m[1m[2m    0.70 kB[22m[1m[22m[2m │ gzip:   0.45 kB[22m
+[2m../../../../../var/folders/0s/w8pn8xwd43b7sx297pkgrr280000gn/T/chromatic--14483-Mxrr7c14T1Q4/[22m[2massets/[22m[36mOurTable.stories-D38BxLiY.js              [39m[1m[2m    0.74 kB[22m[1m[22m[2m │ gzip:   0.45 kB[22m
+[2m../../../../../var/folders/0s/w8pn8xwd43b7sx297pkgrr280000gn/T/chromatic--14483-Mxrr7c14T1Q4/[22m[2massets/[22m[36mUCSBDatesTable-BwOHWboe.js                [39m[1m[2m    0.92 kB[22m[1m[22m[2m │ gzip:   0.53 kB[22m
+[2m../../../../../var/folders/0s/w8pn8xwd43b7sx297pkgrr280000gn/T/chromatic--14483-Mxrr7c14T1Q4/[22m[2massets/[22m[36mRestaurantTable-BSinAbrd.js               [39m[1m[2m    0.95 kB[22m[1m[22m[2m │ gzip:   0.56 kB[22m
+[2m../../../../../var/folders/0s/w8pn8xwd43b7sx297pkgrr280000gn/T/chromatic--14483-Mxrr7c14T1Q4/[22m[2massets/[22m[36mwarning-BrQMGGdV.js                       [39m[1m[2m    1.03 kB[22m[1m[22m[2m │ gzip:   0.61 kB[22m
+[2m../../../../../var/folders/0s/w8pn8xwd43b7sx297pkgrr280000gn/T/chromatic--14483-Mxrr7c14T1Q4/[22m[2massets/[22m[36mpreload-helper-Dp1pzeXC.js                [39m[1m[2m    1.27 kB[22m[1m[22m[2m │ gzip:   0.73 kB[22m
+[2m../../../../../var/folders/0s/w8pn8xwd43b7sx297pkgrr280000gn/T/chromatic--14483-Mxrr7c14T1Q4/[22m[2massets/[22m[36mRestaurantForm.stories-DkXaR_lY.js        [39m[1m[2m    1.34 kB[22m[1m[22m[2m │ gzip:   0.58 kB[22m
+[2m../../../../../var/folders/0s/w8pn8xwd43b7sx297pkgrr280000gn/T/chromatic--14483-Mxrr7c14T1Q4/[22m[2massets/[22m[36mUCSBDateForm.stories-C6CQUAU8.js          [39m[1m[2m    1.34 kB[22m[1m[22m[2m │ gzip:   0.60 kB[22m
+[2m../../../../../var/folders/0s/w8pn8xwd43b7sx297pkgrr280000gn/T/chromatic--14483-Mxrr7c14T1Q4/[22m[2massets/[22m[36mUCSBDatesTable.stories-DspWyhj9.js        [39m[1m[2m    1.57 kB[22m[1m[22m[2m │ gzip:   0.65 kB[22m
+[2m../../../../../var/folders/0s/w8pn8xwd43b7sx297pkgrr280000gn/T/chromatic--14483-Mxrr7c14T1Q4/[22m[2massets/[22m[36mRestaurantForm-DitXzuZ0.js                [39m[1m[2m    1.60 kB[22m[1m[22m[2m │ gzip:   0.70 kB[22m
+[2m../../../../../var/folders/0s/w8pn8xwd43b7sx297pkgrr280000gn/T/chromatic--14483-Mxrr7c14T1Q4/[22m[2massets/[22m[36mRestaurantTable.stories-D7H6uEO7.js       [39m[1m[2m    1.68 kB[22m[1m[22m[2m │ gzip:   0.67 kB[22m
+[2m../../../../../var/folders/0s/w8pn8xwd43b7sx297pkgrr280000gn/T/chromatic--14483-Mxrr7c14T1Q4/[22m[2massets/[22m[36mRestaurantCreatePage.stories-Ji-bxPnP.js  [39m[1m[2m    1.74 kB[22m[1m[22m[2m │ gzip:   0.92 kB[22m
+[2m../../../../../var/folders/0s/w8pn8xwd43b7sx297pkgrr280000gn/T/chromatic--14483-Mxrr7c14T1Q4/[22m[2massets/[22m[36mUCSBDatesCreatePage.stories-Om2HyzHD.js   [39m[1m[2m    1.79 kB[22m[1m[22m[2m │ gzip:   0.96 kB[22m
+[2m../../../../../var/folders/0s/w8pn8xwd43b7sx297pkgrr280000gn/T/chromatic--14483-Mxrr7c14T1Q4/[22m[2massets/[22m[36mHomePage.stories-C09RjRRm.js              [39m[1m[2m    1.98 kB[22m[1m[22m[2m │ gzip:   0.82 kB[22m
+[2m../../../../../var/folders/0s/w8pn8xwd43b7sx297pkgrr280000gn/T/chromatic--14483-Mxrr7c14T1Q4/[22m[2massets/[22m[36mBasicLayout-CgQ0uCvK.js                   [39m[1m[2m    1.99 kB[22m[1m[22m[2m │ gzip:   0.93 kB[22m
+[2m../../../../../var/folders/0s/w8pn8xwd43b7sx297pkgrr280000gn/T/chromatic--14483-Mxrr7c14T1Q4/[22m[2massets/[22m[36mAppNavbar.stories-CdCWzoOV.js             [39m[1m[2m    2.00 kB[22m[1m[22m[2m │ gzip:   0.69 kB[22m
+[2m../../../../../var/folders/0s/w8pn8xwd43b7sx297pkgrr280000gn/T/chromatic--14483-Mxrr7c14T1Q4/[22m[2massets/[22m[36mUCSBDatesEditPage.stories-CIW8BmhZ.js     [39m[1m[2m    2.07 kB[22m[1m[22m[2m │ gzip:   1.08 kB[22m
+[2m../../../../../var/folders/0s/w8pn8xwd43b7sx297pkgrr280000gn/T/chromatic--14483-Mxrr7c14T1Q4/[22m[2massets/[22m[36mRestaurantEditPage.stories-B00aHEhX.js    [39m[1m[2m    2.15 kB[22m[1m[22m[2m │ gzip:   1.08 kB[22m
+[2m../../../../../var/folders/0s/w8pn8xwd43b7sx297pkgrr280000gn/T/chromatic--14483-Mxrr7c14T1Q4/[22m[2massets/[22m[36mUCSBDateForm-DkV4dTW4.js                  [39m[1m[2m    2.50 kB[22m[1m[22m[2m │ gzip:   0.95 kB[22m
+[2m../../../../../var/folders/0s/w8pn8xwd43b7sx297pkgrr280000gn/T/chromatic--14483-Mxrr7c14T1Q4/[22m[2massets/[22m[36mButton-Bchphxav.js                        [39m[1m[2m    2.57 kB[22m[1m[22m[2m │ gzip:   1.30 kB[22m
+[2m../../../../../var/folders/0s/w8pn8xwd43b7sx297pkgrr280000gn/T/chromatic--14483-Mxrr7c14T1Q4/[22m[2massets/[22m[36mUCSBDatesIndexPage.stories-Jk2qXr-_.js    [39m[1m[2m    2.64 kB[22m[1m[22m[2m │ gzip:   1.03 kB[22m
+[2m../../../../../var/folders/0s/w8pn8xwd43b7sx297pkgrr280000gn/T/chromatic--14483-Mxrr7c14T1Q4/[22m[2massets/[22m[36mRestaurantIndexPage.stories-CcMcgssf.js   [39m[1m[2m    2.72 kB[22m[1m[22m[2m │ gzip:   1.05 kB[22m
+[2m../../../../../var/folders/0s/w8pn8xwd43b7sx297pkgrr280000gn/T/chromatic--14483-Mxrr7c14T1Q4/[22m[2massets/[22m[36mindex-BfJqn9Ui.js                         [39m[1m[2m    3.89 kB[22m[1m[22m[2m │ gzip:   1.52 kB[22m
+[2m../../../../../var/folders/0s/w8pn8xwd43b7sx297pkgrr280000gn/T/chromatic--14483-Mxrr7c14T1Q4/[22m[2massets/[22m[36mindex-D1XCgLK1.js                         [39m[1m[2m   17.69 kB[22m[1m[22m[2m │ gzip:   7.12 kB[22m
+[2m../../../../../var/folders/0s/w8pn8xwd43b7sx297pkgrr280000gn/T/chromatic--14483-Mxrr7c14T1Q4/[22m[2massets/[22m[36mindex.esm-Bzuonb5Z.js                     [39m[1m[2m   27.35 kB[22m[1m[22m[2m │ gzip:  10.21 kB[22m
+[2m../../../../../var/folders/0s/w8pn8xwd43b7sx297pkgrr280000gn/T/chromatic--14483-Mxrr7c14T1Q4/[22m[36mvite-inject-mocker-entry.js                      [39m[1m[2m   29.18 kB[22m[1m[22m[2m │ gzip:  10.13 kB[22m
+[2m../../../../../var/folders/0s/w8pn8xwd43b7sx297pkgrr280000gn/T/chromatic--14483-Mxrr7c14T1Q4/[22m[2massets/[22m[36mProfilePage.stories-nwzTP2ZL.js           [39m[1m[2m   33.32 kB[22m[1m[22m[2m │ gzip:   9.06 kB[22m
+[2m../../../../../var/folders/0s/w8pn8xwd43b7sx297pkgrr280000gn/T/chromatic--14483-Mxrr7c14T1Q4/[22m[2massets/[22m[36museCurrentUser-CaX213oY.js                [39m[1m[2m   48.56 kB[22m[1m[22m[2m │ gzip:  18.57 kB[22m
+[2m../../../../../var/folders/0s/w8pn8xwd43b7sx297pkgrr280000gn/T/chromatic--14483-Mxrr7c14T1Q4/[22m[2massets/[22m[36mOurTable-BYGbNpEx.js                      [39m[1m[2m   52.93 kB[22m[1m[22m[2m │ gzip:  14.34 kB[22m
+[2m../../../../../var/folders/0s/w8pn8xwd43b7sx297pkgrr280000gn/T/chromatic--14483-Mxrr7c14T1Q4/[22m[2massets/[22m[36mAppNavbar-BeMwqAgc.js                     [39m[1m[2m   70.27 kB[22m[1m[22m[2m │ gzip:  24.55 kB[22m
+[2m../../../../../var/folders/0s/w8pn8xwd43b7sx297pkgrr280000gn/T/chromatic--14483-Mxrr7c14T1Q4/[22m[2massets/[22m[36mreact-18-lZBMsV-y.js                      [39m[1m[2m  174.57 kB[22m[1m[22m[2m │ gzip:  55.28 kB[22m
+[2m../../../../../var/folders/0s/w8pn8xwd43b7sx297pkgrr280000gn/T/chromatic--14483-Mxrr7c14T1Q4/[22m[2massets/[22m[36miframe-DKTC3yCy.js                        [39m[1m[33m1,594.09 kB[39m[22m[2m │ gzip: 452.40 kB[22m
+[32m✓ built in 2.26s[39m
+info => Output directory: /var/folders/0s/w8pn8xwd43b7sx297pkgrr280000gn/T/chromatic--14483-Mxrr7c14T1Q4
