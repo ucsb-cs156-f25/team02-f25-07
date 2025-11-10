@@ -1,0 +1,721 @@
+[INFO] Error stacktraces are turned on.
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -----------------------< edu.ucsb.cs156:team01 >------------------------
+[INFO] Building team01 1.0.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- git-code-format:5.3:install-hooks (install-formatter-hook) @ team01 ---
+[INFO] Installing git hooks
+[INFO] Installed git hooks
+[INFO] 
+[INFO] --- jacoco:0.8.12:prepare-agent (default) @ team01 ---
+[INFO] argLine set to -javaagent:/Users/sichengxu/.m2/repository/org/jacoco/org.jacoco.agent/0.8.12/org.jacoco.agent-0.8.12-runtime.jar=destfile=/Users/sichengxu/cs156/team02-f25-07/target/jacoco.exec,excludes=**/edu/ucsb/cs156/example/aop/LoggingAspect.*:**/edu/ucsb/cs156/example/config/*:**/edu/ucsb/cs156/example/controllers/FrontendController.*:**/edu/ucsb/cs156/example/controllers/FrontendProxyController.*:**/edu/ucsb/cs156/example/services/CurrentUserServiceImpl.*:**/edu/ucsb/cs156/example/services/GrantedAuthoritiesService.*:**/edu/ucsb/cs156/example/ExampleApplication.*:**/edu/ucsb/cs156/example/services/wiremock/*
+[INFO] 
+[INFO] --- git-commit-id:8.0.2:revision (default) @ team01 ---
+[INFO] dotGitDirectory '/Users/sichengxu/cs156/team02-f25-07/.git'
+[INFO] Collected git.build.user.name with value Sicheng
+[INFO] Collected git.build.user.email with value sxu944@ucsb.edu
+[INFO] Collected git.branch with value endtoend
+[INFO] Collected git.commit.id.describe with value 8bd942a
+[INFO] Collected git.commit.id.describe-short with value 8bd942a
+[INFO] Collected git.commit.id.full with value 8bd942a7ee33dd68dcb3af132d62ab7f906d377a
+[INFO] Collected git.commit.id.abbrev with value 8bd942a
+[INFO] Collected git.dirty with value false
+[INFO] Collected git.commit.user.name with value ArmanSajjadian
+[INFO] Collected git.commit.user.email with value 156399057+ArmanSajjadian@users.noreply.github.com
+[INFO] Collected git.commit.message.full with value Merge pull request #112 from ucsb-cs156-f25/as-edit-final
+
+as - edit menuitems new branch
+[INFO] Collected git.commit.message.short with value Merge pull request #112 from ucsb-cs156-f25/as-edit-final
+[INFO] Collected git.commit.time with value 2025-11-06T19:46:09-08:00
+[INFO] Collected git.commit.author.time with value 2025-11-06T19:46:09-08:00
+[INFO] Collected git.commit.committer.time with value 2025-11-06T19:46:09-08:00
+[INFO] Collected git.remote.origin.url with value git@github.com:ucsb-cs156-f25/team02-f25-07.git
+[INFO] Collected git.tags with value 
+[INFO] Collected git.tag with value 
+[INFO] Collected git.closest.tag.name with value 
+[INFO] Collected git.closest.tag.commit.count with value 
+[INFO] Collected git.total.commit.count with value 197
+[INFO] Collected git.local.branch.ahead with value NO_REMOTE
+[INFO] Collected git.local.branch.behind with value NO_REMOTE
+[INFO] Collected git.build.time with value 2025-11-07T00:13:59-08:00
+[INFO] Collected git.build.version with value 1.0.0
+[INFO] Collected git.build.host with value Sichengs-MacBook-Pro.local
+[INFO] including property 'git.tags' in results
+[INFO] including property 'git.build.version' in results
+[INFO] including property 'git.branch' in results
+[INFO] including property 'git.build.host' in results
+[INFO] including property 'git.commit.user.email' in results
+[INFO] including property 'git.local.branch.behind' in results
+[INFO] including property 'git.commit.author.time' in results
+[INFO] including property 'git.build.user.name' in results
+[INFO] including property 'git.dirty' in results
+[INFO] including property 'git.closest.tag.commit.count' in results
+[INFO] including property 'git.commit.user.name' in results
+[INFO] including property 'git.commit.id.abbrev' in results
+[INFO] including property 'git.commit.id.describe-short' in results
+[INFO] including property 'git.total.commit.count' in results
+[INFO] including property 'git.commit.id.describe' in results
+[INFO] including property 'git.build.user.email' in results
+[INFO] including property 'git.commit.message.short' in results
+[INFO] including property 'git.commit.committer.time' in results
+[INFO] including property 'git.commit.id.full' in results
+[INFO] including property 'git.tag' in results
+[INFO] including property 'git.closest.tag.name' in results
+[INFO] including property 'git.local.branch.ahead' in results
+[INFO] including property 'git.commit.time' in results
+[INFO] including property 'git.build.time' in results
+[INFO] including property 'git.commit.message.full' in results
+[INFO] including property 'git.remote.origin.url' in results
+[INFO] Reading existing properties file [/Users/sichengxu/cs156/team02-f25-07/target/classes/git.properties] (for project team01)...
+[INFO] Properties file [/Users/sichengxu/cs156/team02-f25-07/target/classes/git.properties] is up-to-date (for module team01)...
+[INFO] 
+[INFO] --- git-commit-id:8.0.2:revision (get-the-git-infos) @ team01 ---
+[INFO] dotGitDirectory '/Users/sichengxu/cs156/team02-f25-07/.git'
+[INFO] Collected git.build.user.name with value Sicheng
+[INFO] Collected git.build.user.email with value sxu944@ucsb.edu
+[INFO] Collected git.branch with value endtoend
+[INFO] Collected git.commit.id.describe with value 8bd942a
+[INFO] Collected git.commit.id.describe-short with value 8bd942a
+[INFO] Collected git.commit.id.full with value 8bd942a7ee33dd68dcb3af132d62ab7f906d377a
+[INFO] Collected git.commit.id.abbrev with value 8bd942a
+[INFO] Collected git.dirty with value false
+[INFO] Collected git.commit.user.name with value ArmanSajjadian
+[INFO] Collected git.commit.user.email with value 156399057+ArmanSajjadian@users.noreply.github.com
+[INFO] Collected git.commit.message.full with value Merge pull request #112 from ucsb-cs156-f25/as-edit-final
+
+as - edit menuitems new branch
+[INFO] Collected git.commit.message.short with value Merge pull request #112 from ucsb-cs156-f25/as-edit-final
+[INFO] Collected git.commit.time with value 2025-11-06T19:46:09-08:00
+[INFO] Collected git.commit.author.time with value 2025-11-06T19:46:09-08:00
+[INFO] Collected git.commit.committer.time with value 2025-11-06T19:46:09-08:00
+[INFO] Collected git.remote.origin.url with value git@github.com:ucsb-cs156-f25/team02-f25-07.git
+[INFO] Collected git.tags with value 
+[INFO] Collected git.tag with value 
+[INFO] Collected git.closest.tag.name with value 
+[INFO] Collected git.closest.tag.commit.count with value 
+[INFO] Collected git.total.commit.count with value 197
+[INFO] Collected git.local.branch.ahead with value NO_REMOTE
+[INFO] Collected git.local.branch.behind with value NO_REMOTE
+[INFO] Collected git.build.time with value 2025-11-07T00:13:59-08:00
+[INFO] Collected git.build.version with value 1.0.0
+[INFO] Collected git.build.host with value Sichengs-MacBook-Pro.local
+[INFO] including property 'git.tags' in results
+[INFO] including property 'git.build.version' in results
+[INFO] including property 'git.branch' in results
+[INFO] including property 'git.build.host' in results
+[INFO] including property 'git.commit.user.email' in results
+[INFO] including property 'git.local.branch.behind' in results
+[INFO] including property 'git.commit.author.time' in results
+[INFO] including property 'git.build.user.name' in results
+[INFO] including property 'git.dirty' in results
+[INFO] including property 'git.closest.tag.commit.count' in results
+[INFO] including property 'git.commit.user.name' in results
+[INFO] including property 'git.commit.id.abbrev' in results
+[INFO] including property 'git.commit.id.describe-short' in results
+[INFO] including property 'git.total.commit.count' in results
+[INFO] including property 'git.commit.id.describe' in results
+[INFO] including property 'git.build.user.email' in results
+[INFO] including property 'git.commit.message.short' in results
+[INFO] including property 'git.commit.committer.time' in results
+[INFO] including property 'git.commit.id.full' in results
+[INFO] including property 'git.tag' in results
+[INFO] including property 'git.closest.tag.name' in results
+[INFO] including property 'git.local.branch.ahead' in results
+[INFO] including property 'git.commit.time' in results
+[INFO] including property 'git.build.time' in results
+[INFO] including property 'git.commit.message.full' in results
+[INFO] including property 'git.remote.origin.url' in results
+[INFO] Reading existing properties file [/Users/sichengxu/cs156/team02-f25-07/target/classes/git.properties] (for project team01)...
+[INFO] Properties file [/Users/sichengxu/cs156/team02-f25-07/target/classes/git.properties] is up-to-date (for module team01)...
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ team01 ---
+[INFO] Copying 5 resources from src/main/resources to target/classes
+[INFO] Copying 13 resources from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ team01 ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ team01 ---
+[INFO] Copying 1 resource from src/test/resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.13.0:testCompile (default-testCompile) @ team01 ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 29 source files with javac [debug parameters release 21] to target/test-classes
+[INFO] Annotation processing is enabled because one or more processors were found
+  on the class path. A future release of javac may disable annotation processing
+  unless at least one processor is specified by name (-processor), or a search
+  path is specified (--processor-path, --processor-module-path), or annotation
+  processing is enabled explicitly (-proc:only, -proc:full).
+  Use -Xlint:-options to suppress this message.
+  Use -proc:none to disable annotation processing.
+[WARNING] /Users/sichengxu/cs156/team02-f25-07/src/test/java/edu/ucsb/cs156/example/controllers/ArticlesControllerTests.java:[38,4] org.springframework.boot.test.mock.mockito.MockBean in org.springframework.boot.test.mock.mockito has been deprecated and marked for removal
+[WARNING] /Users/sichengxu/cs156/team02-f25-07/src/test/java/edu/ucsb/cs156/example/controllers/ArticlesControllerTests.java:[38,4] org.springframework.boot.test.mock.mockito.MockBean in org.springframework.boot.test.mock.mockito has been deprecated and marked for removal
+[WARNING] /Users/sichengxu/cs156/team02-f25-07/src/test/java/edu/ucsb/cs156/example/controllers/ArticlesControllerTests.java:[38,4] org.springframework.boot.test.mock.mockito.MockBean in org.springframework.boot.test.mock.mockito has been deprecated and marked for removal
+[WARNING] /Users/sichengxu/cs156/team02-f25-07/src/test/java/edu/ucsb/cs156/example/controllers/ArticlesControllerTests.java:[38,4] org.springframework.boot.test.mock.mockito.MockBean in org.springframework.boot.test.mock.mockito has been deprecated and marked for removal
+[WARNING] /Users/sichengxu/cs156/team02-f25-07/src/test/java/edu/ucsb/cs156/example/controllers/ArticlesControllerTests.java:[38,4] org.springframework.boot.test.mock.mockito.MockBean in org.springframework.boot.test.mock.mockito has been deprecated and marked for removal
+[WARNING] /Users/sichengxu/cs156/team02-f25-07/src/test/java/edu/ucsb/cs156/example/controllers/ArticlesControllerTests.java:[40,4] org.springframework.boot.test.mock.mockito.MockBean in org.springframework.boot.test.mock.mockito has been deprecated and marked for removal
+[WARNING] /Users/sichengxu/cs156/team02-f25-07/src/test/java/edu/ucsb/cs156/example/controllers/ArticlesControllerTests.java:[40,4] org.springframework.boot.test.mock.mockito.MockBean in org.springframework.boot.test.mock.mockito has been deprecated and marked for removal
+[WARNING] /Users/sichengxu/cs156/team02-f25-07/src/test/java/edu/ucsb/cs156/example/controllers/ArticlesControllerTests.java:[40,4] org.springframework.boot.test.mock.mockito.MockBean in org.springframework.boot.test.mock.mockito has been deprecated and marked for removal
+[WARNING] /Users/sichengxu/cs156/team02-f25-07/src/test/java/edu/ucsb/cs156/example/controllers/ArticlesControllerTests.java:[40,4] org.springframework.boot.test.mock.mockito.MockBean in org.springframework.boot.test.mock.mockito has been deprecated and marked for removal
+[WARNING] /Users/sichengxu/cs156/team02-f25-07/src/test/java/edu/ucsb/cs156/example/controllers/ArticlesControllerTests.java:[40,4] org.springframework.boot.test.mock.mockito.MockBean in org.springframework.boot.test.mock.mockito has been deprecated and marked for removal
+[WARNING] /Users/sichengxu/cs156/team02-f25-07/src/test/java/edu/ucsb/cs156/example/controllers/MenuItemReviewControllerTests.java:[38,4] org.springframework.boot.test.mock.mockito.MockBean in org.springframework.boot.test.mock.mockito has been deprecated and marked for removal
+[WARNING] /Users/sichengxu/cs156/team02-f25-07/src/test/java/edu/ucsb/cs156/example/controllers/MenuItemReviewControllerTests.java:[38,4] org.springframework.boot.test.mock.mockito.MockBean in org.springframework.boot.test.mock.mockito has been deprecated and marked for removal
+[WARNING] /Users/sichengxu/cs156/team02-f25-07/src/test/java/edu/ucsb/cs156/example/controllers/MenuItemReviewControllerTests.java:[38,4] org.springframework.boot.test.mock.mockito.MockBean in org.springframework.boot.test.mock.mockito has been deprecated and marked for removal
+[WARNING] /Users/sichengxu/cs156/team02-f25-07/src/test/java/edu/ucsb/cs156/example/controllers/MenuItemReviewControllerTests.java:[38,4] org.springframework.boot.test.mock.mockito.MockBean in org.springframework.boot.test.mock.mockito has been deprecated and marked for removal
+[WARNING] /Users/sichengxu/cs156/team02-f25-07/src/test/java/edu/ucsb/cs156/example/controllers/MenuItemReviewControllerTests.java:[38,4] org.springframework.boot.test.mock.mockito.MockBean in org.springframework.boot.test.mock.mockito has been deprecated and marked for removal
+[WARNING] /Users/sichengxu/cs156/team02-f25-07/src/test/java/edu/ucsb/cs156/example/controllers/MenuItemReviewControllerTests.java:[39,4] org.springframework.boot.test.mock.mockito.MockBean in org.springframework.boot.test.mock.mockito has been deprecated and marked for removal
+[WARNING] /Users/sichengxu/cs156/team02-f25-07/src/test/java/edu/ucsb/cs156/example/controllers/MenuItemReviewControllerTests.java:[39,4] org.springframework.boot.test.mock.mockito.MockBean in org.springframework.boot.test.mock.mockito has been deprecated and marked for removal
+[WARNING] /Users/sichengxu/cs156/team02-f25-07/src/test/java/edu/ucsb/cs156/example/controllers/MenuItemReviewControllerTests.java:[39,4] org.springframework.boot.test.mock.mockito.MockBean in org.springframework.boot.test.mock.mockito has been deprecated and marked for removal
+[WARNING] /Users/sichengxu/cs156/team02-f25-07/src/test/java/edu/ucsb/cs156/example/controllers/MenuItemReviewControllerTests.java:[39,4] org.springframework.boot.test.mock.mockito.MockBean in org.springframework.boot.test.mock.mockito has been deprecated and marked for removal
+[WARNING] /Users/sichengxu/cs156/team02-f25-07/src/test/java/edu/ucsb/cs156/example/controllers/MenuItemReviewControllerTests.java:[39,4] org.springframework.boot.test.mock.mockito.MockBean in org.springframework.boot.test.mock.mockito has been deprecated and marked for removal
+[WARNING] /Users/sichengxu/cs156/team02-f25-07/src/test/java/edu/ucsb/cs156/example/controllers/RecommendationRequestControllerTests.java:[39,4] org.springframework.boot.test.mock.mockito.MockBean in org.springframework.boot.test.mock.mockito has been deprecated and marked for removal
+[WARNING] /Users/sichengxu/cs156/team02-f25-07/src/test/java/edu/ucsb/cs156/example/controllers/RecommendationRequestControllerTests.java:[39,4] org.springframework.boot.test.mock.mockito.MockBean in org.springframework.boot.test.mock.mockito has been deprecated and marked for removal
+[WARNING] /Users/sichengxu/cs156/team02-f25-07/src/test/java/edu/ucsb/cs156/example/controllers/RecommendationRequestControllerTests.java:[39,4] org.springframework.boot.test.mock.mockito.MockBean in org.springframework.boot.test.mock.mockito has been deprecated and marked for removal
+[WARNING] /Users/sichengxu/cs156/team02-f25-07/src/test/java/edu/ucsb/cs156/example/controllers/RecommendationRequestControllerTests.java:[39,4] org.springframework.boot.test.mock.mockito.MockBean in org.springframework.boot.test.mock.mockito has been deprecated and marked for removal
+[WARNING] /Users/sichengxu/cs156/team02-f25-07/src/test/java/edu/ucsb/cs156/example/controllers/RecommendationRequestControllerTests.java:[39,4] org.springframework.boot.test.mock.mockito.MockBean in org.springframework.boot.test.mock.mockito has been deprecated and marked for removal
+[WARNING] /Users/sichengxu/cs156/team02-f25-07/src/test/java/edu/ucsb/cs156/example/controllers/RecommendationRequestControllerTests.java:[41,4] org.springframework.boot.test.mock.mockito.MockBean in org.springframework.boot.test.mock.mockito has been deprecated and marked for removal
+[WARNING] /Users/sichengxu/cs156/team02-f25-07/src/test/java/edu/ucsb/cs156/example/controllers/RecommendationRequestControllerTests.java:[41,4] org.springframework.boot.test.mock.mockito.MockBean in org.springframework.boot.test.mock.mockito has been deprecated and marked for removal
+[WARNING] /Users/sichengxu/cs156/team02-f25-07/src/test/java/edu/ucsb/cs156/example/controllers/RecommendationRequestControllerTests.java:[41,4] org.springframework.boot.test.mock.mockito.MockBean in org.springframework.boot.test.mock.mockito has been deprecated and marked for removal
+[WARNING] /Users/sichengxu/cs156/team02-f25-07/src/test/java/edu/ucsb/cs156/example/controllers/RecommendationRequestControllerTests.java:[41,4] org.springframework.boot.test.mock.mockito.MockBean in org.springframework.boot.test.mock.mockito has been deprecated and marked for removal
+[WARNING] /Users/sichengxu/cs156/team02-f25-07/src/test/java/edu/ucsb/cs156/example/controllers/RecommendationRequestControllerTests.java:[41,4] org.springframework.boot.test.mock.mockito.MockBean in org.springframework.boot.test.mock.mockito has been deprecated and marked for removal
+[WARNING] /Users/sichengxu/cs156/team02-f25-07/src/test/java/edu/ucsb/cs156/example/controllers/UCSBDiningCommonsMenuItemControllerTests.java:[35,4] org.springframework.boot.test.mock.mockito.MockBean in org.springframework.boot.test.mock.mockito has been deprecated and marked for removal
+[WARNING] /Users/sichengxu/cs156/team02-f25-07/src/test/java/edu/ucsb/cs156/example/controllers/UCSBDiningCommonsMenuItemControllerTests.java:[35,4] org.springframework.boot.test.mock.mockito.MockBean in org.springframework.boot.test.mock.mockito has been deprecated and marked for removal
+[WARNING] /Users/sichengxu/cs156/team02-f25-07/src/test/java/edu/ucsb/cs156/example/controllers/UCSBDiningCommonsMenuItemControllerTests.java:[35,4] org.springframework.boot.test.mock.mockito.MockBean in org.springframework.boot.test.mock.mockito has been deprecated and marked for removal
+[WARNING] /Users/sichengxu/cs156/team02-f25-07/src/test/java/edu/ucsb/cs156/example/controllers/UCSBDiningCommonsMenuItemControllerTests.java:[35,4] org.springframework.boot.test.mock.mockito.MockBean in org.springframework.boot.test.mock.mockito has been deprecated and marked for removal
+[WARNING] /Users/sichengxu/cs156/team02-f25-07/src/test/java/edu/ucsb/cs156/example/controllers/UCSBDiningCommonsMenuItemControllerTests.java:[35,4] org.springframework.boot.test.mock.mockito.MockBean in org.springframework.boot.test.mock.mockito has been deprecated and marked for removal
+[WARNING] /Users/sichengxu/cs156/team02-f25-07/src/test/java/edu/ucsb/cs156/example/controllers/UCSBDiningCommonsMenuItemControllerTests.java:[37,4] org.springframework.boot.test.mock.mockito.MockBean in org.springframework.boot.test.mock.mockito has been deprecated and marked for removal
+[WARNING] /Users/sichengxu/cs156/team02-f25-07/src/test/java/edu/ucsb/cs156/example/controllers/UCSBDiningCommonsMenuItemControllerTests.java:[37,4] org.springframework.boot.test.mock.mockito.MockBean in org.springframework.boot.test.mock.mockito has been deprecated and marked for removal
+[WARNING] /Users/sichengxu/cs156/team02-f25-07/src/test/java/edu/ucsb/cs156/example/controllers/UCSBDiningCommonsMenuItemControllerTests.java:[37,4] org.springframework.boot.test.mock.mockito.MockBean in org.springframework.boot.test.mock.mockito has been deprecated and marked for removal
+[WARNING] /Users/sichengxu/cs156/team02-f25-07/src/test/java/edu/ucsb/cs156/example/controllers/UCSBDiningCommonsMenuItemControllerTests.java:[37,4] org.springframework.boot.test.mock.mockito.MockBean in org.springframework.boot.test.mock.mockito has been deprecated and marked for removal
+[WARNING] /Users/sichengxu/cs156/team02-f25-07/src/test/java/edu/ucsb/cs156/example/controllers/UCSBDiningCommonsMenuItemControllerTests.java:[37,4] org.springframework.boot.test.mock.mockito.MockBean in org.springframework.boot.test.mock.mockito has been deprecated and marked for removal
+[WARNING] /Users/sichengxu/cs156/team02-f25-07/src/test/java/edu/ucsb/cs156/example/controllers/UCSBOrganizationControllerTests.java:[36,4] org.springframework.boot.test.mock.mockito.MockBean in org.springframework.boot.test.mock.mockito has been deprecated and marked for removal
+[WARNING] /Users/sichengxu/cs156/team02-f25-07/src/test/java/edu/ucsb/cs156/example/controllers/UCSBOrganizationControllerTests.java:[36,4] org.springframework.boot.test.mock.mockito.MockBean in org.springframework.boot.test.mock.mockito has been deprecated and marked for removal
+[WARNING] /Users/sichengxu/cs156/team02-f25-07/src/test/java/edu/ucsb/cs156/example/controllers/UCSBOrganizationControllerTests.java:[36,4] org.springframework.boot.test.mock.mockito.MockBean in org.springframework.boot.test.mock.mockito has been deprecated and marked for removal
+[WARNING] /Users/sichengxu/cs156/team02-f25-07/src/test/java/edu/ucsb/cs156/example/controllers/UCSBOrganizationControllerTests.java:[36,4] org.springframework.boot.test.mock.mockito.MockBean in org.springframework.boot.test.mock.mockito has been deprecated and marked for removal
+[WARNING] /Users/sichengxu/cs156/team02-f25-07/src/test/java/edu/ucsb/cs156/example/controllers/UCSBOrganizationControllerTests.java:[36,4] org.springframework.boot.test.mock.mockito.MockBean in org.springframework.boot.test.mock.mockito has been deprecated and marked for removal
+[WARNING] /Users/sichengxu/cs156/team02-f25-07/src/test/java/edu/ucsb/cs156/example/controllers/UCSBOrganizationControllerTests.java:[38,4] org.springframework.boot.test.mock.mockito.MockBean in org.springframework.boot.test.mock.mockito has been deprecated and marked for removal
+[WARNING] /Users/sichengxu/cs156/team02-f25-07/src/test/java/edu/ucsb/cs156/example/controllers/UCSBOrganizationControllerTests.java:[38,4] org.springframework.boot.test.mock.mockito.MockBean in org.springframework.boot.test.mock.mockito has been deprecated and marked for removal
+[WARNING] /Users/sichengxu/cs156/team02-f25-07/src/test/java/edu/ucsb/cs156/example/controllers/UCSBOrganizationControllerTests.java:[38,4] org.springframework.boot.test.mock.mockito.MockBean in org.springframework.boot.test.mock.mockito has been deprecated and marked for removal
+[WARNING] /Users/sichengxu/cs156/team02-f25-07/src/test/java/edu/ucsb/cs156/example/controllers/UCSBOrganizationControllerTests.java:[38,4] org.springframework.boot.test.mock.mockito.MockBean in org.springframework.boot.test.mock.mockito has been deprecated and marked for removal
+[WARNING] /Users/sichengxu/cs156/team02-f25-07/src/test/java/edu/ucsb/cs156/example/controllers/UCSBOrganizationControllerTests.java:[38,4] org.springframework.boot.test.mock.mockito.MockBean in org.springframework.boot.test.mock.mockito has been deprecated and marked for removal
+[INFO] /Users/sichengxu/cs156/team02-f25-07/src/test/java/edu/ucsb/cs156/example/ControllerTestCase.java: /Users/sichengxu/cs156/team02-f25-07/src/test/java/edu/ucsb/cs156/example/ControllerTestCase.java uses unchecked or unsafe operations.
+[INFO] /Users/sichengxu/cs156/team02-f25-07/src/test/java/edu/ucsb/cs156/example/ControllerTestCase.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- surefire:3.0.0-M5:test (default-test) @ team01 ---
+[INFO] Surefire report directory: /Users/sichengxu/cs156/team02-f25-07/target/surefire-reports
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running edu.ucsb.cs156.example.web.RecommendationRequestWebIT
+00:14:01.356 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [edu.ucsb.cs156.example.web.RecommendationRequestWebIT]: RecommendationRequestWebIT does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+00:14:01.454 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration edu.ucsb.cs156.example.ExampleApplication for test class edu.ucsb.cs156.example.web.RecommendationRequestWebIT
+00:14:02.164 [main] INFO org.eclipse.jetty.server.Server -- jetty-12.0.16; built: 2024-12-09T21:02:54.535Z; git: c3f88bafb4e393f23204dc14dc57b042e84debc7; jvm 21.0.6+10-LTS
+00:14:02.176 [main] INFO org.eclipse.jetty.server.handler.ContextHandler -- Started oeje10s.ServletContextHandler@75caecf7{/__admin,/__admin,b=null,a=AVAILABLE,h=oeje10s.ServletHandler@62b0792{STARTED}}
+00:14:02.176 [main] WARN org.eclipse.jetty.util.DeprecationWarning -- Using @Deprecated Class org.eclipse.jetty.ee10.servlets.CrossOriginFilter
+00:14:02.177 [main] INFO org.eclipse.jetty.ee10.servlet.ServletContextHandler -- Started oeje10s.ServletContextHandler@75caecf7{/__admin,/__admin,b=null,a=AVAILABLE,h=oeje10s.ServletHandler@62b0792{STARTED}}
+00:14:02.178 [main] INFO org.eclipse.jetty.server.handler.ContextHandler -- Started oeje10s.ServletContextHandler@6f53295e{ROOT,/,b=null,a=AVAILABLE,h=oeje10s.ServletHandler@5f8a29ca{STARTED}}
+00:14:02.180 [main] INFO org.eclipse.jetty.server.handler.ContextHandler.ROOT -- RequestHandlerClass from context returned com.github.tomakehurst.wiremock.http.StubRequestHandler. Normalized mapped under returned 'null'
+00:14:02.181 [main] INFO org.eclipse.jetty.ee10.servlet.ServletContextHandler -- Started oeje10s.ServletContextHandler@6f53295e{ROOT,/,b=null,a=AVAILABLE,h=oeje10s.ServletHandler@5f8a29ca{STARTED}}
+00:14:02.185 [main] INFO org.eclipse.jetty.server.AbstractConnector -- Started NetworkTrafficServerConnector@848ede8{HTTP/1.1, (http/1.1, h2c)}{0.0.0.0:8090}
+00:14:02.186 [main] INFO org.eclipse.jetty.server.Server -- Started oejs.Server@677274e7{STARTING}[12.0.16,sto=1000] @1422ms
+00:14:02.217 [main] INFO org.springframework.boot.devtools.restart.RestartApplicationListener -- Restart disabled due to context in which it is running
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.4.3)
+
+2025-11-07T00:14:02.389-08:00  INFO 80513 --- [           main] m.p.springdotenv.DotenvPropertySource    : Initializing Dotenv with DotenvConfig{directory=null, filename=null, ignoreIfMalformed=false, ignoreIfMissing=true, systemProperties=false}
+2025-11-07T00:14:02.397-08:00  INFO 80513 --- [           main] e.u.c.e.web.RecommendationRequestWebIT   : Starting RecommendationRequestWebIT using Java 21.0.6 with PID 80513 (started by sichengxu in /Users/sichengxu/cs156/team02-f25-07)
+2025-11-07T00:14:02.397-08:00  INFO 80513 --- [           main] e.u.c.e.web.RecommendationRequestWebIT   : The following 1 profile is active: "integration"
+2025-11-07T00:14:02.915-08:00  INFO 80513 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-07T00:14:02.952-08:00  INFO 80513 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 31 ms. Found 10 JPA repository interfaces.
+2025-11-07T00:14:03.496-08:00  INFO 80513 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-11-07T00:14:03.507-08:00  INFO 80513 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-11-07T00:14:03.507-08:00  INFO 80513 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.36]
+2025-11-07T00:14:03.533-08:00  INFO 80513 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-11-07T00:14:03.533-08:00  INFO 80513 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1126 ms
+2025-11-07T00:14:03.639-08:00  INFO 80513 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-11-07T00:14:03.784-08:00  INFO 80513 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:8618c5fe-c4ba-485f-a980-1c4bf6af339e user=SA
+2025-11-07T00:14:03.785-08:00  INFO 80513 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-11-07T00:14:03.826-08:00  INFO 80513 --- [           main] liquibase.database                       : Set default schema name to PUBLIC
+2025-11-07T00:14:04.078-08:00  INFO 80513 --- [           main] liquibase.changelog                      : Reading resource: db/migration/changes/Articles.json
+2025-11-07T00:14:04.091-08:00  INFO 80513 --- [           main] liquibase.changelog                      : Reading resource: db/migration/changes/Jobs.json
+2025-11-07T00:14:04.093-08:00  INFO 80513 --- [           main] liquibase.changelog                      : Reading resource: db/migration/changes/MenuItemReview.json
+2025-11-07T00:14:04.096-08:00  INFO 80513 --- [           main] liquibase.changelog                      : Reading resource: db/migration/changes/RecommendationRequest.json
+2025-11-07T00:14:04.098-08:00  INFO 80513 --- [           main] liquibase.changelog                      : Reading resource: db/migration/changes/Restaurants.json
+2025-11-07T00:14:04.099-08:00  INFO 80513 --- [           main] liquibase.changelog                      : Reading resource: db/migration/changes/UCSBDates.json
+2025-11-07T00:14:04.101-08:00  INFO 80513 --- [           main] liquibase.changelog                      : Reading resource: db/migration/changes/UCSBDiningCommons.json
+2025-11-07T00:14:04.104-08:00  INFO 80513 --- [           main] liquibase.changelog                      : Reading resource: db/migration/changes/UCSBDiningCommonsMenuItem.json
+2025-11-07T00:14:04.106-08:00  INFO 80513 --- [           main] liquibase.changelog                      : Reading resource: db/migration/changes/UCSBOrganization.json
+2025-11-07T00:14:04.107-08:00  INFO 80513 --- [           main] liquibase.changelog                      : Reading resource: db/migration/changes/Users.json
+2025-11-07T00:14:04.145-08:00  INFO 80513 --- [           main] liquibase.changelog                      : Creating database history table with name: PUBLIC.DATABASECHANGELOG
+2025-11-07T00:14:04.217-08:00  INFO 80513 --- [           main] liquibase.changelog                      : Reading from PUBLIC.DATABASECHANGELOG
+2025-11-07T00:14:04.259-08:00  INFO 80513 --- [           main] liquibase.lockservice                    : Successfully acquired change log lock
+2025-11-07T00:14:04.259-08:00  INFO 80513 --- [           main] liquibase.command                        : Using deploymentId: 2503244259
+2025-11-07T00:14:04.260-08:00  INFO 80513 --- [           main] liquibase.changelog                      : Reading from PUBLIC.DATABASECHANGELOG
+2025-11-07T00:14:04.272-08:00  INFO 80513 --- [           main] liquibase.ui                             : Running Changeset: db/migration/changes/Articles.json::Articles-1::IanS
+2025-11-07T00:14:04.273-08:00  INFO 80513 --- [           main] liquibase.snapshot                       : Creating snapshot
+2025-11-07T00:14:04.287-08:00  INFO 80513 --- [           main] liquibase.changelog                      : Table ARTICLES created
+2025-11-07T00:14:04.288-08:00  INFO 80513 --- [           main] liquibase.changelog                      : ChangeSet db/migration/changes/Articles.json::Articles-1::IanS ran successfully in 15ms
+2025-11-07T00:14:04.291-08:00  INFO 80513 --- [           main] liquibase.ui                             : Running Changeset: db/migration/changes/Jobs.json::Jobs-0::Division7 (generated)
+2025-11-07T00:14:04.292-08:00  INFO 80513 --- [           main] liquibase.snapshot                       : Creating snapshot
+2025-11-07T00:14:04.294-08:00  INFO 80513 --- [           main] liquibase.changelog                      : Table JOBS created
+2025-11-07T00:14:04.294-08:00  INFO 80513 --- [           main] liquibase.changelog                      : ChangeSet db/migration/changes/Jobs.json::Jobs-0::Division7 (generated) ran successfully in 3ms
+2025-11-07T00:14:04.296-08:00  INFO 80513 --- [           main] liquibase.ui                             : Running Changeset: db/migration/changes/MenuItemReview.json::20251030-menuitemreview-create::jakindazhang
+2025-11-07T00:14:04.297-08:00  INFO 80513 --- [           main] liquibase.changelog                      : Table menuitemreviews created
+2025-11-07T00:14:04.298-08:00  INFO 80513 --- [           main] liquibase.changelog                      : ChangeSet db/migration/changes/MenuItemReview.json::20251030-menuitemreview-create::jakindazhang ran successfully in 2ms
+2025-11-07T00:14:04.299-08:00  INFO 80513 --- [           main] liquibase.ui                             : Running Changeset: db/migration/changes/RecommendationRequest.json::RecommendationRequests-1::SichengX
+2025-11-07T00:14:04.300-08:00  INFO 80513 --- [           main] liquibase.snapshot                       : Creating snapshot
+2025-11-07T00:14:04.303-08:00  INFO 80513 --- [           main] liquibase.changelog                      : Table RECOMMENDATIONREQUESTS created
+2025-11-07T00:14:04.303-08:00  INFO 80513 --- [           main] liquibase.changelog                      : ChangeSet db/migration/changes/RecommendationRequest.json::RecommendationRequests-1::SichengX ran successfully in 4ms
+2025-11-07T00:14:04.305-08:00  INFO 80513 --- [           main] liquibase.ui                             : Running Changeset: db/migration/changes/Restaurants.json::Restaurants-1::phtcon
+2025-11-07T00:14:04.306-08:00  INFO 80513 --- [           main] liquibase.snapshot                       : Creating snapshot
+2025-11-07T00:14:04.310-08:00  INFO 80513 --- [           main] liquibase.changelog                      : Table RESTAURANTS created
+2025-11-07T00:14:04.310-08:00  INFO 80513 --- [           main] liquibase.changelog                      : ChangeSet db/migration/changes/Restaurants.json::Restaurants-1::phtcon ran successfully in 5ms
+2025-11-07T00:14:04.312-08:00  INFO 80513 --- [           main] liquibase.ui                             : Running Changeset: db/migration/changes/UCSBDates.json::UCSBDates-1::MattP
+2025-11-07T00:14:04.312-08:00  INFO 80513 --- [           main] liquibase.snapshot                       : Creating snapshot
+2025-11-07T00:14:04.317-08:00  INFO 80513 --- [           main] liquibase.changelog                      : Table UCSBDATES created
+2025-11-07T00:14:04.317-08:00  INFO 80513 --- [           main] liquibase.changelog                      : ChangeSet db/migration/changes/UCSBDates.json::UCSBDates-1::MattP ran successfully in 5ms
+2025-11-07T00:14:04.319-08:00  INFO 80513 --- [           main] liquibase.ui                             : Running Changeset: db/migration/changes/UCSBDiningCommons.json::UCSBDiningCommons-1::MattP
+2025-11-07T00:14:04.320-08:00  INFO 80513 --- [           main] liquibase.snapshot                       : Creating snapshot
+2025-11-07T00:14:04.325-08:00  INFO 80513 --- [           main] liquibase.changelog                      : Table UCSBDININGCOMMONS created
+2025-11-07T00:14:04.325-08:00  INFO 80513 --- [           main] liquibase.changelog                      : ChangeSet db/migration/changes/UCSBDiningCommons.json::UCSBDiningCommons-1::MattP ran successfully in 6ms
+2025-11-07T00:14:04.327-08:00  INFO 80513 --- [           main] liquibase.ui                             : Running Changeset: db/migration/changes/UCSBDiningCommonsMenuItem.json::UCSBDiningCommonsMenuItem-1::ArmanSajjadian
+2025-11-07T00:14:04.328-08:00  INFO 80513 --- [           main] liquibase.snapshot                       : Creating snapshot
+2025-11-07T00:14:04.333-08:00  INFO 80513 --- [           main] liquibase.changelog                      : Table UCSBDININGCOMMONSMENUITEM created
+2025-11-07T00:14:04.333-08:00  INFO 80513 --- [           main] liquibase.changelog                      : ChangeSet db/migration/changes/UCSBDiningCommonsMenuItem.json::UCSBDiningCommonsMenuItem-1::ArmanSajjadian ran successfully in 6ms
+2025-11-07T00:14:04.335-08:00  INFO 80513 --- [           main] liquibase.ui                             : Running Changeset: db/migration/changes/UCSBOrganization.json::UCSBOrganization-1::YuchaoZheng
+2025-11-07T00:14:04.335-08:00  INFO 80513 --- [           main] liquibase.snapshot                       : Creating snapshot
+2025-11-07T00:14:04.340-08:00  INFO 80513 --- [           main] liquibase.changelog                      : Table UCSBORGANIZATION created
+2025-11-07T00:14:04.341-08:00  INFO 80513 --- [           main] liquibase.changelog                      : ChangeSet db/migration/changes/UCSBOrganization.json::UCSBOrganization-1::YuchaoZheng ran successfully in 6ms
+2025-11-07T00:14:04.343-08:00  INFO 80513 --- [           main] liquibase.ui                             : Running Changeset: db/migration/changes/Users.json::Users-1::MattP
+2025-11-07T00:14:04.343-08:00  INFO 80513 --- [           main] liquibase.snapshot                       : Creating snapshot
+2025-11-07T00:14:04.350-08:00  INFO 80513 --- [           main] liquibase.changelog                      : Table USERS created
+2025-11-07T00:14:04.350-08:00  INFO 80513 --- [           main] liquibase.changelog                      : ChangeSet db/migration/changes/Users.json::Users-1::MattP ran successfully in 7ms
+2025-11-07T00:14:04.355-08:00  INFO 80513 --- [           main] liquibase.util                           : UPDATE SUMMARY
+2025-11-07T00:14:04.355-08:00  INFO 80513 --- [           main] liquibase.util                           : Run:                         10
+2025-11-07T00:14:04.355-08:00  INFO 80513 --- [           main] liquibase.util                           : Previously run:               0
+2025-11-07T00:14:04.355-08:00  INFO 80513 --- [           main] liquibase.util                           : Filtered out:                 0
+2025-11-07T00:14:04.355-08:00  INFO 80513 --- [           main] liquibase.util                           : -------------------------------
+2025-11-07T00:14:04.355-08:00  INFO 80513 --- [           main] liquibase.util                           : Total change sets:           10
+2025-11-07T00:14:04.356-08:00  INFO 80513 --- [           main] liquibase.util                           : Update summary generated
+2025-11-07T00:14:04.357-08:00  INFO 80513 --- [           main] liquibase.command                        : Update command completed successfully.
+2025-11-07T00:14:04.357-08:00  INFO 80513 --- [           main] liquibase.ui                             : Liquibase: Update has been successful. Rows affected: 10
+2025-11-07T00:14:04.358-08:00  INFO 80513 --- [           main] liquibase.lockservice                    : Successfully released change log lock
+2025-11-07T00:14:04.360-08:00  INFO 80513 --- [           main] liquibase.command                        : Command execution complete
+2025-11-07T00:14:04.424-08:00  INFO 80513 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-07T00:14:04.478-08:00  INFO 80513 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.8.Final
+2025-11-07T00:14:04.508-08:00  INFO 80513 --- [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-11-07T00:14:04.702-08:00  INFO 80513 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-07T00:14:04.734-08:00  WARN 80513 --- [           main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-11-07T00:14:04.742-08:00  INFO 80513 --- [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-11-07T00:14:05.409-08:00  INFO 80513 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-07T00:14:05.411-08:00  INFO 80513 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-07T00:14:06.081-08:00  WARN 80513 --- [           main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/h2-console/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-11-07T00:14:06.106-08:00  INFO 80513 --- [           main] o.s.v.b.OptionalValidatorFactoryBean     : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-11-07T00:14:06.270-08:00  INFO 80513 --- [           main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:8618c5fe-c4ba-485f-a980-1c4bf6af339e'
+2025-11-07T00:14:06.305-08:00  INFO 80513 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-11-07T00:14:06.310-08:00  INFO 80513 --- [           main] e.u.c.e.web.RecommendationRequestWebIT   : Started RecommendationRequestWebIT in 4.1 seconds (process running for 5.546)
+[ERROR] OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+2025-11-07T00:14:06.314-08:00  INFO 80513 --- [           main] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-11-07T00:14:06.318-08:00  INFO 80513 --- [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-11-07T00:14:06.320-08:00  INFO 80513 --- [           main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-11-07T00:14:06.321-08:00  INFO 80513 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-11-07T00:14:06.322-08:00  INFO 80513 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-11-07T00:14:06.325-08:00  INFO 80513 --- [           main] o.s.b.d.r.RestartApplicationListener     : Restart disabled due to context in which it is running
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.4.3)
+
+2025-11-07T00:14:06.334-08:00  INFO 80513 --- [           main] m.p.springdotenv.DotenvPropertySource    : Initializing Dotenv with DotenvConfig{directory=null, filename=null, ignoreIfMalformed=false, ignoreIfMissing=true, systemProperties=false}
+2025-11-07T00:14:06.335-08:00  INFO 80513 --- [           main] e.u.c.e.web.RecommendationRequestWebIT   : Starting RecommendationRequestWebIT using Java 21.0.6 with PID 80513 (started by sichengxu in /Users/sichengxu/cs156/team02-f25-07)
+2025-11-07T00:14:06.335-08:00  INFO 80513 --- [           main] e.u.c.e.web.RecommendationRequestWebIT   : The following 1 profile is active: "integration"
+2025-11-07T00:14:06.404-08:00  INFO 80513 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-07T00:14:06.411-08:00  INFO 80513 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6 ms. Found 10 JPA repository interfaces.
+2025-11-07T00:14:06.461-08:00  INFO 80513 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-11-07T00:14:06.461-08:00  INFO 80513 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-11-07T00:14:06.461-08:00  INFO 80513 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.36]
+2025-11-07T00:14:06.467-08:00  INFO 80513 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-11-07T00:14:06.467-08:00  INFO 80513 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 132 ms
+2025-11-07T00:14:06.483-08:00  INFO 80513 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2025-11-07T00:14:06.484-08:00  INFO 80513 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection conn10: url=jdbc:h2:mem:9cce0b72-4c5d-4705-8629-1b6856165c95 user=SA
+2025-11-07T00:14:06.484-08:00  INFO 80513 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2025-11-07T00:14:06.485-08:00  INFO 80513 --- [           main] liquibase.database                       : Set default schema name to PUBLIC
+2025-11-07T00:14:06.496-08:00  INFO 80513 --- [           main] liquibase.changelog                      : Reading resource: db/migration/changes/Articles.json
+2025-11-07T00:14:06.498-08:00  INFO 80513 --- [           main] liquibase.changelog                      : Reading resource: db/migration/changes/Jobs.json
+2025-11-07T00:14:06.499-08:00  INFO 80513 --- [           main] liquibase.changelog                      : Reading resource: db/migration/changes/MenuItemReview.json
+2025-11-07T00:14:06.500-08:00  INFO 80513 --- [           main] liquibase.changelog                      : Reading resource: db/migration/changes/RecommendationRequest.json
+2025-11-07T00:14:06.501-08:00  INFO 80513 --- [           main] liquibase.changelog                      : Reading resource: db/migration/changes/Restaurants.json
+2025-11-07T00:14:06.501-08:00  INFO 80513 --- [           main] liquibase.changelog                      : Reading resource: db/migration/changes/UCSBDates.json
+2025-11-07T00:14:06.502-08:00  INFO 80513 --- [           main] liquibase.changelog                      : Reading resource: db/migration/changes/UCSBDiningCommons.json
+2025-11-07T00:14:06.504-08:00  INFO 80513 --- [           main] liquibase.changelog                      : Reading resource: db/migration/changes/UCSBDiningCommonsMenuItem.json
+2025-11-07T00:14:06.505-08:00  INFO 80513 --- [           main] liquibase.changelog                      : Reading resource: db/migration/changes/UCSBOrganization.json
+2025-11-07T00:14:06.505-08:00  INFO 80513 --- [           main] liquibase.changelog                      : Reading resource: db/migration/changes/Users.json
+2025-11-07T00:14:06.507-08:00  INFO 80513 --- [           main] liquibase.changelog                      : Creating database history table with name: PUBLIC.DATABASECHANGELOG
+2025-11-07T00:14:06.509-08:00  INFO 80513 --- [           main] liquibase.changelog                      : Reading from PUBLIC.DATABASECHANGELOG
+2025-11-07T00:14:06.518-08:00  INFO 80513 --- [           main] liquibase.lockservice                    : Successfully acquired change log lock
+2025-11-07T00:14:06.518-08:00  INFO 80513 --- [           main] liquibase.command                        : Using deploymentId: 2503246518
+2025-11-07T00:14:06.518-08:00  INFO 80513 --- [           main] liquibase.changelog                      : Reading from PUBLIC.DATABASECHANGELOG
+2025-11-07T00:14:06.522-08:00  INFO 80513 --- [           main] liquibase.ui                             : Running Changeset: db/migration/changes/Articles.json::Articles-1::IanS
+2025-11-07T00:14:06.522-08:00  INFO 80513 --- [           main] liquibase.snapshot                       : Creating snapshot
+2025-11-07T00:14:06.524-08:00  INFO 80513 --- [           main] liquibase.changelog                      : Table ARTICLES created
+2025-11-07T00:14:06.524-08:00  INFO 80513 --- [           main] liquibase.changelog                      : ChangeSet db/migration/changes/Articles.json::Articles-1::IanS ran successfully in 2ms
+2025-11-07T00:14:06.526-08:00  INFO 80513 --- [           main] liquibase.ui                             : Running Changeset: db/migration/changes/Jobs.json::Jobs-0::Division7 (generated)
+2025-11-07T00:14:06.526-08:00  INFO 80513 --- [           main] liquibase.snapshot                       : Creating snapshot
+2025-11-07T00:14:06.528-08:00  INFO 80513 --- [           main] liquibase.changelog                      : Table JOBS created
+2025-11-07T00:14:06.528-08:00  INFO 80513 --- [           main] liquibase.changelog                      : ChangeSet db/migration/changes/Jobs.json::Jobs-0::Division7 (generated) ran successfully in 2ms
+2025-11-07T00:14:06.529-08:00  INFO 80513 --- [           main] liquibase.ui                             : Running Changeset: db/migration/changes/MenuItemReview.json::20251030-menuitemreview-create::jakindazhang
+2025-11-07T00:14:06.530-08:00  INFO 80513 --- [           main] liquibase.changelog                      : Table menuitemreviews created
+2025-11-07T00:14:06.530-08:00  INFO 80513 --- [           main] liquibase.changelog                      : ChangeSet db/migration/changes/MenuItemReview.json::20251030-menuitemreview-create::jakindazhang ran successfully in 1ms
+2025-11-07T00:14:06.531-08:00  INFO 80513 --- [           main] liquibase.ui                             : Running Changeset: db/migration/changes/RecommendationRequest.json::RecommendationRequests-1::SichengX
+2025-11-07T00:14:06.531-08:00  INFO 80513 --- [           main] liquibase.snapshot                       : Creating snapshot
+2025-11-07T00:14:06.534-08:00  INFO 80513 --- [           main] liquibase.changelog                      : Table RECOMMENDATIONREQUESTS created
+2025-11-07T00:14:06.534-08:00  INFO 80513 --- [           main] liquibase.changelog                      : ChangeSet db/migration/changes/RecommendationRequest.json::RecommendationRequests-1::SichengX ran successfully in 3ms
+2025-11-07T00:14:06.535-08:00  INFO 80513 --- [           main] liquibase.ui                             : Running Changeset: db/migration/changes/Restaurants.json::Restaurants-1::phtcon
+2025-11-07T00:14:06.535-08:00  INFO 80513 --- [           main] liquibase.snapshot                       : Creating snapshot
+2025-11-07T00:14:06.537-08:00  INFO 80513 --- [           main] liquibase.changelog                      : Table RESTAURANTS created
+2025-11-07T00:14:06.537-08:00  INFO 80513 --- [           main] liquibase.changelog                      : ChangeSet db/migration/changes/Restaurants.json::Restaurants-1::phtcon ran successfully in 2ms
+2025-11-07T00:14:06.538-08:00  INFO 80513 --- [           main] liquibase.ui                             : Running Changeset: db/migration/changes/UCSBDates.json::UCSBDates-1::MattP
+2025-11-07T00:14:06.539-08:00  INFO 80513 --- [           main] liquibase.snapshot                       : Creating snapshot
+2025-11-07T00:14:06.541-08:00  INFO 80513 --- [           main] liquibase.changelog                      : Table UCSBDATES created
+2025-11-07T00:14:06.541-08:00  INFO 80513 --- [           main] liquibase.changelog                      : ChangeSet db/migration/changes/UCSBDates.json::UCSBDates-1::MattP ran successfully in 3ms
+2025-11-07T00:14:06.542-08:00  INFO 80513 --- [           main] liquibase.ui                             : Running Changeset: db/migration/changes/UCSBDiningCommons.json::UCSBDiningCommons-1::MattP
+2025-11-07T00:14:06.543-08:00  INFO 80513 --- [           main] liquibase.snapshot                       : Creating snapshot
+2025-11-07T00:14:06.545-08:00  INFO 80513 --- [           main] liquibase.changelog                      : Table UCSBDININGCOMMONS created
+2025-11-07T00:14:06.545-08:00  INFO 80513 --- [           main] liquibase.changelog                      : ChangeSet db/migration/changes/UCSBDiningCommons.json::UCSBDiningCommons-1::MattP ran successfully in 3ms
+2025-11-07T00:14:06.546-08:00  INFO 80513 --- [           main] liquibase.ui                             : Running Changeset: db/migration/changes/UCSBDiningCommonsMenuItem.json::UCSBDiningCommonsMenuItem-1::ArmanSajjadian
+2025-11-07T00:14:06.547-08:00  INFO 80513 --- [           main] liquibase.snapshot                       : Creating snapshot
+2025-11-07T00:14:06.549-08:00  INFO 80513 --- [           main] liquibase.changelog                      : Table UCSBDININGCOMMONSMENUITEM created
+2025-11-07T00:14:06.549-08:00  INFO 80513 --- [           main] liquibase.changelog                      : ChangeSet db/migration/changes/UCSBDiningCommonsMenuItem.json::UCSBDiningCommonsMenuItem-1::ArmanSajjadian ran successfully in 3ms
+2025-11-07T00:14:06.550-08:00  INFO 80513 --- [           main] liquibase.ui                             : Running Changeset: db/migration/changes/UCSBOrganization.json::UCSBOrganization-1::YuchaoZheng
+2025-11-07T00:14:06.551-08:00  INFO 80513 --- [           main] liquibase.snapshot                       : Creating snapshot
+2025-11-07T00:14:06.557-08:00  INFO 80513 --- [           main] liquibase.changelog                      : Table UCSBORGANIZATION created
+2025-11-07T00:14:06.557-08:00  INFO 80513 --- [           main] liquibase.changelog                      : ChangeSet db/migration/changes/UCSBOrganization.json::UCSBOrganization-1::YuchaoZheng ran successfully in 7ms
+2025-11-07T00:14:06.558-08:00  INFO 80513 --- [           main] liquibase.ui                             : Running Changeset: db/migration/changes/Users.json::Users-1::MattP
+2025-11-07T00:14:06.558-08:00  INFO 80513 --- [           main] liquibase.snapshot                       : Creating snapshot
+2025-11-07T00:14:06.562-08:00  INFO 80513 --- [           main] liquibase.changelog                      : Table USERS created
+2025-11-07T00:14:06.562-08:00  INFO 80513 --- [           main] liquibase.changelog                      : ChangeSet db/migration/changes/Users.json::Users-1::MattP ran successfully in 4ms
+2025-11-07T00:14:06.563-08:00  INFO 80513 --- [           main] liquibase.util                           : UPDATE SUMMARY
+2025-11-07T00:14:06.563-08:00  INFO 80513 --- [           main] liquibase.util                           : Run:                         10
+2025-11-07T00:14:06.563-08:00  INFO 80513 --- [           main] liquibase.util                           : Previously run:               0
+2025-11-07T00:14:06.563-08:00  INFO 80513 --- [           main] liquibase.util                           : Filtered out:                 0
+2025-11-07T00:14:06.563-08:00  INFO 80513 --- [           main] liquibase.util                           : -------------------------------
+2025-11-07T00:14:06.563-08:00  INFO 80513 --- [           main] liquibase.util                           : Total change sets:           10
+2025-11-07T00:14:06.563-08:00  INFO 80513 --- [           main] liquibase.util                           : Update summary generated
+2025-11-07T00:14:06.563-08:00  INFO 80513 --- [           main] liquibase.command                        : Update command completed successfully.
+2025-11-07T00:14:06.563-08:00  INFO 80513 --- [           main] liquibase.ui                             : Liquibase: Update has been successful. Rows affected: 10
+2025-11-07T00:14:06.563-08:00  INFO 80513 --- [           main] liquibase.lockservice                    : Successfully released change log lock
+2025-11-07T00:14:06.564-08:00  INFO 80513 --- [           main] liquibase.command                        : Command execution complete
+2025-11-07T00:14:06.572-08:00  INFO 80513 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-07T00:14:06.573-08:00  INFO 80513 --- [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-11-07T00:14:06.576-08:00  INFO 80513 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-07T00:14:06.576-08:00  WARN 80513 --- [           main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-11-07T00:14:06.576-08:00  INFO 80513 --- [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-2)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-11-07T00:14:06.631-08:00  INFO 80513 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-07T00:14:06.631-08:00  INFO 80513 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-07T00:14:06.760-08:00  WARN 80513 --- [           main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/h2-console/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-11-07T00:14:06.767-08:00  INFO 80513 --- [           main] o.s.v.b.OptionalValidatorFactoryBean     : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-11-07T00:14:06.793-08:00  INFO 80513 --- [           main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:9cce0b72-4c5d-4705-8629-1b6856165c95'
+2025-11-07T00:14:06.805-08:00  INFO 80513 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-11-07T00:14:06.806-08:00  INFO 80513 --- [           main] e.u.c.e.web.RecommendationRequestWebIT   : Started RecommendationRequestWebIT in 0.481 seconds (process running for 6.042)
+Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build what is described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org/mockito/Mockito.html#0.3
+WARNING: A Java agent has been loaded dynamically (/Users/sichengxu/.m2/repository/net/bytebuddy/byte-buddy-agent/1.15.11/byte-buddy-agent-1.15.11.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+2025-11-07T00:14:08.803-08:00  INFO 80513 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-11-07T00:14:08.803-08:00  INFO 80513 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-11-07T00:14:08.804-08:00  INFO 80513 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-11-07T00:14:09.259-08:00  INFO 80513 --- [nio-8080-exec-2] e.u.cs156.example.config.SecurityConfig  : ********** authorities=[OAUTH2_USER, SCOPE_https://www.googleapis.com/auth/userinfo.email, SCOPE_https://www.googleapis.com/auth/userinfo.profile, SCOPE_openid]
+2025-11-07T00:14:09.259-08:00  INFO 80513 --- [nio-8080-exec-2] e.u.cs156.example.config.SecurityConfig  : ********** authority=OAUTH2_USER
+2025-11-07T00:14:09.259-08:00  INFO 80513 --- [nio-8080-exec-2] e.u.cs156.example.config.SecurityConfig  : ********** userAttributes={sub=107126842018026740288, name=Chris Gaucho, given_name=Chris, family_name=Gaucho, picture=https://lh3.googleusercontent.com/a/ACg8ocJpOe2SqIpirdIMx7KTj1W4OQ45t6FwpUo40K2V2JON=s96-c, email=cgaucho@ucsb.edu, email_verified=true, locale=en, hd=ucsb.edu}
+2025-11-07T00:14:09.340-08:00 DEBUG 80513 --- [nio-8080-exec-2] org.hibernate.SQL                        : select u1_0.id,u1_0.admin,u1_0.email,u1_0.email_verified,u1_0.family_name,u1_0.full_name,u1_0.given_name,u1_0.google_sub,u1_0.hosted_domain,u1_0.locale,u1_0.picture_url from users u1_0 where u1_0.email=?
+2025-11-07T00:14:09.357-08:00  INFO 80513 --- [nio-8080-exec-2] e.u.cs156.example.config.SecurityConfig  : ********** authority=SCOPE_https://www.googleapis.com/auth/userinfo.email
+2025-11-07T00:14:09.357-08:00  INFO 80513 --- [nio-8080-exec-2] e.u.cs156.example.config.SecurityConfig  : ********** authority=SCOPE_https://www.googleapis.com/auth/userinfo.profile
+2025-11-07T00:14:09.357-08:00  INFO 80513 --- [nio-8080-exec-2] e.u.cs156.example.config.SecurityConfig  : ********** authority=SCOPE_openid
+2025-11-07T00:14:09.357-08:00  INFO 80513 --- [nio-8080-exec-2] e.u.cs156.example.config.SecurityConfig  : ********** mappedAuthorities=[ROLE_MEMBER, SCOPE_openid, ROLE_USER, SCOPE_https://www.googleapis.com/auth/userinfo.profile, SCOPE_https://www.googleapis.com/auth/userinfo.email, OAUTH2_USER]
+2025-11-07T00:14:09.380-08:00  INFO 80513 --- [nio-8080-exec-3] e.ucsb.cs156.example.aop.LoggingAspect   : ===== GET /error handled by errorHtml in org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController
+2025-11-07T00:14:09.393-08:00  INFO 80513 --- [nio-8080-exec-4] e.ucsb.cs156.example.aop.LoggingAspect   : ===== GET /recommendationrequests/create handled by index in edu.ucsb.cs156.example.controllers.FrontendController
+2025-11-07T00:14:09.398-08:00  INFO 80513 --- [nio-8080-exec-4] e.ucsb.cs156.example.aop.LoggingAspect   : ===== GET /error handled by errorHtml in org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController
+2025-11-07T00:14:09.443-08:00  INFO 80513 --- [           main] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-11-07T00:14:09.444-08:00  INFO 80513 --- [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-11-07T00:14:09.446-08:00  INFO 80513 --- [           main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-11-07T00:14:09.447-08:00  INFO 80513 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2025-11-07T00:14:09.447-08:00  INFO 80513 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2025-11-07T00:14:09.449-08:00  INFO 80513 --- [           main] o.s.b.d.r.RestartApplicationListener     : Restart disabled due to context in which it is running
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.4.3)
+
+2025-11-07T00:14:09.458-08:00  INFO 80513 --- [           main] m.p.springdotenv.DotenvPropertySource    : Initializing Dotenv with DotenvConfig{directory=null, filename=null, ignoreIfMalformed=false, ignoreIfMissing=true, systemProperties=false}
+2025-11-07T00:14:09.459-08:00  INFO 80513 --- [           main] e.u.c.e.web.RecommendationRequestWebIT   : Starting RecommendationRequestWebIT using Java 21.0.6 with PID 80513 (started by sichengxu in /Users/sichengxu/cs156/team02-f25-07)
+2025-11-07T00:14:09.459-08:00  INFO 80513 --- [           main] e.u.c.e.web.RecommendationRequestWebIT   : The following 1 profile is active: "integration"
+2025-11-07T00:14:09.530-08:00  INFO 80513 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-07T00:14:09.536-08:00  INFO 80513 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 5 ms. Found 10 JPA repository interfaces.
+2025-11-07T00:14:09.578-08:00  INFO 80513 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-11-07T00:14:09.578-08:00  INFO 80513 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-11-07T00:14:09.578-08:00  INFO 80513 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.36]
+2025-11-07T00:14:09.584-08:00  INFO 80513 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-11-07T00:14:09.584-08:00  INFO 80513 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 125 ms
+2025-11-07T00:14:09.598-08:00  INFO 80513 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2025-11-07T00:14:09.599-08:00  INFO 80513 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-3 - Added connection conn20: url=jdbc:h2:mem:d5d055f8-8408-41c9-8ddf-3e4ca4319cfc user=SA
+2025-11-07T00:14:09.599-08:00  INFO 80513 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2025-11-07T00:14:09.600-08:00  INFO 80513 --- [           main] liquibase.database                       : Set default schema name to PUBLIC
+2025-11-07T00:14:09.607-08:00  INFO 80513 --- [           main] liquibase.changelog                      : Reading resource: db/migration/changes/Articles.json
+2025-11-07T00:14:09.608-08:00  INFO 80513 --- [           main] liquibase.changelog                      : Reading resource: db/migration/changes/Jobs.json
+2025-11-07T00:14:09.609-08:00  INFO 80513 --- [           main] liquibase.changelog                      : Reading resource: db/migration/changes/MenuItemReview.json
+2025-11-07T00:14:09.610-08:00  INFO 80513 --- [           main] liquibase.changelog                      : Reading resource: db/migration/changes/RecommendationRequest.json
+2025-11-07T00:14:09.610-08:00  INFO 80513 --- [           main] liquibase.changelog                      : Reading resource: db/migration/changes/Restaurants.json
+2025-11-07T00:14:09.611-08:00  INFO 80513 --- [           main] liquibase.changelog                      : Reading resource: db/migration/changes/UCSBDates.json
+2025-11-07T00:14:09.612-08:00  INFO 80513 --- [           main] liquibase.changelog                      : Reading resource: db/migration/changes/UCSBDiningCommons.json
+2025-11-07T00:14:09.613-08:00  INFO 80513 --- [           main] liquibase.changelog                      : Reading resource: db/migration/changes/UCSBDiningCommonsMenuItem.json
+2025-11-07T00:14:09.614-08:00  INFO 80513 --- [           main] liquibase.changelog                      : Reading resource: db/migration/changes/UCSBOrganization.json
+2025-11-07T00:14:09.614-08:00  INFO 80513 --- [           main] liquibase.changelog                      : Reading resource: db/migration/changes/Users.json
+2025-11-07T00:14:09.616-08:00  INFO 80513 --- [           main] liquibase.changelog                      : Creating database history table with name: PUBLIC.DATABASECHANGELOG
+2025-11-07T00:14:09.618-08:00  INFO 80513 --- [           main] liquibase.changelog                      : Reading from PUBLIC.DATABASECHANGELOG
+2025-11-07T00:14:09.624-08:00  INFO 80513 --- [           main] liquibase.lockservice                    : Successfully acquired change log lock
+2025-11-07T00:14:09.624-08:00  INFO 80513 --- [           main] liquibase.command                        : Using deploymentId: 2503249624
+2025-11-07T00:14:09.625-08:00  INFO 80513 --- [           main] liquibase.changelog                      : Reading from PUBLIC.DATABASECHANGELOG
+2025-11-07T00:14:09.627-08:00  INFO 80513 --- [           main] liquibase.ui                             : Running Changeset: db/migration/changes/Articles.json::Articles-1::IanS
+2025-11-07T00:14:09.628-08:00  INFO 80513 --- [           main] liquibase.snapshot                       : Creating snapshot
+2025-11-07T00:14:09.629-08:00  INFO 80513 --- [           main] liquibase.changelog                      : Table ARTICLES created
+2025-11-07T00:14:09.630-08:00  INFO 80513 --- [           main] liquibase.changelog                      : ChangeSet db/migration/changes/Articles.json::Articles-1::IanS ran successfully in 2ms
+2025-11-07T00:14:09.631-08:00  INFO 80513 --- [           main] liquibase.ui                             : Running Changeset: db/migration/changes/Jobs.json::Jobs-0::Division7 (generated)
+2025-11-07T00:14:09.631-08:00  INFO 80513 --- [           main] liquibase.snapshot                       : Creating snapshot
+2025-11-07T00:14:09.633-08:00  INFO 80513 --- [           main] liquibase.changelog                      : Table JOBS created
+2025-11-07T00:14:09.633-08:00  INFO 80513 --- [           main] liquibase.changelog                      : ChangeSet db/migration/changes/Jobs.json::Jobs-0::Division7 (generated) ran successfully in 2ms
+2025-11-07T00:14:09.634-08:00  INFO 80513 --- [           main] liquibase.ui                             : Running Changeset: db/migration/changes/MenuItemReview.json::20251030-menuitemreview-create::jakindazhang
+2025-11-07T00:14:09.634-08:00  INFO 80513 --- [           main] liquibase.changelog                      : Table menuitemreviews created
+2025-11-07T00:14:09.634-08:00  INFO 80513 --- [           main] liquibase.changelog                      : ChangeSet db/migration/changes/MenuItemReview.json::20251030-menuitemreview-create::jakindazhang ran successfully in 0ms
+2025-11-07T00:14:09.635-08:00  INFO 80513 --- [           main] liquibase.ui                             : Running Changeset: db/migration/changes/RecommendationRequest.json::RecommendationRequests-1::SichengX
+2025-11-07T00:14:09.636-08:00  INFO 80513 --- [           main] liquibase.snapshot                       : Creating snapshot
+2025-11-07T00:14:09.637-08:00  INFO 80513 --- [           main] liquibase.changelog                      : Table RECOMMENDATIONREQUESTS created
+2025-11-07T00:14:09.637-08:00  INFO 80513 --- [           main] liquibase.changelog                      : ChangeSet db/migration/changes/RecommendationRequest.json::RecommendationRequests-1::SichengX ran successfully in 2ms
+2025-11-07T00:14:09.638-08:00  INFO 80513 --- [           main] liquibase.ui                             : Running Changeset: db/migration/changes/Restaurants.json::Restaurants-1::phtcon
+2025-11-07T00:14:09.639-08:00  INFO 80513 --- [           main] liquibase.snapshot                       : Creating snapshot
+2025-11-07T00:14:09.640-08:00  INFO 80513 --- [           main] liquibase.changelog                      : Table RESTAURANTS created
+2025-11-07T00:14:09.640-08:00  INFO 80513 --- [           main] liquibase.changelog                      : ChangeSet db/migration/changes/Restaurants.json::Restaurants-1::phtcon ran successfully in 2ms
+2025-11-07T00:14:09.641-08:00  INFO 80513 --- [           main] liquibase.ui                             : Running Changeset: db/migration/changes/UCSBDates.json::UCSBDates-1::MattP
+2025-11-07T00:14:09.641-08:00  INFO 80513 --- [           main] liquibase.snapshot                       : Creating snapshot
+2025-11-07T00:14:09.643-08:00  INFO 80513 --- [           main] liquibase.changelog                      : Table UCSBDATES created
+2025-11-07T00:14:09.643-08:00  INFO 80513 --- [           main] liquibase.changelog                      : ChangeSet db/migration/changes/UCSBDates.json::UCSBDates-1::MattP ran successfully in 2ms
+2025-11-07T00:14:09.644-08:00  INFO 80513 --- [           main] liquibase.ui                             : Running Changeset: db/migration/changes/UCSBDiningCommons.json::UCSBDiningCommons-1::MattP
+2025-11-07T00:14:09.645-08:00  INFO 80513 --- [           main] liquibase.snapshot                       : Creating snapshot
+2025-11-07T00:14:09.647-08:00  INFO 80513 --- [           main] liquibase.changelog                      : Table UCSBDININGCOMMONS created
+2025-11-07T00:14:09.647-08:00  INFO 80513 --- [           main] liquibase.changelog                      : ChangeSet db/migration/changes/UCSBDiningCommons.json::UCSBDiningCommons-1::MattP ran successfully in 3ms
+2025-11-07T00:14:09.648-08:00  INFO 80513 --- [           main] liquibase.ui                             : Running Changeset: db/migration/changes/UCSBDiningCommonsMenuItem.json::UCSBDiningCommonsMenuItem-1::ArmanSajjadian
+2025-11-07T00:14:09.648-08:00  INFO 80513 --- [           main] liquibase.snapshot                       : Creating snapshot
+2025-11-07T00:14:09.650-08:00  INFO 80513 --- [           main] liquibase.changelog                      : Table UCSBDININGCOMMONSMENUITEM created
+2025-11-07T00:14:09.650-08:00  INFO 80513 --- [           main] liquibase.changelog                      : ChangeSet db/migration/changes/UCSBDiningCommonsMenuItem.json::UCSBDiningCommonsMenuItem-1::ArmanSajjadian ran successfully in 2ms
+2025-11-07T00:14:09.651-08:00  INFO 80513 --- [           main] liquibase.ui                             : Running Changeset: db/migration/changes/UCSBOrganization.json::UCSBOrganization-1::YuchaoZheng
+2025-11-07T00:14:09.651-08:00  INFO 80513 --- [           main] liquibase.snapshot                       : Creating snapshot
+2025-11-07T00:14:09.654-08:00  INFO 80513 --- [           main] liquibase.changelog                      : Table UCSBORGANIZATION created
+2025-11-07T00:14:09.654-08:00  INFO 80513 --- [           main] liquibase.changelog                      : ChangeSet db/migration/changes/UCSBOrganization.json::UCSBOrganization-1::YuchaoZheng ran successfully in 3ms
+2025-11-07T00:14:09.655-08:00  INFO 80513 --- [           main] liquibase.ui                             : Running Changeset: db/migration/changes/Users.json::Users-1::MattP
+2025-11-07T00:14:09.655-08:00  INFO 80513 --- [           main] liquibase.snapshot                       : Creating snapshot
+2025-11-07T00:14:09.657-08:00  INFO 80513 --- [           main] liquibase.changelog                      : Table USERS created
+2025-11-07T00:14:09.657-08:00  INFO 80513 --- [           main] liquibase.changelog                      : ChangeSet db/migration/changes/Users.json::Users-1::MattP ran successfully in 2ms
+2025-11-07T00:14:09.658-08:00  INFO 80513 --- [           main] liquibase.util                           : UPDATE SUMMARY
+2025-11-07T00:14:09.658-08:00  INFO 80513 --- [           main] liquibase.util                           : Run:                         10
+2025-11-07T00:14:09.658-08:00  INFO 80513 --- [           main] liquibase.util                           : Previously run:               0
+2025-11-07T00:14:09.658-08:00  INFO 80513 --- [           main] liquibase.util                           : Filtered out:                 0
+2025-11-07T00:14:09.658-08:00  INFO 80513 --- [           main] liquibase.util                           : -------------------------------
+2025-11-07T00:14:09.658-08:00  INFO 80513 --- [           main] liquibase.util                           : Total change sets:           10
+2025-11-07T00:14:09.658-08:00  INFO 80513 --- [           main] liquibase.util                           : Update summary generated
+2025-11-07T00:14:09.658-08:00  INFO 80513 --- [           main] liquibase.command                        : Update command completed successfully.
+2025-11-07T00:14:09.659-08:00  INFO 80513 --- [           main] liquibase.ui                             : Liquibase: Update has been successful. Rows affected: 10
+2025-11-07T00:14:09.659-08:00  INFO 80513 --- [           main] liquibase.lockservice                    : Successfully released change log lock
+2025-11-07T00:14:09.659-08:00  INFO 80513 --- [           main] liquibase.command                        : Command execution complete
+2025-11-07T00:14:09.667-08:00  INFO 80513 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-07T00:14:09.667-08:00  INFO 80513 --- [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-11-07T00:14:09.670-08:00  INFO 80513 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-07T00:14:09.671-08:00  WARN 80513 --- [           main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-11-07T00:14:09.671-08:00  INFO 80513 --- [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-3)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-11-07T00:14:09.725-08:00  INFO 80513 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-07T00:14:09.725-08:00  INFO 80513 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-07T00:14:09.839-08:00  WARN 80513 --- [           main] o.s.s.c.a.web.builders.WebSecurity       : You are asking Spring Security to ignore Ant [pattern='/h2-console/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-11-07T00:14:09.845-08:00  INFO 80513 --- [           main] o.s.v.b.OptionalValidatorFactoryBean     : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-11-07T00:14:09.868-08:00  INFO 80513 --- [           main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:d5d055f8-8408-41c9-8ddf-3e4ca4319cfc'
+2025-11-07T00:14:09.879-08:00  INFO 80513 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-11-07T00:14:09.880-08:00  INFO 80513 --- [           main] e.u.c.e.web.RecommendationRequestWebIT   : Started RecommendationRequestWebIT in 0.431 seconds (process running for 9.116)
+2025-11-07T00:14:10.166-08:00  INFO 80513 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-11-07T00:14:10.166-08:00  INFO 80513 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-11-07T00:14:10.166-08:00  INFO 80513 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2025-11-07T00:14:10.263-08:00  INFO 80513 --- [nio-8080-exec-2] e.u.cs156.example.config.SecurityConfig  : ********** authorities=[OAUTH2_USER, SCOPE_https://www.googleapis.com/auth/userinfo.email, SCOPE_https://www.googleapis.com/auth/userinfo.profile, SCOPE_openid]
+2025-11-07T00:14:10.263-08:00  INFO 80513 --- [nio-8080-exec-2] e.u.cs156.example.config.SecurityConfig  : ********** authority=OAUTH2_USER
+2025-11-07T00:14:10.263-08:00  INFO 80513 --- [nio-8080-exec-2] e.u.cs156.example.config.SecurityConfig  : ********** userAttributes={sub=107126842018026740288, name=Admin GaucSho, given_name=Admin, family_name=Gaucho, picture=https://lh3.googleusercontent.com/a/ACg8ocJpOe2SqIpirdIMx7KTj1W4OQ45t6FwpUo40K2V2JON=s96-c, email=admingaucho@ucsb.edu, email_verified=true, locale=en, hd=ucsb.edu}
+2025-11-07T00:14:10.264-08:00  INFO 80513 --- [nio-8080-exec-2] e.u.cs156.example.config.SecurityConfig  : ********** authority=SCOPE_https://www.googleapis.com/auth/userinfo.email
+2025-11-07T00:14:10.267-08:00  INFO 80513 --- [nio-8080-exec-2] e.u.cs156.example.config.SecurityConfig  : ********** authority=SCOPE_https://www.googleapis.com/auth/userinfo.profile
+2025-11-07T00:14:10.267-08:00  INFO 80513 --- [nio-8080-exec-2] e.u.cs156.example.config.SecurityConfig  : ********** authority=SCOPE_openid
+2025-11-07T00:14:10.267-08:00  INFO 80513 --- [nio-8080-exec-2] e.u.cs156.example.config.SecurityConfig  : ********** mappedAuthorities=[ROLE_MEMBER, SCOPE_openid, ROLE_USER, SCOPE_https://www.googleapis.com/auth/userinfo.profile, SCOPE_https://www.googleapis.com/auth/userinfo.email, OAUTH2_USER, ROLE_ADMIN]
+2025-11-07T00:14:10.270-08:00  INFO 80513 --- [nio-8080-exec-3] e.ucsb.cs156.example.aop.LoggingAspect   : ===== GET /error handled by errorHtml in org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController
+2025-11-07T00:14:10.277-08:00  INFO 80513 --- [nio-8080-exec-4] e.ucsb.cs156.example.aop.LoggingAspect   : ===== GET /recommendationrequests/create handled by index in edu.ucsb.cs156.example.controllers.FrontendController
+2025-11-07T00:14:10.279-08:00  INFO 80513 --- [nio-8080-exec-4] e.ucsb.cs156.example.aop.LoggingAspect   : ===== GET /error handled by errorHtml in org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController
+2025-11-07T00:14:18.334-08:00  INFO 80513 --- [           main] org.eclipse.jetty.server.Server          : Stopped oejs.Server@677274e7{STOPPING}[12.0.16,sto=1000]
+2025-11-07T00:14:18.334-08:00  INFO 80513 --- [           main] org.eclipse.jetty.server.Server          : Shutdown oejs.Server@677274e7{STOPPING}[12.0.16,sto=1000]
+2025-11-07T00:14:18.339-08:00  INFO 80513 --- [           main] o.e.jetty.server.AbstractConnector       : Stopped NetworkTrafficServerConnector@848ede8{HTTP/1.1, (http/1.1, h2c)}{0.0.0.0:8090}
+2025-11-07T00:14:18.340-08:00  INFO 80513 --- [           main] o.e.j.e.servlet.ServletContextHandler    : Stopped oeje10s.ServletContextHandler@6f53295e{ROOT,/,b=null,a=AVAILABLE,h=oeje10s.ServletHandler@5f8a29ca{STOPPED}}
+2025-11-07T00:14:18.340-08:00  INFO 80513 --- [           main] o.e.j.e.servlet.ServletContextHandler    : Stopped oeje10s.ServletContextHandler@75caecf7{/__admin,/__admin,b=null,a=AVAILABLE,h=oeje10s.ServletHandler@62b0792{STOPPED}}
+[ERROR] Tests run: 2, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 17.12 s <<< FAILURE! - in edu.ucsb.cs156.example.web.RecommendationRequestWebIT
+[ERROR] edu.ucsb.cs156.example.web.RecommendationRequestWebIT.admin_user_can_create_edit_delete_recommendation_request  Time elapsed: 8.889 s  <<< ERROR!
+com.microsoft.playwright.TimeoutError: 
+Error {
+  message='Timeout 8000ms exceeded.
+  name='TimeoutError
+  stack='TimeoutError: Timeout 8000ms exceeded.
+    at ProgressController.run (/private/var/folders/0s/w8pn8xwd43b7sx297pkgrr280000gn/T/playwright-java-13891613123171075799/package/lib/server/progress.js:78:26)
+    at Frame.waitForSelector (/private/var/folders/0s/w8pn8xwd43b7sx297pkgrr280000gn/T/playwright-java-13891613123171075799/package/lib/server/frames.js:624:23)
+    at FrameDispatcher.waitForSelector (/private/var/folders/0s/w8pn8xwd43b7sx297pkgrr280000gn/T/playwright-java-13891613123171075799/package/lib/server/dispatchers/frameDispatcher.js:105:103)
+    at FrameDispatcher._handleCommand (/private/var/folders/0s/w8pn8xwd43b7sx297pkgrr280000gn/T/playwright-java-13891613123171075799/package/lib/server/dispatchers/dispatcher.js:94:40)
+    at DispatcherConnection.dispatch (/private/var/folders/0s/w8pn8xwd43b7sx297pkgrr280000gn/T/playwright-java-13891613123171075799/package/lib/server/dispatchers/dispatcher.js:361:39)
+}
+Call log:
+- waiting for locator("[data-testid='RecommendationRequestForm-submit']") to be visible
+
+	at edu.ucsb.cs156.example.web.RecommendationRequestWebIT.waitForTestId(RecommendationRequestWebIT.java:22)
+	at edu.ucsb.cs156.example.web.RecommendationRequestWebIT.admin_user_can_create_edit_delete_recommendation_request(RecommendationRequestWebIT.java:35)
+Caused by: com.microsoft.playwright.TimeoutError: 
+Error {
+  message='Timeout 8000ms exceeded.
+  name='TimeoutError
+  stack='TimeoutError: Timeout 8000ms exceeded.
+    at ProgressController.run (/private/var/folders/0s/w8pn8xwd43b7sx297pkgrr280000gn/T/playwright-java-13891613123171075799/package/lib/server/progress.js:78:26)
+    at Frame.waitForSelector (/private/var/folders/0s/w8pn8xwd43b7sx297pkgrr280000gn/T/playwright-java-13891613123171075799/package/lib/server/frames.js:624:23)
+    at FrameDispatcher.waitForSelector (/private/var/folders/0s/w8pn8xwd43b7sx297pkgrr280000gn/T/playwright-java-13891613123171075799/package/lib/server/dispatchers/frameDispatcher.js:105:103)
+    at FrameDispatcher._handleCommand (/private/var/folders/0s/w8pn8xwd43b7sx297pkgrr280000gn/T/playwright-java-13891613123171075799/package/lib/server/dispatchers/dispatcher.js:94:40)
+    at DispatcherConnection.dispatch (/private/var/folders/0s/w8pn8xwd43b7sx297pkgrr280000gn/T/playwright-java-13891613123171075799/package/lib/server/dispatchers/dispatcher.js:361:39)
+}
+Call log:
+- waiting for locator("[data-testid='RecommendationRequestForm-submit']") to be visible
+
+	at edu.ucsb.cs156.example.web.RecommendationRequestWebIT.waitForTestId(RecommendationRequestWebIT.java:22)
+	at edu.ucsb.cs156.example.web.RecommendationRequestWebIT.admin_user_can_create_edit_delete_recommendation_request(RecommendationRequestWebIT.java:35)
+
+[INFO] 
+[INFO] Results:
+[INFO] 
+[ERROR] Errors: 
+[ERROR]   RecommendationRequestWebIT.admin_user_can_create_edit_delete_recommendation_request:35->waitForTestId:22 » Timeout
+[INFO] 
+[ERROR] Tests run: 2, Failures: 0, Errors: 1, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  21.740 s
+[INFO] Finished at: 2025-11-07T00:14:18-08:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M5:test (default-test) on project team01: There are test failures.
+[ERROR] 
+[ERROR] Please refer to /Users/sichengxu/cs156/team02-f25-07/target/surefire-reports for the individual test results.
+[ERROR] Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[ERROR] -> [Help 1]
+org.apache.maven.lifecycle.LifecycleExecutionException: Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M5:test (default-test) on project team01: There are test failures.
+
+Please refer to /Users/sichengxu/cs156/team02-f25-07/target/surefire-reports for the individual test results.
+Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+    at org.apache.maven.lifecycle.internal.MojoExecutor.doExecute2 (MojoExecutor.java:333)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.doExecute (MojoExecutor.java:316)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:212)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:174)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.access$000 (MojoExecutor.java:75)
+    at org.apache.maven.lifecycle.internal.MojoExecutor$1.run (MojoExecutor.java:162)
+    at org.apache.maven.plugin.DefaultMojosExecutionStrategy.execute (DefaultMojosExecutionStrategy.java:39)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:159)
+    at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject (LifecycleModuleBuilder.java:105)
+    at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject (LifecycleModuleBuilder.java:73)
+    at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build (SingleThreadedBuilder.java:53)
+    at org.apache.maven.lifecycle.internal.LifecycleStarter.execute (LifecycleStarter.java:118)
+    at org.apache.maven.DefaultMaven.doExecute (DefaultMaven.java:261)
+    at org.apache.maven.DefaultMaven.doExecute (DefaultMaven.java:173)
+    at org.apache.maven.DefaultMaven.execute (DefaultMaven.java:101)
+    at org.apache.maven.cli.MavenCli.execute (MavenCli.java:906)
+    at org.apache.maven.cli.MavenCli.doMain (MavenCli.java:283)
+    at org.apache.maven.cli.MavenCli.main (MavenCli.java:206)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke (DirectMethodHandleAccessor.java:103)
+    at java.lang.reflect.Method.invoke (Method.java:580)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced (Launcher.java:255)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.launch (Launcher.java:201)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode (Launcher.java:361)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.main (Launcher.java:314)
+Caused by: org.apache.maven.plugin.MojoFailureException: There are test failures.
+
+Please refer to /Users/sichengxu/cs156/team02-f25-07/target/surefire-reports for the individual test results.
+Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+    at org.apache.maven.plugin.surefire.SurefireHelper.throwException (SurefireHelper.java:271)
+    at org.apache.maven.plugin.surefire.SurefireHelper.reportExecution (SurefireHelper.java:159)
+    at org.apache.maven.plugin.surefire.SurefirePlugin.handleSummary (SurefirePlugin.java:453)
+    at org.apache.maven.plugin.surefire.AbstractSurefireMojo.executeAfterPreconditionsChecked (AbstractSurefireMojo.java:1175)
+    at org.apache.maven.plugin.surefire.AbstractSurefireMojo.execute (AbstractSurefireMojo.java:932)
+    at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo (DefaultBuildPluginManager.java:126)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.doExecute2 (MojoExecutor.java:328)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.doExecute (MojoExecutor.java:316)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:212)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:174)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.access$000 (MojoExecutor.java:75)
+    at org.apache.maven.lifecycle.internal.MojoExecutor$1.run (MojoExecutor.java:162)
+    at org.apache.maven.plugin.DefaultMojosExecutionStrategy.execute (DefaultMojosExecutionStrategy.java:39)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:159)
+    at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject (LifecycleModuleBuilder.java:105)
+    at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject (LifecycleModuleBuilder.java:73)
+    at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build (SingleThreadedBuilder.java:53)
+    at org.apache.maven.lifecycle.internal.LifecycleStarter.execute (LifecycleStarter.java:118)
+    at org.apache.maven.DefaultMaven.doExecute (DefaultMaven.java:261)
+    at org.apache.maven.DefaultMaven.doExecute (DefaultMaven.java:173)
+    at org.apache.maven.DefaultMaven.execute (DefaultMaven.java:101)
+    at org.apache.maven.cli.MavenCli.execute (MavenCli.java:906)
+    at org.apache.maven.cli.MavenCli.doMain (MavenCli.java:283)
+    at org.apache.maven.cli.MavenCli.main (MavenCli.java:206)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke (DirectMethodHandleAccessor.java:103)
+    at java.lang.reflect.Method.invoke (Method.java:580)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced (Launcher.java:255)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.launch (Launcher.java:201)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode (Launcher.java:361)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.main (Launcher.java:314)
+[ERROR] 
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

@@ -18,7 +18,7 @@ export default function RecommendationRequestTable({ requests, currentUser }) {
     (cell) => ({
       url: "/api/recommendationrequests",
       method: "DELETE",
-      params: { id: cell.row.values.id },
+      params: { id: cell.row.original.id }, 
     }),
     { onSuccess: onDeleteSuccess },
     ["/api/recommendationrequests/all"],
@@ -56,7 +56,7 @@ export default function RecommendationRequestTable({ requests, currentUser }) {
     {
       header: "Done",
       accessorKey: "done",
-      cell: (cell) => String(cell.getValue()), // true/false 显示
+      cell: (cell) => String(cell.getValue()), 
     },
   ];
 
