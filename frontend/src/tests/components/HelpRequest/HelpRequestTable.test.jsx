@@ -263,8 +263,10 @@ describe("HelpRequestTable tests", () => {
     // act - click the delete button
     fireEvent.click(deleteButton);
 
-    // assert - verify console.log was called (delete functionality will be implemented later)
-    await waitFor(() => expect(consoleLogSpy).toHaveBeenCalled());
+    // assert - verify console.log was called with specific message to kill the mutant
+    await waitFor(() => 
+      expect(consoleLogSpy).toHaveBeenCalledWith("Delete callback for id: ", 2)
+    );
 
     consoleLogSpy.mockRestore();
   });
