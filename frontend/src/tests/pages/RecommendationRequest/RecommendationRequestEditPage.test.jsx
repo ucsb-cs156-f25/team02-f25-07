@@ -18,29 +18,6 @@ vi.mock("react-toastify", async (importOriginal) => {
     ...originalModule,
     toast: vi.fn((x) => mockToast(x)),
   };
-<<<<<<< HEAD
-
-  const queryClient = new QueryClient();
-  test("Renders expected content", async () => {
-    setupUserOnly();
-
-    render(
-      <QueryClientProvider client={queryClient}>
-        <MemoryRouter>
-          <RecommendationRequestEditPage />
-        </MemoryRouter>
-      </QueryClientProvider>,
-    );
-
-    await screen.findByText(
-      "Edit page for Recommendation Request (placeholder)",
-    );
-    expect(
-      screen.getByText("Edit page for Recommendation Request (placeholder)"),
-    ).toBeInTheDocument();
-  });
-=======
->>>>>>> 369b98156adb6c3c838aba73c73525f8876c19cf
 });
 
 const mockNavigate = vi.fn();

@@ -41,14 +41,8 @@ describe("RecommendationRequestCreatePage tests", () => {
     axiosMock.onGet("/api/systemInfo").reply(200, systemInfoFixtures.showingNeither);
   });
 
-<<<<<<< HEAD
-  const queryClient = new QueryClient();
-  test("Renders expected content", async () => {
-    setupUserOnly();
-=======
   test("renders form fields", async () => {
     const queryClient = new QueryClient();
->>>>>>> 369b98156adb6c3c838aba73c73525f8876c19cf
 
     render(
       <QueryClientProvider client={queryClient}>
@@ -58,14 +52,6 @@ describe("RecommendationRequestCreatePage tests", () => {
       </QueryClientProvider>,
     );
 
-<<<<<<< HEAD
-    await screen.findByText(
-      "Create page for Recommendation Request (placeholder)",
-    );
-    expect(
-      screen.getByText("Create page for Recommendation Request (placeholder)"),
-    ).toBeInTheDocument();
-=======
     await waitFor(() => {
       expect(screen.getByTestId("RecommendationRequestForm-requesterEmail")).toBeInTheDocument();
     });
@@ -136,6 +122,5 @@ describe("RecommendationRequestCreatePage tests", () => {
     // Toast + navigate
     expect(mockToast).toBeCalledWith("New recommendation request created - id: 17");
     expect(mockNavigate).toBeCalledWith({ to: "/recommendationrequests" });
->>>>>>> 369b98156adb6c3c838aba73c73525f8876c19cf
   });
 });

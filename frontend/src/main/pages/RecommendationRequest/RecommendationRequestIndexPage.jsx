@@ -38,19 +38,9 @@ export default function RecommendationRequestIndexPage() {
   return (
     <BasicLayout>
       <div className="pt-2">
-<<<<<<< HEAD
-        <h1>Index page for Recommendation Request (placeholder)</h1>
-        <p>
-          <a href="/recommendationrequest/create">Create</a>
-        </p>
-        <p>
-          <a href="/recommendationrequest/edit/1">Edit</a>
-        </p>
-=======
         {createButton()}
         <h1>Recommendation Requests</h1>
         <RecommendationRequestTable requests={requests} currentUser={currentUser} />
->>>>>>> 369b98156adb6c3c838aba73c73525f8876c19cf
       </div>
     </BasicLayout>
   );

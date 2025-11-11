@@ -60,25 +60,12 @@ describe("RecommendationRequestIndexPage tests", () => {
       </QueryClientProvider>,
     );
 
-<<<<<<< HEAD
-    await screen.findByText(
-      "Index page for Recommendation Request (placeholder)",
-    );
-
-    expect(
-      screen.getByText("Index page for Recommendation Request (placeholder)"),
-    ).toBeInTheDocument();
-
-    expect(screen.getByText("Create")).toBeInTheDocument();
-    expect(screen.getByText("Edit")).toBeInTheDocument();
-=======
     await waitFor(() => {
       expect(screen.getByText(/Create Recommendation Request/)).toBeInTheDocument();
     });
     const button = screen.getByText(/Create Recommendation Request/);
     expect(button).toHaveAttribute("href", "/recommendationrequests/create");
     expect(button).toHaveAttribute("style", "float: right;");
->>>>>>> 369b98156adb6c3c838aba73c73525f8876c19cf
   });
 
   test("renders three recommendation requests correctly for regular user", async () => {
