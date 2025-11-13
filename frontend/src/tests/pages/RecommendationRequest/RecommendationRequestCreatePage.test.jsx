@@ -49,7 +49,7 @@ describe("RecommendationRequestCreatePage tests", () => {
         <MemoryRouter>
           <RecommendationRequestCreatePage />
         </MemoryRouter>
-      </QueryClientProvider>
+      </QueryClientProvider>,
     );
 
     await waitFor(() => {
